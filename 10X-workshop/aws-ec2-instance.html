@@ -127,13 +127,13 @@
 <li><p>Select AMIs under IMAGES tab.</p></li>
 <li><p>Change filter bar to “Public Images” and search for “10X Workshop” and launch.</p></li>
 </ol>
-<p><img src="10X-workshop/10X_files/figure-html/AMI.png" width="958" /></p>
+<p><img src="10X_files/figure-html/AMI.png" width="958" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Launch specfication to use: <code>m5.4xlarge</code> instance type and <code>64GBs</code> of storage space. (Leave other options to default)</p></li>
 <li><p>Click Launch.</p></li>
 <li><p>When given the “Key pair” prompt: select “Create a new key pair”. Name your key pair “10X” and download. Then “Launch Instances”</p></li>
 </ol>
-<p><img src="10X-workshop/10X_files/figure-html/key_pair.png" width="661" /></p>
+<p><img src="10X_files/figure-html/key_pair.png" width="661" /></p>
 <pre><code>**Quiz**
 1. What is an AMI?
 2. What is the purpose of a key pair?</code></pre>
@@ -146,11 +146,11 @@
 </ol>
 <pre><code>ssh -i &quot;10X.pem&quot; ec2-user@ec2-XX-XXX-XX-XXX.ap-east-1.compute.amazonaws.com</code></pre>
 <p>“10X.pem” should be the location of where you have stored your key pair. The X’s is the ip address of your personal EC2 instance. This can be found by going to EC2 Dashboard &gt; Running Instances &gt; Selecting your running instance &gt; Click Connect.</p>
-<p><img src="10X-workshop/10X_files/figure-html/ec2.png" width="656" /></p>
+<p><img src="10X_files/figure-html/ec2.png" width="656" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Type “yes” if prompted.</li>
 </ol>
-<p><img src="10X-workshop/10X_files/figure-html/ssh.png" width="940" /></p>
+<p><img src="10X_files/figure-html/ssh.png" width="940" /></p>
 <pre><code>**Quiz**
 1. What is ssh?</code></pre>
 
