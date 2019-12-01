@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Raw Read Alignment | 10X Genomic Cloud Processing</title>
+  <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Raw Read Alignment | 10X Genomic Cloud Processing" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Raw Read Alignment | 10X Genomic Cloud Processing" />
+  
+  <meta name="twitter:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2019-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aws-ec2-instance.html"/>
+<link rel="next" href="final-words.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">10X Genomic Single Cell RNA-Seq</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html"><i class="fa fa-check"></i><b>3</b> AWS EC2 Instance</a><ul>
+<li class="chapter" data-level="3.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#set-up"><i class="fa fa-check"></i><b>3.2</b> Set Up</a></li>
+<li class="chapter" data-level="3.3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#connect-to-ec2"><i class="fa fa-check"></i><b>3.3</b> Connect to EC2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="raw-read-alignment.html"><a href="raw-read-alignment.html"><i class="fa fa-check"></i><b>4</b> Raw Read Alignment</a><ul>
+<li class="chapter" data-level="4.1" data-path="raw-read-alignment.html"><a href="raw-read-alignment.html#building-reference-genome-index"><i class="fa fa-check"></i><b>4.1</b> Building reference genome index</a></li>
+<li class="chapter" data-level="4.2" data-path="raw-read-alignment.html"><a href="raw-read-alignment.html#alignment-of-reads"><i class="fa fa-check"></i><b>4.2</b> Alignment of reads</a></li>
+<li class="chapter" data-level="4.3" data-path="raw-read-alignment.html"><a href="raw-read-alignment.html#starsolo-output"><i class="fa fa-check"></i><b>4.3</b> STARsolo Output</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">10X Genomic Cloud Processing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="raw-read-alignment" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Raw Read Alignment</h1>
+<div id="building-reference-genome-index" class="section level2">
+<h2><span class="header-section-number">4.1</span> Building reference genome index</h2>
+<p>Alignment to a reference genome first requires the generation of an index folder to facilitate the mapping process. This allows looking up parts of the genome in a much faster manner when trying to mapping millions of read sequences. An analogy to this process is seen in book indexes. To find a part part of a book, it is alot faster to look at the chapter indexes first to locate the region of interest instead of looking through every page of the book.</p>
+<p>You can also include an annotation file (.gtf) of the reference genome to provide information about where genes lie within the genome.</p>
+<p>This step was performed in advanced to save time as it can take up to 1 hour to build a reference index for the human genome. The following command was performed: <code>STAR --runMode genomeGenerate --runThreadN 16 --genomeDir genome_index/ --genomeFastaFiles ref_files/hg38.fa  --sjdbGTFfile ref_files/gencode.v32.annotation.gtf</code>. The reference index output is located in the folder <code>genome_index</code>.</p>
+<pre><code>**Pop Quiz**
+1. What is the file size of the whole human genome DNA sequence?
+2. What format is this file in?</code></pre>
+</div>
+<div id="alignment-of-reads" class="section level2">
+<h2><span class="header-section-number">4.2</span> Alignment of reads</h2>
+<p>The next step is to map the raw fastq files to the reference genome. In this tutorial we will be using Human CD45+ cells from human melanoma samples, which were sequenced via the 10X Genomics and Chromium™ Single Cell 3’ Reagent Kit (v2). More information about this dataset can be found at <a href="https://www.ncbi.nlm.nih.gov/sra/SRX6872900" class="uri">https://www.ncbi.nlm.nih.gov/sra/SRX6872900</a>.</p>
+<p>Paired-end sequences provides 2 fastq files corresponding to the 5’ and 3’ direction of sequencing. It is important to recognised the library preparation chemistry used for sequencing in order to determine cell barcode and UMI barcode sequence length. This tells the mapping algorithm which sequences are barcodes, and which are transcript sequences.</p>
+<pre><code>**Pop Quiz**
+1. What is the difference between a cell barcode and UMI barcode? and what are their significance?
+2. What are the lengths of the cell barcode and UMI barcode used in our dataset?</code></pre>
+<p>We will be using STARsolo, to perform single cell raw data mapping. STARsolo allows extremely fast read alignment of single cell raw reads from 10X genomics. It claims to be 10 times faster than Cell Ranger.</p>
+<p>Create an output directory called starsolo_out. <code>mkdir starsolo_out</code></p>
+<p>Run the following command to perform mapping:</p>
+<pre><code>STAR --genomeDir genome_index/ --soloType Droplet --soloCBwhitelist barcode_whitelist/10X_v2.txt --runThreadN 16 --readFilesCommand zcat --readFilesIn fastq/MelanomaT_CD45plus_IGO_07734_S5_L002_R2_001.fastq.gz fastq/MelanomaT_CD45plus_IGO_07734_S5_L002_R1_001.fastq.gz --outFileNamePrefix ~/starsolo_out/</code></pre>
+<p>This step can take several minutes. Please work through the quiz questions in the meanwhile and ask questions!</p>
+<pre><code>**Pop Quiz**
+1. Describe the function of each parameter in the sequence alignment command.</code></pre>
+</div>
+<div id="starsolo-output" class="section level2">
+<h2><span class="header-section-number">4.3</span> STARsolo Output</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aws-ec2-instance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["10X.pdf", "10X.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

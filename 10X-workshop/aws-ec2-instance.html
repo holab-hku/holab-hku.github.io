@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 AWS EC2 Instance | 10X Transcriptomic Data Cloud Processing</title>
+  <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 AWS EC2 Instance | 10X Transcriptomic Data Cloud Processing" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 AWS EC2 Instance | 10X Transcriptomic Data Cloud Processing" />
+  
+  <meta name="twitter:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2019-11-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="processing-10x-rna-seq-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">10X Genomic Single Cell RNA-Seq</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html"><i class="fa fa-check"></i><b>3</b> AWS EC2 Instance</a><ul>
+<li class="chapter" data-level="3.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#set-up"><i class="fa fa-check"></i><b>3.2</b> Set Up</a></li>
+<li class="chapter" data-level="3.3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#connecting-to-your-ec2-instance"><i class="fa fa-check"></i><b>3.3</b> Connecting to your EC2 instance</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html"><i class="fa fa-check"></i><b>4</b> Processing 10X RNA-seq data</a><ul>
+<li class="chapter" data-level="4.1" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#read-alignment"><i class="fa fa-check"></i><b>4.2</b> Read Alignment</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#building-a-reference-genome-index"><i class="fa fa-check"></i><b>4.2.1</b> Building a reference genome index</a></li>
+<li class="chapter" data-level="4.2.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#alignment-of-reads"><i class="fa fa-check"></i><b>4.2.2</b> Alignment of reads</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#starsolo-output"><i class="fa fa-check"></i><b>4.3</b> STARsolo Output</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html"><i class="fa fa-check"></i><b>5</b> scRNA-seq Downstream Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#seurat-package"><i class="fa fa-check"></i><b>5.1</b> Seurat Package</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#differentially-expressed-genes"><i class="fa fa-check"></i><b>5.1.1</b> Differentially expressed Genes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#cell-clustering"><i class="fa fa-check"></i><b>5.1.2</b> Cell Clustering</a></li>
+<li class="chapter" data-level="5.1.3" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#analysis-of-variable-gene-markers"><i class="fa fa-check"></i><b>5.1.3</b> Analysis of Variable Gene Markers</a></li>
+<li class="chapter" data-level="5.1.4" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#heatmap-of-gene-expression-by-clusters"><i class="fa fa-check"></i><b>5.1.4</b> Heatmap of gene expression by clusters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">10X Transcriptomic Data Cloud Processing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aws-ec2-instance" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> AWS EC2 Instance</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>An AWS EC2 instance is equivalent to a portable, customisable, intangible computer which is accessible through your personal local computer with a command line interface. We are able to specify memory requirements, CPU power (computing cores/threads), data storage size, and the operation system (e.g. Linux, Ubuntu, Windows) of this intangible computer.</p>
+</div>
+<div id="set-up" class="section level2">
+<h2><span class="header-section-number">3.2</span> Set Up</h2>
+<ol style="list-style-type: decimal">
+<li><p>Log into your AWS Account.</p></li>
+<li><p>Navigate to EC2 under Amazon’s Services tab.</p></li>
+<li><p>Select AMIs under IMAGES tab.</p></li>
+<li><p>Change filter bar to “Public Images” and search for “10X Workshop” and launch.</p></li>
+</ol>
+<p><img src="_book/10X_files/figure-html/AMI.png" width="958" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Launch specfication to use: <code>m5.4xlarge</code> instance type and <code>64GBs</code> of storage space. (Leave other options to default)</p></li>
+<li><p>Click Launch.</p></li>
+<li><p>When given the “Key pair” prompt: select “Create a new key pair”. Name your key pair “10X” and download. Then “Launch Instances”</p></li>
+</ol>
+<p><img src="_book/10X_files/figure-html/key_pair.png" width="661" /></p>
+<pre><code>**Quiz**
+1. What is an AMI?
+2. What is the purpose of a key pair?</code></pre>
+</div>
+<div id="connecting-to-your-ec2-instance" class="section level2">
+<h2><span class="header-section-number">3.3</span> Connecting to your EC2 instance</h2>
+<ol style="list-style-type: decimal">
+<li><p>Open your command line interface</p></li>
+<li><p>Connect to your EC2 instance by entering the following command.</p></li>
+</ol>
+<pre><code>ssh -i &quot;10X.pem&quot; ec2-user@ec2-XX-XXX-XX-XXX.ap-east-1.compute.amazonaws.com</code></pre>
+<p>“10X.pem” should be the location of where you have stored your key pair. The X’s is the ip address of your personal EC2 instance. This can be found by going to EC2 Dashboard &gt; Running Instances &gt; Selecting your running instance &gt; Click Connect.</p>
+<p><img src="_book/10X_files/figure-html/ec2.png" width="656" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Type “yes” if prompted.</li>
+</ol>
+<p><img src="_book/10X_files/figure-html/ssh.png" width="940" /></p>
+<pre><code>**Quiz**
+1. What is ssh?</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="processing-10x-rna-seq-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["10X.pdf", "10X.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
