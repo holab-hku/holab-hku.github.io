@@ -153,7 +153,7 @@ SEQUENCING QUALITY SCORES</code></pre>
 <h3><span class="header-section-number">4.2.2</span> Alignment of reads</h3>
 <p>The next step is to map the raw fastq files to the reference genome. In this tutorial we will be using Human CD45+ cells from human melanoma samples, which were sequenced via 10X Genomics and Chromium™ Single Cell 3’ Reagent Kit (v2). More information about this dataset can be found at <a href="https://www.ncbi.nlm.nih.gov/sra/SRX6872900" class="uri">https://www.ncbi.nlm.nih.gov/sra/SRX6872900</a>.</p>
 <p>Paired-end sequencing outputs 2 fastq files corresponding to the 5’ and 3’ direction of sequencing. It is important to recognised the library preparation chemistry used for sequencing in order to determine cell barcode and UMI barcode sequence length and location. This allows the mapping algorithm to distinguish which sequences are barcodes and which are transcript sequences.</p>
-<p><img src="_book/10X_files/figure-html/barcode.png" width="308" /></p>
+<p><img src="10X_files/figure-html/barcode.png" width="308" /></p>
 <pre><code>**Quiz**
 1. What is the difference between a cell barcode and UMI barcode? and what are their significance?
 2. What are the lengths of the cell barcode and UMI barcode used in our dataset?
@@ -177,7 +177,7 @@ SEQUENCING QUALITY SCORES</code></pre>
 </div>
 <div id="starsolo-output" class="section level2">
 <h2><span class="header-section-number">4.3</span> STARsolo Output</h2>
-<p><img src="_book/10X_files/figure-html/output.PNG" width="940" /></p>
+<p><img src="10X_files/figure-html/output.PNG" width="940" /></p>
 <p>The STARsolo program outputs a large amount of files reflecting details of the read alignment process. We will only discuss some of the key files important for downstream analysis.</p>
 <ol style="list-style-type: decimal">
 <li>The <strong>BAM file</strong>, contains information about mapped reads, in a binary compressed format. When de-compressed into a SAM file, information is stored as a tab seperated table where the columns corresponds to:</li>
