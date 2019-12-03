@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Processing 10X RNA-seq data | 10X Transcriptomic Data Cloud Processing</title>
+  <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Processing 10X RNA-seq data | 10X Transcriptomic Data Cloud Processing" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Processing 10X RNA-seq data | 10X Transcriptomic Data Cloud Processing" />
+  
+  <meta name="twitter:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2019-12-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aws-ec2-instance.html"/>
+<link rel="next" href="scrna-seq-downstream-analysis.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">10X Genomic Single Cell RNA-Seq</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html"><i class="fa fa-check"></i><b>3</b> AWS EC2 Instance</a><ul>
+<li class="chapter" data-level="3.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#set-up"><i class="fa fa-check"></i><b>3.2</b> Set Up</a></li>
+<li class="chapter" data-level="3.3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#connecting-to-your-ec2-instance"><i class="fa fa-check"></i><b>3.3</b> Connecting to your EC2 instance</a></li>
+<li class="chapter" data-level="3.4" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#for-putty-users-only"><i class="fa fa-check"></i><b>3.4</b> For PuTTY Users Only:</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#convert-your-private-key-using-puttygen"><i class="fa fa-check"></i><b>3.4.1</b> Convert Your Private Key Using PuTTYgen</a></li>
+<li class="chapter" data-level="3.4.2" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#connecting-to-your-linux-instance"><i class="fa fa-check"></i><b>3.4.2</b> Connecting to Your Linux Instance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html"><i class="fa fa-check"></i><b>4</b> Processing 10X RNA-seq data</a><ul>
+<li class="chapter" data-level="4.1" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#read-alignment"><i class="fa fa-check"></i><b>4.2</b> Read Alignment</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#building-a-reference-genome-index"><i class="fa fa-check"></i><b>4.2.1</b> Building a reference genome index</a></li>
+<li class="chapter" data-level="4.2.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#alignment-of-reads"><i class="fa fa-check"></i><b>4.2.2</b> Alignment of reads</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#starsolo-output"><i class="fa fa-check"></i><b>4.3</b> STARsolo Output</a></li>
+<li class="chapter" data-level="4.4" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#downloading-results-from-the-cloud"><i class="fa fa-check"></i><b>4.4</b> Downloading Results from the Cloud</a></li>
+<li class="chapter" data-level="4.5" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#terminate-your-aws-instance"><i class="fa fa-check"></i><b>4.5</b> Terminate your AWS Instance</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html"><i class="fa fa-check"></i><b>5</b> scRNA-seq Downstream Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#seurat-package"><i class="fa fa-check"></i><b>5.1</b> Seurat Package</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#differentially-expressed-genes"><i class="fa fa-check"></i><b>5.1.1</b> Differentially expressed Genes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#cell-clustering"><i class="fa fa-check"></i><b>5.1.2</b> Cell Clustering</a></li>
+<li class="chapter" data-level="5.1.3" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#analysis-of-variable-gene-markers"><i class="fa fa-check"></i><b>5.1.3</b> Analysis of Variable Gene Markers</a></li>
+<li class="chapter" data-level="5.1.4" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#heatmap-of-gene-expression-by-clusters"><i class="fa fa-check"></i><b>5.1.4</b> Heatmap of gene expression by clusters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">10X Transcriptomic Data Cloud Processing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="processing-10x-rna-seq-data" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Processing 10X RNA-seq data</h1>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Raw RNA-sequencing data will be in the format of a fastq file. This format describes the read ID, read sequence and sequencing quality scores. Represented in the following format:</p>
+<pre><code>&gt;ReadID
+READ SEQUENCE
++
+SEQUENCING QUALITY SCORES</code></pre>
+<p>Generally fastq files are pre-processed using quality control tools, such as FastQC. This outputs a series of metrics assessing the quality of sequence reads. We will skip this step as we are using a public (pre-checked) scRNA-seq dataset, and limited in time. Some of these metrics include:</p>
+<pre><code>1. Per base sequence quality
+2. Per sequence quality scores
+3. Per base sequence content
+4. Per sequence GC content
+5. Per base N content
+6. Sequence Duplication Levels
+7. Overrepresented Sequences
+8. Adapter Content
+9. Kmer Content</code></pre>
+<p>For more details: <a href="https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/" class="uri">https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/</a></p>
+</div>
+<div id="read-alignment" class="section level2">
+<h2><span class="header-section-number">4.2</span> Read Alignment</h2>
+<p>Once confirming adequate sequencing quality of your library, the next goal is to align individual reads to the reference genome whilst retaining information about where the read originated from. The cell barcode from transcript reads capture this information. With the input of a gene annotation file (i.e. GTF file), not only can we decipher the location a read maps to in the genome, but the gene name it corresponds to. This in theory, this allows the quantification/count of reads which align to each gene/feature of the genome. This is important for downstream analysis where comparitive analysis between single cells occurs and these counts uncover differentially expressed genes. This can eventually lead to inferences such as unique cell type populations.</p>
+<div id="building-a-reference-genome-index" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Building a reference genome index</h3>
+<p>Alignment to a reference genome first requires the generation of an genome index to facilitate the mapping process. This allows looking up parts of the genome in a much faster manner which is neccessary when trying to mapping millions of read sequences. This process saves alots of time and memory when aligning. An analogy to this process is reflected in book indexes. To find a specific part of a book, it is alot faster to look at the chapter indexes first to locate the region of interest instead of looking through every page of the book from top down.</p>
+<p>Here we can provide an annotation file (.gtf) of the reference genome to provide information about where genes lie within the genome.</p>
+<p>This step was performed in advanced to save time as it can take up to 1 hour to build a reference index for the human genome. The following command was performed:</p>
+<pre><code>STAR --runMode genomeGenerate --runThreadN 16 --genomeDir genome_index/ --genomeFastaFiles ref_files/hg38.fa  --sjdbGTFfile ref_files/gencode.v32.annotation.gtf</code></pre>
+<p>The genome index output is located in the folder <code>genome_index</code>.</p>
+<pre><code>**Quiz**
+1. How many base pairs are there in the (a) human (b) mouse genome?
+2. What is the file size of the whole human genome DNA sequence?
+3. What format is this file in?</code></pre>
+</div>
+<div id="alignment-of-reads" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Alignment of reads</h3>
+<p>The next step is to map the raw fastq files to the reference genome. In this tutorial we will be using Human CD45+ cells from human melanoma samples, which were sequenced via 10X Genomics and Chromium™ Single Cell 3’ Reagent Kit (v2). More information about this dataset can be found at <a href="https://www.ncbi.nlm.nih.gov/sra/SRX6872900" class="uri">https://www.ncbi.nlm.nih.gov/sra/SRX6872900</a>.</p>
+<p>Paired-end sequencing outputs 2 fastq files corresponding to the 5’ and 3’ direction of sequencing. It is important to recognised the library preparation chemistry used for sequencing in order to determine cell barcode and UMI barcode sequence length and location. This allows the mapping algorithm to distinguish which sequences are barcodes and which are transcript sequences.</p>
+<p><img src="10X_files/figure-html/barcode.png" /><!-- --></p>
+<pre><code>**Quiz**
+1. What is the difference between a cell barcode and UMI barcode? and what are their significance?
+2. What are the lengths of the cell barcode and UMI barcode used in our dataset?
+3. Are these barcodes located on the 5&#39; or 3&#39; read file?</code></pre>
+<p>Generally 10X Genomics scRNA-Seq reads are aligned using the tool Cell Ranger. It is a wrapper to the open source alignment tool, STAR by Alexander Dobin, which optimises algorithms to handle the sequencing chemistry of 10X genomic library preparation. This includes UMI counting and calling cell barcodes. More information can be found at <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/algorithms/overview" class="uri">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/algorithms/overview</a>.</p>
+<p>In this workshop we will be using a recently developed application of STAR, STARsolo, which is an effective solution to handle droplet-based scRNA-seq data analysis. It provides an output similar to Cell Ranger which is important for downstream analysis packages such as Seurat. STARsolo also performs extremely fast read alignment of single cell raw reads from 10X genomics. It claims to be 10 times faster than Cell Ranger. More details can be found in the latest version of STAR manual: <a href="https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf" class="uri">https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf</a>.</p>
+<p>Some of the key functions of STARsolo are:</p>
+<pre><code>1. Error correction and demultiplexing of cell barcodes using user-input whitelist.
+2. Mapping the reads to the reference genome using the standard STAR spliced read alignment algorithm.
+3. Error correction and collapsing (deduplication) of Unique Molecular Identifiers (UMIs).
+4. Quantification of per-cell gene expression by counting the number of reads per gene.</code></pre>
+<p>Create an output directory called “starsolo_out”.</p>
+<p><code>mkdir starsolo_out</code></p>
+<p>Run the following command to perform read alignment:</p>
+<pre><code>STAR --genomeDir genome_index/ --soloType Droplet --soloCBwhitelist barcode_whitelist/10X_v2.txt --runThreadN 16 --readFilesCommand zcat --readFilesIn fastq/MelanomaT_CD45plus_IGO_07734_S5_L002_R2_001.fastq.gz fastq/MelanomaT_CD45plus_IGO_07734_S5_L002_R1_001.fastq.gz --outFileNamePrefix ~/starsolo_out/</code></pre>
+<p>This step can take several minutes. Please work through the quiz questions in the meanwhile and ask questions!</p>
+<pre><code>**Quiz**
+1. Describe the function of each parameter in the sequence alignment command.
+2. What are some different types of scRNA-sequencing methods other than droplet based? And describe their differences.</code></pre>
+</div>
+</div>
+<div id="starsolo-output" class="section level2">
+<h2><span class="header-section-number">4.3</span> STARsolo Output</h2>
+<p><img src="10X_files/figure-html/output.png" /><!-- --></p>
+<p>The STARsolo program outputs a large amount of files reflecting details of the read alignment process. We will only discuss some of the key files important for downstream analysis.</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>BAM file</strong>, contains information about mapped reads, in a binary compressed format. When de-compressed into a SAM file, information is stored as a tab seperated table where the columns corresponds to:</li>
+</ol>
+<pre><code>QNAME : read name (generally will include UMI barcode if applicable)
+FLAG : number tag indicating the “type” of alignment, link to explanation of all possible “types”
+RNAME : reference sequence name (i.e. chromosome read is mapped to).
+POS : leftmost mapping position
+MAPQ : Mapping quality
+CIGAR : string indicating the matching/mismatching parts of the read (may include soft-clipping).
+RNEXT : reference name of the mate/next read
+PNEXT : POS for mate/next read
+TLEN : Template length (length of reference region the read is mapped to)
+SEQ : read sequence
+QUAL : read quality</code></pre>
+<p>BAM files can be viewed using SAMtools.</p>
+<p><code>samtools view output.bam</code></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>Alignment summary</strong> files, Features.stat and Summary.csv, contains information about basic mapping details. This can serve as an easy preliminary quality control check of the alignment process.</p></li>
+<li><p>The <strong>feature matrix</strong> file, matrix.mtx, contains information about the counts of genes mapped in each individual cell. The column names corresponds to each individual cell barcode, and the row names corresponds to all annotated genes. Due to the large size of this data, it is stored as a sparse matrix.</p></li>
+<li><p><strong>Auxiliary files</strong>, barcodes.tsv and features.tsv, provide extra metadata important for downstream analysis. These files along with the matrix file are required for analysis in gold standard scRNA-seq data analysis package, seurat.</p></li>
+</ol>
+</div>
+<div id="downloading-results-from-the-cloud" class="section level2">
+<h2><span class="header-section-number">4.4</span> Downloading Results from the Cloud</h2>
+<p>After the generation of your alignment results and feature count data, you may want to download the data locally for downstream analysis and minimise costs associated with maintaining your aws cloud instance. Run the following command from your local command line system to copy your entire output folder.</p>
+<pre><code>scp -i ~/path/to/user1.pem -r ubuntu@ec2-XX-XX-XXX-XX.us-west-1.compute.amazonaws.com:~/path/to/output_foler ~/path/to/target/download location</code></pre>
+</div>
+<div id="terminate-your-aws-instance" class="section level2">
+<h2><span class="header-section-number">4.5</span> Terminate your AWS Instance</h2>
+<p>Remember to terminate your AWS instance to prevent costs associated with usage. This can be performed by navigating to the EC2 dashboard &gt; Running Instances. Then select your running instance &gt; Actions &gt; Instance State &gt; Terminate.</p>
+<p>Note: This will remove all data files stored on the instance so make your to backup any required data files either locally or by using Amazon’s data storage service, S3 Bucket.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aws-ec2-instance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scrna-seq-downstream-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["10X.pdf", "10X.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
