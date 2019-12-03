@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10X Transcriptomic Data Cloud Processing</title>
   <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10X Transcriptomic Data Cloud Processing" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-11-27" />
+<meta name="date" content="2019-12-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,6 +83,8 @@
 <li class="chapter" data-level="4.2.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#alignment-of-reads"><i class="fa fa-check"></i><b>4.2.2</b> Alignment of reads</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#starsolo-output"><i class="fa fa-check"></i><b>4.3</b> STARsolo Output</a></li>
+<li class="chapter" data-level="4.4" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#downloading-results-from-the-cloud"><i class="fa fa-check"></i><b>4.4</b> Downloading Results from the Cloud</a></li>
+<li class="chapter" data-level="4.5" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#terminate-your-aws-instance"><i class="fa fa-check"></i><b>4.5</b> Terminate your AWS Instance</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html"><i class="fa fa-check"></i><b>5</b> scRNA-seq Downstream Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#seurat-package"><i class="fa fa-check"></i><b>5.1</b> Seurat Package</a><ul>
@@ -116,7 +118,7 @@
 <div id="header">
 <h1 class="title">10X Transcriptomic Data Cloud Processing</h1>
 <p class="author"><em>Ho Lab</em></p>
-<p class="date"><em>2019-11-27</em></p>
+<p class="date"><em>2019-12-03</em></p>
 </div>
 <div id="prerequisites" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
@@ -152,6 +154,7 @@ Install Windows Subsystem for Linux</p>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -170,6 +173,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
