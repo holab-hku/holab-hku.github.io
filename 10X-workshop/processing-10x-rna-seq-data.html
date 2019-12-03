@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Processing 10X RNA-seq data | 10X Transcriptomic Data Cloud Processing</title>
   <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Processing 10X RNA-seq data | 10X Transcriptomic Data Cloud Processing" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-11-27" />
+<meta name="date" content="2019-12-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,6 +83,8 @@
 <li class="chapter" data-level="4.2.2" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#alignment-of-reads"><i class="fa fa-check"></i><b>4.2.2</b> Alignment of reads</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#starsolo-output"><i class="fa fa-check"></i><b>4.3</b> STARsolo Output</a></li>
+<li class="chapter" data-level="4.4" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#downloading-results-from-the-cloud"><i class="fa fa-check"></i><b>4.4</b> Downloading Results from the Cloud</a></li>
+<li class="chapter" data-level="4.5" data-path="processing-10x-rna-seq-data.html"><a href="processing-10x-rna-seq-data.html#terminate-your-aws-instance"><i class="fa fa-check"></i><b>4.5</b> Terminate your AWS Instance</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html"><i class="fa fa-check"></i><b>5</b> scRNA-seq Downstream Analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="scrna-seq-downstream-analysis.html"><a href="scrna-seq-downstream-analysis.html#seurat-package"><i class="fa fa-check"></i><b>5.1</b> Seurat Package</a><ul>
@@ -200,6 +202,16 @@ QUAL : read quality</code></pre>
 <li><p>The <strong>feature matrix</strong> file, matrix.mtx, contains information about the counts of genes mapped in each individual cell. The column names corresponds to each individual cell barcode, and the row names corresponds to all annotated genes. Due to the large size of this data, it is stored as a sparse matrix.</p></li>
 <li><p><strong>Auxiliary files</strong>, barcodes.tsv and features.tsv, provide extra metadata important for downstream analysis. These files along with the matrix file are required for analysis in gold standard scRNA-seq data analysis package, seurat.</p></li>
 </ol>
+</div>
+<div id="downloading-results-from-the-cloud" class="section level2">
+<h2><span class="header-section-number">4.4</span> Downloading Results from the Cloud</h2>
+<p>After the generation of your alignment results and feature count data, you may want to download the data locally for downstream analysis and minimise costs associated with maintaining your aws cloud instance. Run the following command from your local command line system to copy your entire output folder.</p>
+<pre><code>scp -i ~/path/to/10X.pem -r ubuntu@ec2-XX-XX-XXX-XX.ap-southeast-2.compute.amazonaws.com:~/path/to/output_foler ~/path/to/target/download location</code></pre>
+</div>
+<div id="terminate-your-aws-instance" class="section level2">
+<h2><span class="header-section-number">4.5</span> Terminate your AWS Instance</h2>
+<p>Remember to terminate your AWS instance to prevent costs associated with usage. This can be performed by navigating to the EC2 dashboard &gt; Running Instances. Then select your running instance &gt; Actions &gt; Instance State &gt; Terminate.</p>
+<p>Note: This will remove all data files stored on the instance so make your to backup any required data files either locally or by using Amazon’s data storage service, S3 Bucket.</p>
 
 </div>
 </div>
@@ -225,6 +237,7 @@ QUAL : read quality</code></pre>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -243,6 +256,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
