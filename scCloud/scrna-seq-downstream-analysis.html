@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-seq Data Cloud Processing</title>
+  <title>Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-Seq Data Analysis On The Cloud</title>
   <meta name="description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-seq Data Cloud Processing" />
+  <meta property="og:title" content="Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-Seq Data Analysis On The Cloud" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-seq Data Cloud Processing" />
+  <meta name="twitter:title" content="Chapter 5 scRNA-seq Downstream Analysis | Single Cell RNA-Seq Data Analysis On The Cloud" />
   
   <meta name="twitter:description" content="This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,10 +69,13 @@
 <li><a href="./">Single Cell RNA-seq Data Cloud Processing</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#sponsors"><i class="fa fa-check"></i><b>1.1</b> Sponsors</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Workshop Background</a></li>
 <li class="chapter" data-level="3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html"><i class="fa fa-check"></i><b>3</b> AWS EC2 Instance</a><ul>
-<li class="chapter" data-level="3.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.1" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#set-up"><i class="fa fa-check"></i><b>3.2</b> Set Up</a></li>
 <li class="chapter" data-level="3.3" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#connecting-to-your-ec2-instance"><i class="fa fa-check"></i><b>3.3</b> Connecting to your EC2 instance</a></li>
 <li class="chapter" data-level="3.4" data-path="aws-ec2-instance.html"><a href="aws-ec2-instance.html#for-putty-users-only"><i class="fa fa-check"></i><b>3.4</b> For PuTTY Users Only</a><ul>
@@ -81,7 +84,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html"><i class="fa fa-check"></i><b>4</b> Processing scRNA-seq data</a><ul>
-<li class="chapter" data-level="4.1" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.1" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html#quality-control"><i class="fa fa-check"></i><b>4.2</b> Quality Control</a></li>
 <li class="chapter" data-level="4.3" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html#read-alignment"><i class="fa fa-check"></i><b>4.3</b> Read Alignment</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="processing-scrna-seq-data.html"><a href="processing-scrna-seq-data.html#building-a-reference-genome-index"><i class="fa fa-check"></i><b>4.3.1</b> Building a reference genome index</a></li>
@@ -112,7 +115,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Single Cell RNA-seq Data Cloud Processing</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Single Cell RNA-Seq Data Analysis On The Cloud</a>
           </h1>
         </div>
 
