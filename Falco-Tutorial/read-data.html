@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Read Data | Falco Tutorial</title>
   <meta name="description" content="Falco: Single cell RNA-seq parrallelised cloud computing tutorial" />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Read Data | Falco Tutorial" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-11-29" />
+<meta name="date" content="2019-12-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,14 +79,12 @@
 <li class="chapter" data-level="2.2.4" data-path="getting-started.html"><a href="getting-started.html#configuring-aws-linux-client"><i class="fa fa-check"></i><b>2.2.4</b> Configuring AWS Linux Client</a></li>
 <li class="chapter" data-level="2.2.5" data-path="getting-started.html"><a href="getting-started.html#obtain-an-aws-ec2-key"><i class="fa fa-check"></i><b>2.2.5</b> Obtain an AWS EC2 key</a></li>
 <li class="chapter" data-level="2.2.6" data-path="getting-started.html"><a href="getting-started.html#obtain-access-to-or-create-an-aws-s3-bucket"><i class="fa fa-check"></i><b>2.2.6</b> Obtain access to or create an AWS S3 bucket</a></li>
-<li class="chapter" data-level="2.2.7" data-path="getting-started.html"><a href="getting-started.html#test-access-to-the-aws-management-console"><i class="fa fa-check"></i><b>2.2.7</b> Test access to the AWS management console</a></li>
-<li class="chapter" data-level="2.2.8" data-path="getting-started.html"><a href="getting-started.html#create-default-aws-emr-roles"><i class="fa fa-check"></i><b>2.2.8</b> Create Default AWS EMR Roles</a></li>
-<li class="chapter" data-level="2.2.9" data-path="getting-started.html"><a href="getting-started.html#aws-emr-permissions"><i class="fa fa-check"></i><b>2.2.9</b> AWS EMR Permissions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reference-genome.html"><a href="reference-genome.html"><i class="fa fa-check"></i><b>3</b> Reference Genome</a><ul>
-<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.1</b> Sync the reference genome index from s3 bucket</a></li>
-<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Check reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#get-reference-genome-and-the-star-index"><i class="fa fa-check"></i><b>3.1</b> Get reference Genome and the STAR index</a></li>
+<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Sync the reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.3" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.3</b> Check reference genome index from s3 bucket</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>4</b> Read Data</a><ul>
 <li class="chapter" data-level="4.1" data-path="read-data.html"><a href="read-data.html#obtain-the-read-data"><i class="fa fa-check"></i><b>4.1</b> Obtain the Read Data</a></li>
@@ -131,9 +129,13 @@
 <h1><span class="header-section-number">Chapter 4</span> Read Data</h1>
 <div id="obtain-the-read-data" class="section level2">
 <h2><span class="header-section-number">4.1</span> Obtain the Read Data</h2>
-<p>For this tutorial, a script - get_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWS S3 location, use the command (issued from your work directory):</p>
-<pre><code>tutorial/get_data.sh s3://[YOUR BUCKET]/falco-tutorial/data</code></pre>
-<p>Replace [path-to-tutorial-directory] with the actual path to the tutorial directory and [YOUR BUCKET] with the name of your bucket.</p>
+<p>For this tutorial, a script - get_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWaws s3 sync s3://falcotutorial/data s3://[YOUR BUCKET]/falco-tutorial/data –source-region us-west-1 –region us-west-1S S3 location, use the command (issued from your work directory):</p>
+<pre><code>cd $Falco
+tutorial/get_data.sh s3://[YOUR BUCKET]/falco-tutorial/data</code></pre>
+<p>In this workshop, we stored the tutorial FASTQ files in the s3 bucket, so you can easily sync the data from our s3 bucket.</p>
+<pre><code>aws s3 sync s3://falcotutorial/data s3://[YOUR BUCKET]/falco-tutorial/data --source-region us
+-west-1 --region us-west-1</code></pre>
+<p>Replace [YOUR BUCKET] with the name of your bucket.</p>
 
 </div>
 </div>
@@ -159,6 +161,7 @@
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -177,6 +180,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

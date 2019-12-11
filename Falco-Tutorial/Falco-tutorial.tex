@@ -1,36 +1,55 @@
-\documentclass[]{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Falco Tutorial},
-            pdfauthor={Ho Lab},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Falco Tutorial},
+  pdfauthor={Ho Lab},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -40,61 +59,47 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
+\usepackage{booktabs}
+% https://github.com/rstudio/rmarkdown/issues/337
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
-%%% Change title format to be more compact
+% https://github.com/rstudio/rmarkdown/pull/252
 \usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
 \setlength{\droptitle}{-2em}
 
-  \title{Falco Tutorial}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Ho Lab}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{2019-11-29}
+\pretitle{\vspace{\droptitle}\centering\huge}
+\posttitle{\par}
 
-\usepackage{booktabs}
+\preauthor{\centering\large\emph}
+\postauthor{\par}
+
+\predate{\centering\large\emph}
+\postdate{\par}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Falco Tutorial}
+\author{Ho Lab}
+\date{2019-12-11}
 
 \begin{document}
+\frontmatter
 \maketitle
 
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\mainmatter
 \hypertarget{about-the-workshop}{%
 \chapter{About the Workshop}\label{about-the-workshop}}
 
@@ -127,7 +132,26 @@ git clone https://github.com/VCCRI/Falco.git
 Set path
 
 \begin{verbatim}
-export ..
+export Falco=/path/to/Falco_dir
+\end{verbatim}
+
+If your system does not have Python 3 installed, refer to \url{https://python.org} for the relevant documentation.
+
+The Python library boto3 is required to be installed. boto3 provides a programming interface to AWS services. To install boto3 for Python 3, issue the following command (Debian/Ubuntu):
+
+\begin{verbatim}
+sudo python3 -m pip install boto3
+\end{verbatim}
+
+If this command fails due to pip not being installed, the following commands work on Debian/Ubuntu related Linux systems:
+
+\begin{verbatim}
+# update system software
+sudo apt-get update
+# install pip for python 2
+sudo apt-get install python-pip
+# install pip for python 3
+sudo apt-get install python3-pip
 \end{verbatim}
 
 \hypertarget{aws-setup}{%
@@ -136,12 +160,22 @@ export ..
 \hypertarget{aws-account}{%
 \subsection{AWS account}\label{aws-account}}
 
-If you are not part of an organisation that can provide you with IAM credentials, as described in Section 1.3 below, you will need to create an AWS account. Note that for this and subsequent AWS setup steps, this Getting Started with AWS documentation will be helpful.
+If you are not part of an organisation that can provide you with IAM credentials, you will need to create an AWS account. Note that for this and subsequent AWS setup steps, this Getting Started with AWS documentation will be helpful.
 
 \hypertarget{obtain-an-aws-secret-key}{%
 \subsection{Obtain an AWS secret key}\label{obtain-an-aws-secret-key}}
 
 If you are not the AWS administrator, ask your AWS administrator for AWS Access Key ID and Secret Access Key.
+
+Log in to your AWS Management Console{]}(\url{http://aws.amazon.com/}).
+
+Click on your user name at the top right of the page.
+
+Click on the Security Credentials link from the drop-down menu.
+
+Find the Access Credentials section, and copy the latest Access Key ID.
+
+Click on the Show link in the same row, and copy the Secret Access Key.
 
 \hypertarget{install-the-aws-linux-client-aws-cli}{%
 \subsection{Install the AWS Linux Client (AWS CLI)}\label{install-the-aws-linux-client-aws-cli}}
@@ -174,70 +208,86 @@ Obtain the AWS EC2 key name that will be used to control access to the instances
 Create an S3 bucket for use with Falco.
 
 \begin{verbatim}
-aws s3api create-bucket --bucket [YOUR BUCKET] --region us-west-2
+aws s3api create-bucket --bucket [YOUR BUCKET] --region us-west-1 --create-bucket-configuration LocationConstraint=us-west-1
 \end{verbatim}
 
-Replace {[}YOUR BUCKET{]} with your own bucket name. Also replace us-west-2 if you would prefer to use a different region. Once created, use the AWS CLI high level S3 commands to work with your bucket - e.g.~copy files to or from your bucket, list the contents of your bucket, etc.
+Replace {[}YOUR BUCKET{]} with your own bucket name. Also replace us-west-1 if you would prefer to use a different region. Once created, use the AWS CLI high level S3 commands to work with your bucket - e.g.~copy files to or from your bucket, list the contents of your bucket, etc.
 
 Additionally, AWS provides a web interface to S3 (and other services).
-
-\hypertarget{test-access-to-the-aws-management-console}{%
-\subsection{Test access to the AWS management console}\label{test-access-to-the-aws-management-console}}
-
-If you did not set up access to AWS yourself, you may have been provided a user name and password to access the AWS management console. You will also require your account ID. The console can be accessed at the address (replace \texttt{{[}My\_AWS\_Account\_ID{]}} with your account ID):
-
-\begin{verbatim}
-https://[My_AWS_Account_ID].signin.aws.amazon.com/console/]
-\end{verbatim}
-
-\hypertarget{create-default-aws-emr-roles}{%
-\subsection{Create Default AWS EMR Roles}\label{create-default-aws-emr-roles}}
-
-The following link shows the necessary information on how to set up Roles for AWS EMR: Create Default IAM Roles for Amazon EMR.
-
-🔴 Note that this is a one-time only step for your organisation - check that it has not already been completed.
-
-\begin{verbatim}
-aws emr create-default-roles
-\end{verbatim}
-
-\hypertarget{aws-emr-permissions}{%
-\subsection{AWS EMR Permissions}\label{aws-emr-permissions}}
-
-Make sure your user has the necessary permissions for both AWS EMR and AWS S3. For the sake of completing this tutorial, if you are not in the AWS Administrator group, you could configure or request that your user have the following IAM policies:
-
-\begin{itemize}
-\tightlist
-\item
-  AmazonS3FullAccess
-\item
-  AmazonElasticMapReduceFullAccess
-\end{itemize}
-
-These policies can be configured from the AWS IAM Management console.
 
 \hypertarget{reference-genome}{%
 \chapter{Reference Genome}\label{reference-genome}}
 
-\hypertarget{sync-the-reference-genome-index-from-s3-bucket}{%
-\section{Sync the reference genome index from s3 bucket}\label{sync-the-reference-genome-index-from-s3-bucket}}
+\hypertarget{get-reference-genome-and-the-star-index}{%
+\section{Get reference Genome and the STAR index}\label{get-reference-genome-and-the-star-index}}
 
+🔴``Below steps are not necessary in this workshop because we already save the files in the S3 bucket.''
 In this tutorial, a human genome will be used. The file is \textasciitilde800M in size.
-
-In this step, the index for both STAR from our s3 bucket is synced to your s3 bucket.
-
-At a bash prompt from the genome\_ref directory, execute the following command - first change \emph{{[}YOUR BUCKET{]}} to your own bucket name:
+In a work directory of your choice, create a genome directory, and download the files:
 
 \begin{verbatim}
-aws s3 sync s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude "*.fa" --exclude "*.fa.gz" s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude "*.fa" --exclude "*.fa.gz"
+mkdir genome_ref
+cd genome_ref
+wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refFlat.txt.gz
+wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_21/GRCh38.genome.fa.gz
+wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_21/gencode.v21.chr_patch_hapl_scaff.annotation.gtf.gz
+# unzip the files
+gunzip *
+\end{verbatim}
+
+Download and install STAR
+Before proceeding with this step, ensure that your Linux system has the following dependencies installed: make, gcc, g++ glibc-static.
+
+In the work directory:
+
+\begin{verbatim}
+wget -O STAR-2.5.2a.tar.gz https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
+tar -xzf STAR*.tar.gz
+star_path=$( find . -name "STAR"|grep -E "/Linux_x86_64/" )
+ln -s ${star_path%STAR} STAR
+\end{verbatim}
+
+Create the STAR index files
+
+\begin{verbatim}
+# create directory for star index
+mkdir hg38_star_sparse_ref
+STAR/STAR --runMode genomeGenerate --genomeDir hg38_star_sparse_ref/ --genomeFastaFiles genome_ref/GRCh38.genome.fa --genomeSAsparseD 2 --runThreadN 8 --sjdbGTFfile genome_ref/gencode.v21.chr_patch_hapl_scaff.annotation.gtf
+\end{verbatim}
+
+Copy the reference genome files and STAR index file to the AWS S3 bucket
+Since Falco does not require the genome .fa file, you will only need to copy the two other reference files to the AWS S3 bucket. At a bash prompt from the genome\_ref directory, execute the following command - first change {[}YOUR BUCKET{]} to your own bucket name:
+
+\begin{verbatim}
+aws s3 sync . s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude "*.fa" --exclude "*.fa.gz"
 # change back to work directory
 cd ..
 \end{verbatim}
 
+Copy the STAR index files to the AWS S3 bucket:
+
+\begin{verbatim}
+aws s3 sync hg38_star_sparse_ref s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/star_index
+\end{verbatim}
+
+\hypertarget{sync-the-reference-genome-index-from-s3-bucket}{%
+\section{Sync the reference genome index from s3 bucket}\label{sync-the-reference-genome-index-from-s3-bucket}}
+
+In this step, the reference genome files and the STAR index files from our s3 bucket is synced to your s3 bucket.
+The sync command is like below:
+
+\begin{verbatim}
+#aws s3 sync s3://SOURCE-BUCKET-NAME s3://DESTINATION-BUCKET-NAME --source-region SOURCE-REGION-NAME --region DESTINATION-REGION-NAME
+
+aws s3 sync s3://falcotutorial/genomes s3://[YOUR BUCKET]/falco-tutorial/genomes --source-region us-west-1 --region us-west-1
+\end{verbatim}
+
+Replace {[}YOUR BUCKET{]} with the name of your bucket.
+
 \hypertarget{check-reference-genome-index-from-s3-bucket}{%
 \section{Check reference genome index from s3 bucket}\label{check-reference-genome-index-from-s3-bucket}}
 
-The \texttt{hg38\_sparse\_ref/} directory should look something like:
+The \texttt{star\_index/} directory should look something like:
 
 \begin{verbatim}
 chrLength.txt
@@ -263,13 +313,21 @@ transcriptInfo.tab
 \hypertarget{obtain-the-read-data}{%
 \section{Obtain the Read Data}\label{obtain-the-read-data}}
 
-For this tutorial, a script - get\_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWS S3 location, use the command (issued from your work directory):
+For this tutorial, a script - get\_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWaws s3 sync s3://falcotutorial/data s3://{[}YOUR BUCKET{]}/falco-tutorial/data --source-region us-west-1 --region us-west-1S S3 location, use the command (issued from your work directory):
 
 \begin{verbatim}
+cd $Falco
 tutorial/get_data.sh s3://[YOUR BUCKET]/falco-tutorial/data
 \end{verbatim}
 
-Replace {[}path-to-tutorial-directory{]} with the actual path to the tutorial directory and {[}YOUR BUCKET{]} with the name of your bucket.
+In this workshop, we stored the tutorial FASTQ files in the s3 bucket, so you can easily sync the data from our s3 bucket.
+
+\begin{verbatim}
+aws s3 sync s3://falcotutorial/data s3://[YOUR BUCKET]/falco-tutorial/data --source-region us
+-west-1 --region us-west-1
+\end{verbatim}
+
+Replace {[}YOUR BUCKET{]} with the name of your bucket.
 
 \hypertarget{create-ami-for-falco-cluster-nodes}{%
 \chapter{Create AMI for Falco cluster nodes}\label{create-ami-for-falco-cluster-nodes}}
@@ -278,6 +336,8 @@ Replace {[}path-to-tutorial-directory{]} with the actual path to the tutorial di
 \section{Have a look at the Custom AMI for Falco framework with tools pre-installed}\label{have-a-look-at-the-custom-ami-for-falco-framework-with-tools-pre-installed}}
 
 Falco has an alternative way to start the cluster without needing to run the software install script when the cluster is launched by using custom AMI (by specifying custom\_ami\_id option in emr\_cluster.config). You will need to first create an AMI using the code in \url{https://github.com/VCCRI/Falco/tree/master/source/ami_creator}, by first launching the EC2 instance using launch-ec2.sh script (and then making sure that everything is installed properly), followed by running the create-image.sh script. When you run the create-image.sh script, it will create a new file called custom\_ami\_id.txt which will contain the custom AMI ID you will need to put into the custom\_ami\_id option in emr\_cluster.config file. Once you have specified the custom\_ami\_id, you can set bootstrap\_scripts option to just copy\_reference.sh (instead of install\_software.sh, copy\_reference.sh).
+We already set up the image contains all the necessary softwares in this workshop, you can check the image with the name of Falco AMI hadoop.
+\includegraphics{falcoimage.PNG}
 
 \hypertarget{run-the-tutorial}{%
 \chapter{Run the tutorial}\label{run-the-tutorial}}
@@ -285,10 +345,8 @@ Falco has an alternative way to start the cluster without needing to run the sof
 Change to Falco home directory.
 
 \begin{verbatim}
-vi tutorial/emr_cluster.config
+cd $Faclco
 \end{verbatim}
-
-Replace ami\_id with the actual ami\_id
 
 \hypertarget{give-values-for-s3-bucket-and-user-name}{%
 \section{Give values for S3 bucket and User Name}\label{give-values-for-s3-bucket-and-user-name}}
@@ -302,8 +360,6 @@ sed -i.bak 's/username/[YOUR USER NAME]/g ; s/yourbucket/[YOUR BUCKET NAME]/g' t
 #sed -i.bak 's/username/fred/g ; s/yourbucket/falco-test/g' tutorial/*.config
 \end{verbatim}
 
-{[}⁉️{]} Additionally, if your AWS S3 region is not \emph{us-west-2}, issue the following command:
-
 \begin{verbatim}
 sed -i.bak.reg 's/us-west-2/[YOUR REGION]/g' tutorial/*.config
 # change [YOUR REGION] to the name of your region
@@ -312,25 +368,51 @@ sed -i.bak.reg 's/us-west-2/[YOUR REGION]/g' tutorial/*.config
 
 The original .config files in the tutorial directory will now have the file extension .config.bak should you wish to restore the original files.
 
-\hypertarget{launch-the-aws-emr-cluster}{%
-\section{Launch the AWS EMR cluster}\label{launch-the-aws-emr-cluster}}
+❗First open the file tutorial/emr\_cluster.config.
 
-{[}❗️{]} First open the file\texttt{tutorial/emr\_cluster.confi}g and check that the \texttt{{[}EMR\_nodes{]}} section is similar to the following:
+\begin{verbatim}
+vi tutorial/emr_cluster.config
+\end{verbatim}
+
+Change the release\_label to the latest version:
+
+\begin{verbatim}
+release_label = emr-5.27.0
+\end{verbatim}
+
+Change the bootstrap\_scripts to only copy\_reference.sh:
+
+\begin{verbatim}
+bootstrap_scripts = copy_reference.sh
+\end{verbatim}
+
+Adding the line in the below:
+
+\begin{verbatim}
+# If custom AMI ID is specified, it is recommended to remove install_software.sh from thr bootstrap scripts as the custom AMI should already have these installed.
+custom_ami_id = ami-0f48840896db32bf0
+\end{verbatim}
+
+and check that {[}EMR\_nodes{]} section is similar to the following:
 
 \begin{verbatim}
 [EMR_nodes]
 key_name = yourkey
 service_role = EMR_DefaultRole
 instance_profile = EMR_EC2_DefaultRole
-master_instance_type = r3.4xlarge
+master_instance_type = m5.4xlarge
 master_instance_count = 1
-core_instance_type = r3.4xlarge
+core_instance_type = m5.4xlarge
 core_instance_count = 2
 core_instance_spot = True
 core_instance_bid_price = 1
 \end{verbatim}
 
+\includegraphics{emr_config.PNG}
 The \texttt{{[}EMR\_nodes{]}} section contains a line that starts with \texttt{key\_name\ =}. The computing resources created by the AWS EMR framework uses public--key cryptography to encrypt and decrypt login information. You need to supply your key name here. For example, if your encryption key file is \texttt{my-key-name.pem}, the corresponding line in the configuration file should read \texttt{key\_name\ =\ my-key-name}. {[}❗️{]}Go ahead and edit this entry - enter your key name.{[}🔴{]}{[} Also be aware of the charges that you may incur from AWS for the creation of this cluster. The master instance will be an on-demand type, whilst the two core instances are spot instance types. It is estimated the cost of the cluster for this tutorial, if terminated within 1 hour, will be less than \$5 USD. This cost is based on the AWS region us-west-2 - US West (Oregon).
+
+\hypertarget{launch-the-aws-emr-cluster}{%
+\section{Launch the AWS EMR cluster}\label{launch-the-aws-emr-cluster}}
 
 When ready, in the home directory of the \emph{Falco} code, issue the following command to start the cluster: {[}❗️{]}
 
@@ -428,7 +510,7 @@ Alternatively, you could see a listing of the results via the AWS S3 Console by 
 
 \textbf{{[}🔴{]}As AWS charges by the hour for usage of its services, the user should terminate their cluster when finished. This is done by selecting your cluster on the AWS EMR console \emph{Cluster List}, and clicking the \emph{Terminate} button.}
 
-\bibliography{book.bib,packages.bib}
-
+\backmatter
+  \bibliography{book.bib,packages.bib}
 
 \end{document}

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Run the tutorial | Falco Tutorial</title>
   <meta name="description" content="Falco: Single cell RNA-seq parrallelised cloud computing tutorial" />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Run the tutorial | Falco Tutorial" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-11-29" />
+<meta name="date" content="2019-12-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,14 +79,12 @@
 <li class="chapter" data-level="2.2.4" data-path="getting-started.html"><a href="getting-started.html#configuring-aws-linux-client"><i class="fa fa-check"></i><b>2.2.4</b> Configuring AWS Linux Client</a></li>
 <li class="chapter" data-level="2.2.5" data-path="getting-started.html"><a href="getting-started.html#obtain-an-aws-ec2-key"><i class="fa fa-check"></i><b>2.2.5</b> Obtain an AWS EC2 key</a></li>
 <li class="chapter" data-level="2.2.6" data-path="getting-started.html"><a href="getting-started.html#obtain-access-to-or-create-an-aws-s3-bucket"><i class="fa fa-check"></i><b>2.2.6</b> Obtain access to or create an AWS S3 bucket</a></li>
-<li class="chapter" data-level="2.2.7" data-path="getting-started.html"><a href="getting-started.html#test-access-to-the-aws-management-console"><i class="fa fa-check"></i><b>2.2.7</b> Test access to the AWS management console</a></li>
-<li class="chapter" data-level="2.2.8" data-path="getting-started.html"><a href="getting-started.html#create-default-aws-emr-roles"><i class="fa fa-check"></i><b>2.2.8</b> Create Default AWS EMR Roles</a></li>
-<li class="chapter" data-level="2.2.9" data-path="getting-started.html"><a href="getting-started.html#aws-emr-permissions"><i class="fa fa-check"></i><b>2.2.9</b> AWS EMR Permissions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reference-genome.html"><a href="reference-genome.html"><i class="fa fa-check"></i><b>3</b> Reference Genome</a><ul>
-<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.1</b> Sync the reference genome index from s3 bucket</a></li>
-<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Check reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#get-reference-genome-and-the-star-index"><i class="fa fa-check"></i><b>3.1</b> Get reference Genome and the STAR index</a></li>
+<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Sync the reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.3" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.3</b> Check reference genome index from s3 bucket</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>4</b> Read Data</a><ul>
 <li class="chapter" data-level="4.1" data-path="read-data.html"><a href="read-data.html#obtain-the-read-data"><i class="fa fa-check"></i><b>4.1</b> Obtain the Read Data</a></li>
@@ -130,8 +128,7 @@
 <div id="run-the-tutorial" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Run the tutorial</h1>
 <p>Change to Falco home directory.</p>
-<pre><code>vi tutorial/emr_cluster.config</code></pre>
-<p>Replace ami_id with the actual ami_id</p>
+<pre><code>cd $Faclco</code></pre>
 <div id="give-values-for-s3-bucket-and-user-name" class="section level2">
 <h2><span class="header-section-number">6.1</span> Give values for S3 bucket and User Name</h2>
 <p>The tutorial files have a number of locations that have a placeholder called username and yourbucket. Change these placeholders to your values. In a bash shell, from the <em>Falco</em> home directory, edit and submit the following command:[❗️]</p>
@@ -139,26 +136,35 @@
 sed -i.bak &#39;s/username/[YOUR USER NAME]/g ; s/yourbucket/[YOUR BUCKET NAME]/g&#39; tutorial/*.config
 # EXAMPLE ONLY: if your user name if &quot;fred&quot; and your AWS bucket is &quot;falco-test&quot;, then you would use the following command
 #sed -i.bak &#39;s/username/fred/g ; s/yourbucket/falco-test/g&#39; tutorial/*.config</code></pre>
-<p>[⁉️] Additionally, if your AWS S3 region is not <em>us-west-2</em>, issue the following command:</p>
 <pre><code>sed -i.bak.reg &#39;s/us-west-2/[YOUR REGION]/g&#39; tutorial/*.config
 # change [YOUR REGION] to the name of your region
 # EXAMPLE (if your region is us-west-1): sed -i.bak.reg &#39;s/us-west-2/us-west-1/g&#39; tutorial/*.config</code></pre>
 <p>The original .config files in the tutorial directory will now have the file extension .config.bak should you wish to restore the original files.</p>
-</div>
-<div id="launch-the-aws-emr-cluster" class="section level2">
-<h2><span class="header-section-number">6.2</span> Launch the AWS EMR cluster</h2>
-<p>[❗️] First open the file<code>tutorial/emr_cluster.confi</code>g and check that the <code>[EMR_nodes]</code> section is similar to the following:</p>
+<p>❗First open the file tutorial/emr_cluster.config.</p>
+<pre><code>vi tutorial/emr_cluster.config</code></pre>
+<p>Change the release_label to the latest version:</p>
+<pre><code>release_label = emr-5.27.0</code></pre>
+<p>Change the bootstrap_scripts to only copy_reference.sh:</p>
+<pre><code>bootstrap_scripts = copy_reference.sh</code></pre>
+<p>Adding the line in the below:</p>
+<pre><code># If custom AMI ID is specified, it is recommended to remove install_software.sh from thr bootstrap scripts as the custom AMI should already have these installed.
+custom_ami_id = ami-0f48840896db32bf0</code></pre>
+<p>and check that [EMR_nodes] section is similar to the following:</p>
 <pre><code>[EMR_nodes]
 key_name = yourkey
 service_role = EMR_DefaultRole
 instance_profile = EMR_EC2_DefaultRole
-master_instance_type = r3.4xlarge
+master_instance_type = m5.4xlarge
 master_instance_count = 1
-core_instance_type = r3.4xlarge
+core_instance_type = m5.4xlarge
 core_instance_count = 2
 core_instance_spot = True
 core_instance_bid_price = 1</code></pre>
-<p>The <code>[EMR_nodes]</code> section contains a line that starts with <code>key_name =</code>. The computing resources created by the AWS EMR framework uses public–key cryptography to encrypt and decrypt login information. You need to supply your key name here. For example, if your encryption key file is <code>my-key-name.pem</code>, the corresponding line in the configuration file should read <code>key_name = my-key-name</code>. [❗️]Go ahead and edit this entry - enter your key name.[🔴][ Also be aware of the charges that you may incur from AWS for the creation of this cluster. The master instance will be an on-demand type, whilst the two core instances are spot instance types. It is estimated the cost of the cluster for this tutorial, if terminated within 1 hour, will be less than $5 USD. This cost is based on the AWS region us-west-2 - US West (Oregon).</p>
+<p><img src="emr_config.PNG" /><!-- -->
+The <code>[EMR_nodes]</code> section contains a line that starts with <code>key_name =</code>. The computing resources created by the AWS EMR framework uses public–key cryptography to encrypt and decrypt login information. You need to supply your key name here. For example, if your encryption key file is <code>my-key-name.pem</code>, the corresponding line in the configuration file should read <code>key_name = my-key-name</code>. [❗️]Go ahead and edit this entry - enter your key name.[🔴][ Also be aware of the charges that you may incur from AWS for the creation of this cluster. The master instance will be an on-demand type, whilst the two core instances are spot instance types. It is estimated the cost of the cluster for this tutorial, if terminated within 1 hour, will be less than $5 USD. This cost is based on the AWS region us-west-2 - US West (Oregon).</p>
+</div>
+<div id="launch-the-aws-emr-cluster" class="section level2">
+<h2><span class="header-section-number">6.2</span> Launch the AWS EMR cluster</h2>
 <p>When ready, in the home directory of the <em>Falco</em> code, issue the following command to start the cluster: [❗️]</p>
 <pre><code>python3 launch_cluster.py --config tutorial/emr_cluster.config</code></pre>
 <p>When the command is processed, the user will receive a response, of the form:</p>
@@ -239,6 +245,7 @@ aws s3 cp tutorial/data.manifest s3://[YOUR BUCKET]/falco-tutorial/data.manifest
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -257,6 +264,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

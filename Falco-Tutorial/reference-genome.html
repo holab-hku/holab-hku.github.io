@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Reference Genome | Falco Tutorial</title>
   <meta name="description" content="Falco: Single cell RNA-seq parrallelised cloud computing tutorial" />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Reference Genome | Falco Tutorial" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2019-11-29" />
+<meta name="date" content="2019-12-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,14 +79,12 @@
 <li class="chapter" data-level="2.2.4" data-path="getting-started.html"><a href="getting-started.html#configuring-aws-linux-client"><i class="fa fa-check"></i><b>2.2.4</b> Configuring AWS Linux Client</a></li>
 <li class="chapter" data-level="2.2.5" data-path="getting-started.html"><a href="getting-started.html#obtain-an-aws-ec2-key"><i class="fa fa-check"></i><b>2.2.5</b> Obtain an AWS EC2 key</a></li>
 <li class="chapter" data-level="2.2.6" data-path="getting-started.html"><a href="getting-started.html#obtain-access-to-or-create-an-aws-s3-bucket"><i class="fa fa-check"></i><b>2.2.6</b> Obtain access to or create an AWS S3 bucket</a></li>
-<li class="chapter" data-level="2.2.7" data-path="getting-started.html"><a href="getting-started.html#test-access-to-the-aws-management-console"><i class="fa fa-check"></i><b>2.2.7</b> Test access to the AWS management console</a></li>
-<li class="chapter" data-level="2.2.8" data-path="getting-started.html"><a href="getting-started.html#create-default-aws-emr-roles"><i class="fa fa-check"></i><b>2.2.8</b> Create Default AWS EMR Roles</a></li>
-<li class="chapter" data-level="2.2.9" data-path="getting-started.html"><a href="getting-started.html#aws-emr-permissions"><i class="fa fa-check"></i><b>2.2.9</b> AWS EMR Permissions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="reference-genome.html"><a href="reference-genome.html"><i class="fa fa-check"></i><b>3</b> Reference Genome</a><ul>
-<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.1</b> Sync the reference genome index from s3 bucket</a></li>
-<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Check reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.1" data-path="reference-genome.html"><a href="reference-genome.html#get-reference-genome-and-the-star-index"><i class="fa fa-check"></i><b>3.1</b> Get reference Genome and the STAR index</a></li>
+<li class="chapter" data-level="3.2" data-path="reference-genome.html"><a href="reference-genome.html#sync-the-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.2</b> Sync the reference genome index from s3 bucket</a></li>
+<li class="chapter" data-level="3.3" data-path="reference-genome.html"><a href="reference-genome.html#check-reference-genome-index-from-s3-bucket"><i class="fa fa-check"></i><b>3.3</b> Check reference genome index from s3 bucket</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>4</b> Read Data</a><ul>
 <li class="chapter" data-level="4.1" data-path="read-data.html"><a href="read-data.html#obtain-the-read-data"><i class="fa fa-check"></i><b>4.1</b> Obtain the Read Data</a></li>
@@ -129,18 +127,49 @@
             <section class="normal" id="section-">
 <div id="reference-genome" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Reference Genome</h1>
-<div id="sync-the-reference-genome-index-from-s3-bucket" class="section level2">
-<h2><span class="header-section-number">3.1</span> Sync the reference genome index from s3 bucket</h2>
-<p>In this tutorial, a human genome will be used. The file is ~800M in size.</p>
-<p>In this step, the index for both STAR from our s3 bucket is synced to your s3 bucket.</p>
-<p>At a bash prompt from the genome_ref directory, execute the following command - first change <em>[YOUR BUCKET]</em> to your own bucket name:</p>
-<pre><code>aws s3 sync s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude &quot;*.fa&quot; --exclude &quot;*.fa.gz&quot; s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude &quot;*.fa&quot; --exclude &quot;*.fa.gz&quot;
+<div id="get-reference-genome-and-the-star-index" class="section level2">
+<h2><span class="header-section-number">3.1</span> Get reference Genome and the STAR index</h2>
+<p>🔴“Below steps are not necessary in this workshop because we already save the files in the S3 bucket.”
+In this tutorial, a human genome will be used. The file is ~800M in size.
+In a work directory of your choice, create a genome directory, and download the files:</p>
+<pre><code>mkdir genome_ref
+cd genome_ref
+wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refFlat.txt.gz
+wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_21/GRCh38.genome.fa.gz
+wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_21/gencode.v21.chr_patch_hapl_scaff.annotation.gtf.gz
+# unzip the files
+gunzip *</code></pre>
+<p>Download and install STAR
+Before proceeding with this step, ensure that your Linux system has the following dependencies installed: make, gcc, g++ glibc-static.</p>
+<p>In the work directory:</p>
+<pre><code>wget -O STAR-2.5.2a.tar.gz https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
+tar -xzf STAR*.tar.gz
+star_path=$( find . -name &quot;STAR&quot;|grep -E &quot;/Linux_x86_64/&quot; )
+ln -s ${star_path%STAR} STAR</code></pre>
+<p>Create the STAR index files</p>
+<pre><code># create directory for star index
+mkdir hg38_star_sparse_ref
+STAR/STAR --runMode genomeGenerate --genomeDir hg38_star_sparse_ref/ --genomeFastaFiles genome_ref/GRCh38.genome.fa --genomeSAsparseD 2 --runThreadN 8 --sjdbGTFfile genome_ref/gencode.v21.chr_patch_hapl_scaff.annotation.gtf</code></pre>
+<p>Copy the reference genome files and STAR index file to the AWS S3 bucket
+Since Falco does not require the genome .fa file, you will only need to copy the two other reference files to the AWS S3 bucket. At a bash prompt from the genome_ref directory, execute the following command - first change [YOUR BUCKET] to your own bucket name:</p>
+<pre><code>aws s3 sync . s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/genome_ref --exclude &quot;*.fa&quot; --exclude &quot;*.fa.gz&quot;
 # change back to work directory
 cd ..</code></pre>
+<p>Copy the STAR index files to the AWS S3 bucket:</p>
+<pre><code>aws s3 sync hg38_star_sparse_ref s3://[YOUR BUCKET]/falco-tutorial/genomes/hg38/star_index</code></pre>
+</div>
+<div id="sync-the-reference-genome-index-from-s3-bucket" class="section level2">
+<h2><span class="header-section-number">3.2</span> Sync the reference genome index from s3 bucket</h2>
+<p>In this step, the reference genome files and the STAR index files from our s3 bucket is synced to your s3 bucket.
+The sync command is like below:</p>
+<pre><code>#aws s3 sync s3://SOURCE-BUCKET-NAME s3://DESTINATION-BUCKET-NAME --source-region SOURCE-REGION-NAME --region DESTINATION-REGION-NAME
+
+aws s3 sync s3://falcotutorial/genomes s3://[YOUR BUCKET]/falco-tutorial/genomes --source-region us-west-1 --region us-west-1</code></pre>
+<p>Replace [YOUR BUCKET] with the name of your bucket.</p>
 </div>
 <div id="check-reference-genome-index-from-s3-bucket" class="section level2">
-<h2><span class="header-section-number">3.2</span> Check reference genome index from s3 bucket</h2>
-<p>The <code>hg38_sparse_ref/</code> directory should look something like:</p>
+<h2><span class="header-section-number">3.3</span> Check reference genome index from s3 bucket</h2>
+<p>The <code>star_index/</code> directory should look something like:</p>
 <pre><code>chrLength.txt
 chrNameLength.txt
 chrName.txt
@@ -181,6 +210,7 @@ transcriptInfo.tab</code></pre>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -199,6 +229,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
