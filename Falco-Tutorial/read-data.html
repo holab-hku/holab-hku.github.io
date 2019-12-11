@@ -129,7 +129,7 @@
 <h1><span class="header-section-number">Chapter 4</span> Read Data</h1>
 <div id="obtain-the-read-data" class="section level2">
 <h2><span class="header-section-number">4.1</span> Obtain the Read Data</h2>
-<p>For this tutorial, a script - get_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWaws s3 sync s3://falcotutorial/data s3://[YOUR BUCKET]/falco-tutorial/data –source-region us-west-1 –region us-west-1S S3 location, use the command (issued from your work directory):</p>
+<p>For this tutorial, a script - get_data.sh is provided in the tutorial directory that will download a small number of relatively small FASTQ files (the total download size is approximately 380M, and a total of 10 individual files). The files are from the freely accessible Sequence Read Archive (SRA) database. To copy download and copy the files to a specified AWS S3 location, use the command (issued from your work directory):</p>
 <pre><code>cd $Falco
 tutorial/get_data.sh s3://[YOUR BUCKET]/falco-tutorial/data</code></pre>
 <p>In this workshop, we stored the tutorial FASTQ files in the s3 bucket, so you can easily sync the data from our s3 bucket.</p>
