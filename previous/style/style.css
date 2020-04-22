@@ -143,19 +143,11 @@ ul#menu li a
   text-decoration: none;
   background: #484848 url(tab.png) no-repeat 100% 0;} 
 
-/* ul#menu li a.selected
-{ margin: 3px 2px 0 0;
-  background: #FCFDF4 url(tab_selected.png) no-repeat 0 0;}
-
-ul#menu li a.selected, ul#menu li a.selected:hover
-{ background: #FCFDF4 url(tab_selected.png) no-repeat 100% 0;
-  color: #111;} */
-
 ul#menu li.selected
 { margin: 3px 2px 0 0;
   background: #FCFDF4 url(tab_selected.png) no-repeat 0 0;}
 
-ul#menu li a.selected, ul#menu li a.selected:hover
+ul#menu li.selected a, ul#menu li.selected a:hover
 { background: #FCFDF4 url(tab_selected.png) no-repeat 100% 0;
   color: #111;}
 
