@@ -1,0 +1,3 @@
+Szczesnik T, Chu L, <strong>Ho JWK</strong>, Sherwood R (2020) A high-throughput genome-integrated assay reveals spatial dependencies governing Tcf7l2 binding. bioRxiv: <a href="https://www.biorxiv.org/content/10.1101/2020.03.16.993204v1">link</a>
+Patrick R*, Humphreys D*, Oshlack A, <strong>Ho JWK</strong>, Harvey RP^, Lo KK^ (2019) Sierra: Discovery of differential transcrpt usage from polyA-captured single cell RNA-seq data. bioRxiv: <a href="https://www.biorxiv.org/content/10.1101/867309v2">link</a>
+Yang A, Yao Y, Li J,<strong>Ho JWK</strong> (2018) starmap: Immersive visualisation of single cell data using smartphone-enabled virtual reality. bioRxiv: <a href="https://www.biorxiv.org/content/early/2018/05/17/324855">link</a>
