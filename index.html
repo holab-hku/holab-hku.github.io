@@ -1,1 +1,1914 @@
-<!doctype html><html lang="en"><head><script async src="https://www.googletagmanager.com/gtag/js?id=UA-163119748-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-163119748-1")</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="This laboratory, led by Dr. Joshua Ho, focuses on the use of bioinformatics and systems biology approaches to tackle longstanding problems in basic biology and translational medicine."/><meta name="keywords" content="Bioinformatics, Systems Medicine, Systems Biology, Joshua Ho, University of Hong Kong, HKU, School of Biomedical Sciences, single cell, single-cell RNA-seq, developmental biology, artificial intelligence, big data, epigenomics, whole genome sequencing, next-generation sequencing, Gene regulatory network"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><link rel="stylesheet" href="/style/style.css"/><link rel="icon" type="image/png" href="https://holab-hku.github.io/icon.png"/><title>Bioinformatics and Systems Medicine</title><link href="/static/css/main.fd53018c.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function t(t){for(var n,l,i=t[0],a=t[1],f=t[2],c=0,s=[];c<i.length;c++)l=i[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(p&&p(t);s.length;)s.shift()();return u.push.apply(u,f||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,i=1;i<r.length;i++){var a=r[i];0!==o[a]&&(n=!1)}n&&(u.splice(t--,1),e=l(l.s=r[0]))}return e}var n={},o={1:0},u=[];function l(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,l),r.l=!0,r.exports}l.m=e,l.c=n,l.d=function(e,t,r){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,t){if(1&t&&(e=l(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(l.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)l.d(r,n,function(t){return e[t]}.bind(null,n));return r},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="/";var i=this["webpackJsonpholab-website"]=this["webpackJsonpholab-website"]||[],a=i.push.bind(i);i.push=t,i=i.slice();for(var f=0;f<i.length;f++)t(i[f]);var p=a;r()}([])</script><script src="/static/js/2.57e2fbd5.chunk.js"></script><script src="/static/js/main.904acb74.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bioinformatics and Systems Medicine</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Hidayah - v2.0.0
+  * Template URL: https://bootstrapmade.com/hidayah-free-simple-html-template-for-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center">
+        <div class="col-xl-10 d-flex align-items-center justify-content-end">
+
+          <h1 class="logo mr-auto"><a href="#home">Ho Lab</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="#home">Home</a></li>
+              <li><a href="#people">People</a></li>
+              <li><a href="#research">Research</a></li>
+              <li><a href="#recruitment">Recruitment</a></li>
+              <li><a href="#publication">Publication</a></li>
+              <li><a href="#software">Software</a></li>
+              <!-- <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li class="drop-down"><a href="">Drop Down</a>
+                <ul>
+                  <li><a href="#">Drop Down 1</a></li>
+                  <li class="drop-down"><a href="#">Deep Drop Down</a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Drop Down 2</a></li>
+                  <li><a href="#">Drop Down 3</a></li>
+                  <li><a href="#">Drop Down 4</a></li>
+                </ul>
+              </li> -->
+              <li><a href="#contact">Contact</a></li>
+
+            </ul>
+          </nav><!-- .nav-menu -->
+
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+  <div id="home"></div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(https://holab-hku.github.io/img/wordle.PNG)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animated fadeInDown">Welcome to the laboratory of Dr. Joshua Ho!</h2>
+              <!-- <p class="animated fadeInUp">{{Description}}</p> -->
+              <a href="#people" class="btn-get-started animated fadeInUp scrollto">About Us</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <!-- <div class="carousel-item">
+        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animated fadeInDown">Recruitment</h2>
+              
+              <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <!-- <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)"> -->
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animated fadeInDown">Big Data special issue published!</h2>
+              <a href="https://link.springer.com/journal/12551/11/1"><img
+                  src="https://holab-hku.github.io/img/Cover.jpg" alt=""></a>
+              <br>
+              <p class="animated fadeInUp">25 February 2019</p>
+
+              <!-- <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a> -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <section id="people" class="people">
+      <div class="container">
+        <h2 class="text-center">People</h2>
+        <br>
+        <div class=" justify-content-center">
+    
+          <div class="row">
+    
+            <div class="col-lg-6" id="JoshuaHo">
+              <div class="testimonial-item">
+                <img src="https://holab-hku.github.io/img/JoshuaHo.jpg" class="testimonial-img" alt="">
+                <h3>Dr Joshua W. K. Ho</h3>
+                <h4>Laboratory Head</h4>
+                <br>
+                <small>
+                  <p>
+                    <b>BSc (Hon 1, University Medal)</b>, Biochemistry and Computer Science, The University of Sydney,
+                    Australia<br>
+                    <b>PhD</b>, Bioinformatics, The University of Sydney, Australia<br>
+                    <!-- <a href="/people/JoshuaHo">Find
+                          out more...</a> -->
+                  </p>                  
+                </small>
+                <div class="float-right">
+                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal"
+                    data-target=".bd-example-modal-lg">Find out more...</button>                  
+                </div>
+
+              </div>
+            </div>
+    
+          </div>
+    
+          <div class="row ">
+            <div class="col-lg-6">
+              <div class="testimonial-item mt-4">
+                <h3>Dr Ken Yu</h3>
+                <h4>Postdoctoral Fellow</h4>
+              </div>
+            </div>
+    
+            <div class="col-lg-6">
+              <div class="testimonial-item mt-4">
+                <h3>Haobin Yao</h3>
+                <h4>Postdoctoral Fellow</h4>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="testimonial-item mt-4">
+                <h3>Xiunan Fang</h3>
+                <h4>PhD Student</h4>
+              </div>
+            </div>
+    
+            <div class="col-lg-6">
+              <div class="testimonial-item  mt-4">
+                <h3>Gordon Qian</h3>
+                <h4>PhD Student</h4>
+              </div>
+            </div>
+          </div>
+    
+          <br>
+
+          <div>
+            <h4>Alumni</h4>
+            
+            <a href="https://www.victorchang.edu.au/heart-research/computational-genomics"><b>Dr Eleni
+                Giannoulatou</b></a> (senior postdoc 2013-2015 at VCCRI; Now Division Head at VCCRI)<br><b>Dr Paul Lin</b>
+            (postdoc 2016-2017 at VCCRI; Now technical manager at the Independent Hospital Pricing Authority,
+            Australia)<br><b>Dr Djordje Djordjevic</b> (PhD student 2014-2017 at UNSW; Now Computational Biologist at Novo
+            Nordisk, Denmark)<br><b>Dr Xin Wang</b> (PhD student 2014-2018 at UNSW; Now postdoc at Northwestern
+            University,
+            USA)<br><b>Dr Tomasz Szczesnik</b> (PhD student 2014-2018 at UNSW; Now postdoc at ETH Zurich,
+            Switzerland)<br><b>Dr
+              Andrian Yang</b> (PhD student 2015-2018 at UNSW; Now postdoc at EMBL-EBI, Cambridge, UK)<br>
+          </div>
+
+
+        </div>
+        
+
+    
+        <!-- Extra large modal -->
+    
+    
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Dr. Joshua W. K. Ho</h5>
+    
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+    
+              <div id="modal-body">
+                <div class="container">
+                  <br>
+                  <h5> Education </h5>
+                  <ul>
+                    <li>2004-2006 <b>BSc (Hon 1, University Medal)</b>, Biochemistry and Computer Science, The
+                      University of
+                      Sydney, Australia</li>
+                    <li>2007-2010 <b>PhD</b>, Bioinformatics, The University of Sydney, Australia</li>
+                  </ul>
+    
+                  <h5> Academic appointment </h5>
+                  <ul>
+                    <li>2010-2012 <b>Research Fellow in Medicine</b>, Harvard Medical School and Brigham and Women's
+                      Hospital,
+                      Boston, USA </li>
+                    <li>2012-2013 <b>Instructor in Medicine</b> (Genetics), Harvard Medical School and Brigham and Women's
+                      Hospital, Boston, USA</li>
+                    <li>2013-2018 <b>Laboratory Head</b>, Victor Chang Cardiac Research Institute, Australia</li>
+                    <li>2017-2018 <b>Division Head</b>, Victor Chang Cardiac Research Institute, Australia</li>
+                    <li>2018-Now <b><a href="https://www.sbms.hku.hk/staff/joshua-wing-kei-ho" target="_blank">Associate
+                          Professor</a></b>, School of Biomedical Sciences, Li Ka Shing Faculty of Medicine, The University of Hong Kong</li>
+                  </ul>
+    
+    
+                  <div>
+                    <h5> Research Interest</h5>
+                    <ul>
+                      <li>Bioinformatics</li>
+                      <li>Single-cell RNA-seq analysis</li>
+                      <li>Gene regulation</li>
+                      <li>Epigenomics</li>
+                      <li>Systems biology</li>
+                      <li>Artificial intelligence in medicine</li>
+                      <li>Big data for biomedical sciences</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5> Thesis </h5>
+                    <ol>
+                      <li><b>Ho JWK</b> (2006) Computational Analysis of Evolution and Inference of Gene Regulatory
+                        Networks. BSc
+                        (Advanced) (Honours) Thesis, School of Biological Sciences, The University of Sydney</li>
+                      <li><b>Ho JWK</b> (2010) Principles and Applications of Bioinformatics for Systems Medicine. PhD
+                        Thesis,
+                        School of
+                        Information Technologies, The University of Sydney</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h5> Award </h5>
+                    <ul>
+                      <li>2004-2005 Participated in the <b>Talented Student Program</b>, The University of Sydney</li>
+                      <li>2006
+                      <b>University
+                        Medal</b>, The University of Sydney</li>
+                      <li>2007-2010 <b>Australia Postgraduate Award</b> and
+                      <b>NICTA Research
+                        Project Award</b>, The University of Sydney</li>
+                      <li>2009 <b>Best paper award</b>, International
+                      Conference on
+                      Quality
+                      Software 2009</li>
+                      <li>2010-2013 <b>Ruth L. Kirschstein National Research Service Awards</b> for an
+                      interdisciplinary
+                      postdoctoral fellowship at Harvard, National Institutes of Health, USA</li>
+                      <li>2014 <b>Rod Rickards
+                        Fellowship</b>,
+                      Australian Academy of Science</li>
+                      <li>2015 <b>Illumina Early Career Researcher Award</b>, Australian
+                      Epigenetics
+                      Alliance</li>
+                      <li>2015 <b>NSW Ministerial Award for Rising Stars in Cardiovascular Research</b>,
+                      National Heart
+                      Foundation of Australia</li>
+                      <li>2016 <b>Young Tall Poppy Science Award</b>, Australian Institute of
+                      Policy and
+                      Science</li>
+                      <li>2016 <b>Career Development Fellowship</b>, National Health and Medical Research
+                      Council</li>
+                      <li>2016
+                      <b>Future Leader Fellowship</b>, National Heart Foundation of Australia</li>
+                      <li>2017 <b>Winner</b>,<a
+                        href="https://www.thinkable.org/vote_competitions/the-bioinformatics-peer-prize-ii">The
+                        Bioinformatics
+                        Peer
+                        Prize II</a>, The Thinkable Academy</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+    
+        </div>
+    
+    
+    
+      </div>
+
+    </section>
+
+    <section id="research" class="research section-bg">
+      <div class="container">
+        <div class="justify-content-center">
+
+        <h2 class="text-center">Research Projects</h2>
+        <p>The Ho Laboratory focuses on the use of bioinformatics and systems biology approaches to tackle longstanding
+          problems in basic and translational medicine. A range of specific PhD projects can be developed within the broad
+          theme of <b>scalable big data analytics for healthcare translation</b>. Here are some major research themes.
+          Multiple projects are available under each theme.:</p>
+        <ul>
+          <li><b>Scalable single cell data analytics</b>. Single-cell RNA sequencing (scRNA-Seq) enables researchers to study
+            heterogeneity among tens of thousands of individual cells and define cell types from a transcriptomic perspective.
+            However, fast and reliable analysis of these large and noisy data requires new statistical and computational
+            considerations. In this project we will develop scalable bioinformatics methods to analyze a range of scRNA-seq
+            data to answer important biological questions.<br><br></li>
+          <li><b>Microbiome functional systems biology through metagenomic and multi-omic data analysis</b>. Our laboratory is
+            developing computational and statistical tools that can efficient process large metagenomic data, and integrate
+            them with other omics or deep phenotyping data. Our goal is to understand how the microbiome found in specific
+            location of the body, e.g., the gut, can affect a person's health.<br><br></li>
+          <li><b>Medical artificial intelligence, mobile health and wearable devices</b>. Being able to track the changes of a
+            person's physiological parameters in real time is now increasingly feasible due to the wide availability of
+            consumer-grade smartphones and wearable devices (e.g., fitbit, AppleWatch, etc). Our group is developing new big
+            data machine-learning algorithms extract, de-noise, analyze and correlate physical activity data and heart rate
+            dynamics. Our long-term goal is to establish new non-invasive screening tools to monitor a person's health
+            status.<br><br></li>
+        </ul>
+        <p><b>For postdoc/students/RA who wants to join this laboratory:</b> All projects require proficiency in at least one
+          programming/scripting language (R, Perl, Python, Java, C++, C) Familiarity with the Unix operating system is
+          desirable but not required. Individual project can be tailored to fit each student's personal interest and skill
+          set. Most projects involve close interactions with local and international collaborators. This is a highly
+          interdisciplinary laboratory. We welcome perspective group members from diverse background, such as medicine,
+          biology, physics, computer science, mathematics, statistics, and engineering. Expression of interest, along with
+          your CV, can be sent to <a href="#JoshuaHo">Dr. Ho</a>.</p>
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ======= About Section ======= -->
+    <!-- <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch">
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+              data-autoplay="true"></a>
+          </div>
+
+          <div
+            class="col-xl-5 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus
+              laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla
+              tenetur. Suscipit aut voluptate.</p>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                occaecati cupiditate non provident</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Dine Pad</a></h4>
+              <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
+                deserunt minus aut eligendi omnis</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End About Section -->
+
+
+
+
+
+    <section id="recruitment" class="recruitment">
+      <div class="container">
+
+        <h2 class="text-center">Recruitment</h2>
+        <!-- <hr>   -->
+        <!-- <div  class="col-xl-10"> -->
+
+        <div class=" justify-content-center">
+
+
+          <p class="description text-center">Current Openings:</p>
+
+          <div class="list-group">
+            <a href="https://jobs.hku.hk/en/job/499947/postdoctoral-fellow" target="_blank" rel="noopener noreferrer"
+              class="list-group-item list-group-item-action"> Post-doctoral Fellow (Closing Date: 2020-06-19) </a>
+            <a href="https://jobs.hku.hk/en/job/499956/research-assistant-iii" target="_blank" rel="noopener noreferrer"
+              class="list-group-item list-group-item-action"> Research Assistant I/II (Closing Date: 2020-06-19) </a>
+
+          </div>
+
+
+        </div>
+
+        <!-- </div> -->
+
+
+
+      </div>
+    </section>
+
+
+
+    <section id="publication" class="publication section-bg">
+      <div class="container">
+
+        <h2 class="text-center">Publication</h2>
+        <!-- <hr>   -->
+        <!-- <div  class="col-xl-10"> -->
+
+        <div class=" justify-content-center">
+
+
+          <!-- <p class="description text-center">Current Openings:</p> -->
+
+          <!-- <div class="list-group">
+            <a href="https://jobs.hku.hk/en/job/499947/postdoctoral-fellow" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action"> Post-doctoral Fellow (Closing Date: 2020-06-19) </a>
+            <a href="https://jobs.hku.hk/en/job/499956/research-assistant-iii" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action"> Research Assistant I/II (Closing Date: 2020-06-19) </a>
+
+          </div> -->
+
+          <!-- <h1>Publication</h1> -->
+          <p> <a href="http://scholar.google.com/citations?user=3kVPIhQAAAAJ&amp;hl=en&amp;oi=ao" target="_blank"
+              rel="noopener noreferrer">Google Scholar</a> &nbsp;&nbsp;&nbsp; <a
+              href="http://www.ncbi.nlm.nih.gov/pubmed/?term=Joshua+W+Ho%5BAuthor%5D" target="_blank"
+              rel="noopener noreferrer">PubMed</a> </p>
+          <h4><u>Edited journal special issue</u></h4>
+          <ol class="semi-spaced-list"><a href="https://link.springer.com/journal/12551/11/1"><img
+                src="https://holab-hku.github.io/img/Cover.jpg" width="80" alt=""></a>
+            <li><strong>Ho JWK</strong>, Giannoulatou E, Special Issue on <a
+                href="https://link.springer.com/journal/12551/11/1">Big Data</a> for <em><strong> Biophysical
+                  Reviews</strong></em> (Volume 11, Issue 1, February 2019)</li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Genomics</strong></em> (Volume 20, Supplement 10, December 2019) for <a
+                href="https://bmcgenomics.biomedcentral.com/articles/supplements/volume-20-supplement-10">Proceedings of
+                the
+                Joint International GIW &amp; ABACBS-2019 Conference: genomics</a></li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Medical Genomics</strong></em> (Volume 12, Supplement 9, December 2019) for&nbsp; <a
+                href="https://bmcmedgenomics.biomedcentral.com/articles/supplements/volume-12-supplement-9">Proceedings
+                of the
+                Joint International GIW &amp; ABACBS-2019 Conference: medical genomics</a></li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Medical Genomics</strong></em> (Volume 13, Supplement 3, February 2020) for&nbsp; <a
+                href="https://bmcmedgenomics.biomedcentral.com/articles/supplements/volume-13-supplement-3">Proceedings
+                of the
+                Joint International GIW &amp; ABACBS-2019 Conference: medical genomics</a></li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Bioinformatics</strong></em> (Volume 20, Supplement 23, December 2019) for&nbsp; <a
+                href="https://bmcbioinformatics.biomedcentral.com/articles/supplements/volume-20-supplement-23">Proceedings
+                of
+                the Joint International GIW &amp; ABACBS-2019 Conference: bioinformatics</a></li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Bioinformatics</strong></em> (Volume 21, Supplement 3, April 2020) for&nbsp; <a
+                href="https://bmcbioinformatics.biomedcentral.com/articles/supplements/volume-21-supplement-3">Proceedings
+                of
+                the Joint International GIW &amp; ABACBS-2019 Conference: bioinformatics (part 2)</a></li>
+            <li><strong>Ho JWK</strong>, Sohn K-A, Song J, Akutsu T, Ranganathan S, Li J, Special Issue in <em><strong>
+                  BMC
+                  Microbiology</strong></em> (Volume 20, Supplement 1, April 2020) for&nbsp; <a
+                href="https://bmcmicrobiol.biomedcentral.com/articles/supplements/volume-20-supplement-1">Proceedings of
+                the
+                Joint International GIW &amp; ABACBS-2019 Conference: microbiology</a></li>
+            <li><strong>Ho JWK</strong>, Special Issue in <em><strong> Journal of Bioinformatics and Computational
+                  Biology
+                </strong></em> (Volume 10, Issue 1, February 2020) for&nbsp; <a
+                href="https://dx.doi.org/10.1142/S0219720020020011">GIW/ABACBS 2019</a> </li>
+          </ol>
+          <p><strong>[* Co-first authors, ^ Co-corresponding authors]</strong></p>
+          <h4><u>Pre-print manusripts</u></h4>
+          <ol class="semi-spaced-list">
+            <li>Szczesnik T, Chu L, <strong>Ho JWK</strong>, Sherwood R (2020) A high-throughput genome-integrated assay
+              reveals
+              spatial dependencies governing Tcf7l2 binding. bioRxiv: <a
+                href="https://www.biorxiv.org/content/10.1101/2020.03.16.993204v1">link</a></li>
+            <li>Patrick R*, Humphreys D*, Oshlack A, <strong>Ho JWK</strong>, Harvey RP^, Lo KK^ (2019) Sierra:
+              Discovery of
+              differential transcrpt usage from polyA-captured single cell RNA-seq data. bioRxiv: <a
+                href="https://www.biorxiv.org/content/10.1101/867309v2">link</a></li>
+            <li>Yang A, Yao Y, Li J,<strong>Ho JWK</strong> (2018) starmap: Immersive visualisation of single cell data
+              using
+              smartphone-enabled virtual reality. bioRxiv: <a
+                href="https://www.biorxiv.org/content/early/2018/05/17/324855">link</a></li>
+          </ol>
+          <h4><u>Book chapters</u></h4>
+          <ol class="semi-spaced-list">
+            <li>Ye X, <strong>Ho JWK</strong> (2019) <a
+                href="https://www.sciencedirect.com/science/article/pii/B9780128096338202124">Expression Clustering</a>.
+              <em><strong>Encyclopedia of Bioinformatics and Computational Biology</strong></em>, Vol 2, Elsevier,
+              388-395</li>
+            <li>Giannoulatou E, Kamali AH, Yang A, Chen TY, <strong>Ho JWK</strong> (2016) <a
+                href="https://www.crcpress.com/product/isbn/9781498724975">Quality assurance in genome-scale
+                bioinformatics
+                analyses</a>. In <em>Computational Biology &amp; Bioinformatics: Gene Regulation</em> (Ed. Wong KC), CRC
+              Press,
+              259-278</li>
+            <li>Wang X, McCormick HM, Djordjevic D, Giannoulatou E, Suter CM, <strong>Ho JWK</strong> (2016) <a
+                href="https://www.crcpress.com/product/isbn/9781498724975">Epigenomic analysis of chromatin organization
+                and DNA
+                methylation</a>. In <em>Computational Biology &amp; Bioinformatics: Gene Regulation</em> (Ed. Wong KC),
+              CRC
+              Press, 181-211</li>
+            <li>O'Connell DJ, <strong>Ho JWK</strong>, Maas RL (2013) <a
+                href="http://www.amazon.com/Stem-Cells-Craniofacial-Development-Regeneration/dp/1118279239">Systems
+                biology of
+                early tooth development</a>. In <em>Stem cells in craniofacial development, regeneration and repair</em>
+              (Eds.
+              Huang GT-J and Thesleff I), Wiley, 179-202</li>
+            <li><strong>Ho JWK</strong>, Alekseyenko AA, Kuroda MI, Park PJ (2011) <a
+                href="http://www.amazon.com/Tag-based-Generation-Sequencing-Molecular-Biology/dp/352732819X/ref=tmm_hrd_title_0?ie=UTF8&amp;qid=1363647927&amp;sr=1-1-fkmr1">Genome-wide
+                mapping of protein-DNA interactions by ChIP-seq</a>. In <em> Tag-based Approaches for Next Generation
+                Sequencing: Merging two High-throughput Technologies (Eds. Kahl, Harbers)</em>, Wiley, 139-152</li>
+            <li>Mohamed AN, Lal S, <strong>Ho JWK</strong>, Brown A, Lui R, Nguyen L, Yong ASC, Su Y, Braet F, Dyer
+              W,Junius F,
+              Cumming RG, Freedman SB, Kritharides L, dos Remedios CG (2010) <a
+                href="http://www.amazon.com/Myocardial-Ischemia-Treatment-Cardiology-Developments/dp/1608766101/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1363648097&amp;sr=1-1&amp;keywords=Myocardial+Ischemia%3A+Causes%2C+Symptoms+and+Treatment">How
+                to interrogate the cellular immune system inpatients with ischemic heart disease</a>. In <em>Myocardial
+                Ischemia: Causes, Symptoms and Treatment (Eds. Vukovic D, Kiyan V)</em>, NovaPublishers</li>
+            <li>Jermiin LS, <strong>Ho JWK</strong>, Lau KW, Jayaswal V (2009) <a
+                href="http://www.amazon.com/Bioinformatics-Sequence-Analysis-Methods-Molecular/dp/1588299104/ref=sr_1_fkmr2_1?s=books&amp;ie=UTF8&amp;qid=1363647990&amp;sr=1-1-fkmr2&amp;keywords=Bioinformatics+for+DNA+sequence+analysis+%28Ed.+Posada+D%29">SeqVis:
+                A tool for detecting compositional heterogeneity among aligned nucleotide sequences</a>. In
+              <em>Bioinformatics
+                for DNA sequence analysis (Ed. Posada D)</em>,Humana Press, Totowa, NJ. 65-91</li>
+          </ol>
+          <h4><u>Original research papers / review papers</u></h4>
+          <ol class="semi-spaced-list">
+            <li>Ip EKK, Hadinata C, <strong>Ho JWK</strong>, Giannoulatou E (2020) <a
+                href="https://doi.org/10.1093/bioinformatics/btaa116">dv-trio: a family-based variant calling pipeline
+                using
+                DeepVariant</a>. <em><strong> Bioinformatics</strong></em>, btaa116 (advanced online access)</li>
+            <li>Wang Q, Ye J, Fang D, Lv L, Wu W, Shi D, Li Y, Yang L, Bian X, Wu J, Jiang X, Wang K, Wang W, Hodson MP,
+              Thibaut
+              LM, <strong>Ho JWK</strong>, Giannoulatou E^, Li L^ (2020) <a
+                href="https://bmcmicrobiol.biomedcentral.com/articles/10.1186/s12866-020-01762-2"> Multi-omic profiling
+                reveals
+                associations between the gut mucosal microbiome, the metabolome, and host DNA methylation associated
+                gene
+                expression in patients with colorectal cancer</a>. <em><strong> BMC Microbiology</strong></em>, 20, 83
+            </li>
+            <li>Xie C, Du R, <strong>Ho JWK</strong>, Pang HH, Chiu KWH, Lee EYP, Varhanabhuti V (2020) <a
+                href="https://link.springer.com/article/10.1007/s00259-020-04756-4">Effect of machine learning
+                re-sampling
+                techniques for imbalanced datasets in <sup>18</sup>F-FDG PET-based radiomics model on prognostication
+                performance in cohorts of head and neck cancer patients</a>. <em><strong>European Journal of Nuclear
+                  Medicine
+                  and Molecular Imaging</strong></em> (in press). SharedIt <a href="https://rdcu.be/b3q3v ">link</a>
+            </li>
+            <li>Stassen SV, Siu DMD, Lee KCM, <strong>Ho JWK</strong>, So HKH, Tsia K (2020) <a
+                href="https://doi.org/10.1093/bioinformatics/btaa042">PARC: ultrafast and accurate clustering of
+                phenotypic data
+                of millions of single cels</a>. <em><strong>Bioinformatics</strong></em> (in press). bioRxiv: <a
+                href="https://www.biorxiv.org/content/10.1101/765628v1">link</a></li>
+            <li>Tam PPL, <strong>Ho JWK</strong> (2020) <a
+                href="https://dev.biologists.org/content/147/2/dev179788">Cellular
+                diversity and lineage trajectory: insights from mouse single cell transcriptomes</a>.
+              <em><strong>Development</strong></em>, 147, dev179788</li>
+            <li>Yang A, Kishore A, Phipps B, <strong>Ho JWK</strong> (2019) <a
+                href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-6341-6 ">Cloud accelerated
+                alignment and
+                assembly of full-length single-cell RNA-seq data using Falco</a>. <em><strong>BMC
+                  Genomics</strong></em>, 20,
+              927</li>
+            <li>Wang Q, Kotoula V, Hsu P-C, Papadopoulou K, <strong>Ho JWK</strong>, Fountzilas G, Giannoulatou E (2019)
+              <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-019-0636-y ">Comparison of
+                somatic
+                variant detection algorithms using Ion Torrent targeted deep sequencing data</a>. <em><strong>BMC
+                  Medical
+                  Genomics</strong></em>, 12, 181</li>
+            <li>Yang A*, Tang JYS*, Troup M, <strong>Ho JWK</strong> (2019) <a
+                href="https://f1000research.com/articles/8-1587/v1">Scavenger: A pipeline for recovery of unaligned
+                reads
+                utilising similarity with aligned reads</a>. <em><strong>F1000Research</strong></em>, 8, 1587</li>
+            <li>Humphreys DT, Fossat N, Demuth M, Tam PPL, <strong>Ho JWK</strong> (2019) <a
+                href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkz718/5552786">Ularcirc:
+                Visualisation and
+                enhanced analysis of circular RNAs via back and canonical forward splicing</a>. <em><strong>Nucleic
+                  Acids
+                  Research</strong></em>, 47(20), e123</li>
+            <li>Le TYL, Pickett HA, Yang A, <strong>Ho JWK</strong>, Thavapalachandran S, Igoor S, Yang SF, Farraha M,
+              Voges HK,
+              Hudson JE, dos Remedios CG, Bryan TM, Kizana E, Chong JJH (2019) <a
+                href="https://www.nature.com/articles/s41598-019-47022-w">Enhanced cardiac repair by telomerase reverse
+                transcriptase over-expression in human cardiac mesenchymal stromal cells</a>. <em><strong>Scientific
+                  Reports</strong></em>, 9, 10579</li>
+            <li>Szczesnik T, <strong>Ho JWK</strong>, Sherwood R (2019) <a
+                href="https://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/s13072-019-0273-x">Dam mutants
+                provide
+                improved sensitivity and&nbsp;spatial resolution for&nbsp;profling transcription factor binding</a>.
+              <em><strong>Epigenetics &amp; Chromatin</strong></em>, 12, 36</li>
+            <li><strong>Ho JWK</strong>, Scadding M (2019) <a
+                href="http://www.eduhk.hk/cte2019/doc/CTE2019_Proceedings%20(ISSN%202664-035X).pdf">Classroom Activities
+                for
+                Teaching Artificial Intelligence to Primary School Students</a>. In <em><strong>Proceedings of
+                  International
+                  Conference on Computational Thinking Education 2019</strong></em>, 157-159</li>
+            <li>van Eyk CL, Samaraweera SE, Scott A, Webber DL, Harvey DP, Mecinger O, O'Keefe LV, Cropley JE, Young P,
+              <strong>Ho J</strong>, Suter C, Richards RI (2019) <a
+                href="http://dx.doi.org/10.1093/hmg/ddz096">‘Non-self’
+                Mutation: Double-stranded RNA elicits antiviral pathogenic response in a Drosophila model of expanded
+                CAG repeat
+                neurodegenerative diseases</a>. <em><strong>Human Molecular Genetics</strong></em>, 28(18), 3000-3012
+            </li>
+            <li>Ye X, <strong>Ho JWK</strong> (2019) <a
+                href="https://bmcsystbiol.biomedcentral.com/articles/10.1186/s12918-019-0690-2">Ultrafast clustering of
+                single-cell flow cytometry data using FlowGrid</a>. <em><strong>BMC Systems Biology</strong></em>,
+              13(Suppl 2),
+              35. <a href="https://www.biorxiv.org/content/early/2018/08/17/394189">bioRxiv link</a></li>
+            <li>Farbehi N*, Patrick R*, Dorison A, Xaymardan M, Janbandhu V, Wystub-Lis K, <strong>Ho JWK</strong>,
+              Nordon RE^,
+              Harvey RP^ (2019) <a href="https://elifesciences.org/articles/43882">Single-cell expression profiling
+                reveals
+                dynamic flux of cardiac stromal vascular and immune cells in health and injury</a>.
+              <em><strong>eLife</strong></em>, 8, e43882</li>
+            <li>Djordjevic D, Tang JYS, Chen YX, Kwan SLS, Ling RWK, Qian G, Woo CYY, Ellis SJ, <strong>Ho JWK</strong>
+              (2019)
+              <a href="https://doi.org/10.1016/j.compbiolchem.2019.03.014">Discovery of perturbation gene targets via
+                free text
+                metadata mining in Gene Expression Omnibus</a>. <em><strong>Computational Biology and
+                  Chemistry</strong></em>,
+              80, 152-158. <a href="https://www.biorxiv.org/content/early/2018/10/26/150896">bioRxiv link</a></li>
+            <li>Alankarage D, Ip E, Szot JO, Munro J, Blue GM, Harrison K, Cuny H, Enriquez A, Troup M, Humphreys DT,
+              Wilson M,
+              Harvey RP, Sholler GF, Graham RM, <strong>Ho JWK</strong>, Kirk EP, Pachter N, Chapman G, Winlaw DS,
+              Giannoulatou
+              E, Dunwoodie SL (2019) <a href="https://www.nature.com/articles/s41436-018-0296-x">Identification of
+                clinically
+                actionable variants from genome sequencing of families with congenital heart disease</a>.
+              <em><strong>Genetics
+                  in Medicine</strong></em>, 21, 1111-1120</li>
+            <li><strong>Ho JWK</strong>, Giannoulatou E (2019) <a href="http://doi.org/10.1007/s12551-019-00500-x">Big
+                data: the
+                elements of good questions, open data, and powerful software</a>. <em><strong>Biophysical
+                  Reviews</strong></em>,
+              11, 1-3.</li>
+            <li>Djordjevic D, Cawood BK, Rispin SK, Shah A, Yim LHH, <strong>Ho JWK</strong> (2019) <a
+                href="http://doi.org/10.1007/s12551-019-00498-2">CardiacProfileR: An R package for extraction and
+                visualisation
+                of heart rate profiles from wearable fitness trackers</a>. <em><strong>Biophysical
+                  Reviews</strong></em>, 11,
+              119-121. BioRxiv: <a href="https://www.biorxiv.org/content/early/2018/12/14/324004">link</a></li>
+            <li>Wang Q, Wang K, Wu W, Giannoulatou E, <strong>Ho JWK</strong>, Li L (2019) <a
+                href="http://doi.org/10.1007%2Fs12551-018-0491-7">Host and microbiome multi-omics integration:
+                applications and
+                methodologies</a>. <em><strong>Biophysical Reviews</strong></em>, 11, 55-65</li>
+            <li>Kabir MH, Patrick R, <strong>Ho JWK^</strong>, O'Connor MD^ (2018) <a
+                href="https://bmcsystbiol.biomedcentral.com/articles/10.1186/s12918-018-0655-x">Identification of active
+                signaling pathways by intergrating gene expression and protein interaction data</a>. <em><strong>BMC
+                  Systems
+                  Biology</strong></em>, 12(Suppl 9), 120</li>
+            <li>Kabir MH, Djordjevic D, O'Connor MD, <strong>Ho JWK</strong> (2018) <a
+                href="https://linkinghub.elsevier.com/retrieve/pii/S1476927118301592">C3: An R package for cross-species
+                compendium-based cell-type identification</a>. <em><strong>Computational Biology and
+                  Chemistry</strong></em>,
+              77, 187-192. Preprint available at bioRxiv: <a
+                href="https://www.biorxiv.org/content/early/2018/02/19/267880">link</a></li>
+            <li>Szot JO, Cuny H, Blue GM, Humphreys DT, Ip E, Harrison K, Sholler GF, Giannoulatou E, Leo P, Duncan EL,
+              Sparrow
+              DB, <strong>Ho JWK</strong>, Graham RM, Pachter N, Chapman G, Winlaw DS, Dunwoodie SL (2018) <a
+                href="http://circgenetics.ahajournals.org/content/11/3/e001978">A screening approach to identify
+                clinically
+                actionable variants causing congenital heart disease in exome data</a>. <em><strong>Circulation:
+                  Genomics and
+                  Precision Medicine</strong></em>, 11, e001978.</li>
+            <li>Nie S*, Wang X*, Sivakumaran P*, Chong MMW, Liu X, Karnezis T, Bandara N, Takov K, Nowell CJ, Wilcox S,
+              Shambrook M, Hill AF, Harris NC, Newcomb AE, Strappe P, Shayan R, Hernandez D, Clarke J, Hanssen E,
+              Davidson SM,
+              Dusting GJ, Pebay A, <strong>Ho JWK</strong>, Williamson N, Lim SY (2018) <a
+                href="https://www.nature.com/articles/s41598-018-19855-4">Human W8B2+ cardiac stem cells: Biologically
+                active
+                constituents of the secretome</a>. <em><strong>Scientific Reports</strong></em>, 8, 1579</li>
+            <li>Palade J*, Djordjevic D*, Hutchins ED, George RM, Cornelius JA, Rawls A, <strong>Ho JWK</strong>, Kusumi
+              K^,
+              Wilson-Rawls J^ (2018) <a
+                href="https://www.sciencedirect.com/science/article/pii/S0012160617302877">Identification of satellite
+                cells
+                from anole lizard skeletal muscle and demonstration of expanded musculoskeletal potential</a>.
+              <em><strong>Developmental Biology</strong></em>, 433(2), 344-356</li>
+            <li>Murphy P, Kabir HM, Srivastava T, Mason ME, Dewi CU, Lim S, Yang A, Djordjevic D, Killingsworth M,
+              <strong>Ho
+                JWK</strong>, Harman DG, O'Connor MD (2018) <a
+                href="http://dev.biologists.org/content/145/1/dev155838">Light-focusing human micro-lenses generated
+                from
+                pluripotent stem cells model lens development and drug-induced cataract <i>in vitro</i></a>.
+              <em><strong>Development</strong></em>, 145, dev155838</li>
+            <li>Kakrana A*, Yang A*, Anand D, Djordjevic D, Ramachandruni D, Singh A, Huang H, <strong>Ho JWK^</strong>,
+              Lachke
+              SA^ (2018) <a href="https://academic.oup.com/nar/article/46/D1/D875/4161993">iSyTE 2.0: a database for
+                expression-based gene discovery in the eye.</a> <em><strong>Nucleic Acids Research</strong></em>,
+              46(D1),
+              D875-D885</li>
+            <li>Eaton SA, Aiken AJ, Young PE, <strong>Ho JWK</strong>, Cropley JE, Suter CM (2018) <a
+                href="https://www.nature.com/articles/ijo2017247">Maternal obesity heritably perturbs offspring
+                metabolism for
+                three generations without serial programming</a>. <em><strong>International Journal of
+                  Obesity</strong></em>,
+              42, 911-914</li>
+            <li>Lipskind S, Lindsey JS, Gerami-Naini B, Eaton JL, O'Connell D, Kiezun A, <strong>Ho JWK</strong>, Ng N,
+              Parasar
+              P, Ng M, Nickerson M, Demirci U, Maas R, Anchan RM (2018) <a
+                href="http://journals.sagepub.com/doi/10.1177/1933719117725814">An embryonic and induced pluripotent
+                stem cell
+                model for ovarian granulosa cell development and steroidogenesis</a>. <em><strong>Reproductive
+                  Sciences</strong></em>, 25(5), 712-726</li>
+            <li>Wang X, Lin P, <strong>Ho JWK</strong> (2018) <a
+                href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4340-z">Discovery of cell-type
+                specific
+                DNA motif grammar in cis-regulatory elements using Random Forest</a>. <em><strong>BMC
+                  Genomics</strong></em>,
+              19(Suppl 1), 929</li>
+            <li>Rizzetto S, Eltahla AA, Lin P, Bull R, Lloyd A, <strong>Ho JWK</strong>, Venturi V, Luciani F (2017) <a
+                href="https://www.nature.com/articles/s41598-017-12989-x">Impact of sequencing depth and read length on
+                single
+                cell RNA sequencing data: Lessons from T cells</a>. <em><strong>Scientific Reports</strong></em>, 7,
+              12781</li>
+            <li><strong>Ho JWK</strong>, Grant GH (2017) <a
+                href="https://link.springer.com/article/10.1007/s12551-017-0282-6">Modelling, inference and big data in
+                biophysics</a>. <em><strong>Biophysical Reviews</strong></em>, 9(4), 297-298</li>
+            <li>Shi H, Enriquez A, Rapadas M, Martin EMMA, Wang R, Moreau J, Lim CK, Szot JO, Ip E, Hughes J, Sugimoto
+              K,
+              Humphreys D, McInerney-Leo AM, Leo PJ, Maghzal GJ, Halliday J, Smith J, Colley A, Mark PR, Collins F,
+              Sillence DO,
+              Winlaw DS, <strong>Ho JWK</strong>, Guillemin GJ, Brown MA, Kikuchi K, Thomas PQ, Stocker R, Giannoulatou
+              E,
+              Chapman G, Duncan EL, Sparrow DB, Dunwoodie SL (2017) <a
+                href="http://www.nejm.org/doi/full/10.1056/NEJMoa1616361">NAD Deficiency, Congenital Malformations and
+                Niacin
+                Supplementation</a>. <em><strong>New England Journal of Medicine</strong></em>, 377, 544-552</li>
+            <li>Yang A, Troup M, <strong>Ho JWK</strong> (2017) <a
+                href="http://www.sciencedirect.com/science/article/pii/S200103701730048X"> Scalability and validation of
+                big
+                data bioinformatics software</a>. <em><strong>Computational and Structural Biotechnology
+                  Journal</strong></em>,
+              15, 379-386</li>
+            <li>Lin P, Troup M, <strong>Ho JWK</strong> (2017) <a
+                href="http://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1188-0">CIDR: Ultrafast and
+                accurate
+                clustering through imputation for single-cell RNA-seq data</a>. <em><strong>Genome
+                  Biology</strong></em>, 18, 59
+            </li>
+            <li>Tang JYS, Yang A, Chen TY, <strong>Ho JWK</strong> (2017) <a
+                href="http://dl.acm.org/citation.cfm?id=3103627">Harnessing multiple source test cases in metamorphic
+                testing: A
+                case study in bioinformatics</a>. In <em><strong>Proceedings of the IEEE/ACM 2nd International Workshop
+                  on
+                  Metamorphic Testing</strong></em>, 10-13</li>
+            <li>Yang P, Oldfield A, Kim T, Yang A, Yang JYH, <strong>Ho JWK</strong> (2017) <a
+                href="https://academic.oup.com/bioinformatics/article/2995820/Integrative-analysis-identifies-co-dependent-gene">Integrative
+                analysis identifies co-dependent gene expression regulation of BRG1 and CHD7 at distal regulatory sites
+                in
+                embryonic stem cells</a>. <em><strong>Bioinformatics</strong></em>, 33(13), 1916-1920</li>
+            <li>Szot PS, Yang A, Wang X, Parsania C, Röhm W, Wong KH, <strong>Ho JWK</strong> (2017) <a
+                href="http://nar.oxfordjournals.org/content/early/2017/01/17/nar.gkw1358.full">PBrowse: A web-based
+                platform for
+                real-time collaborative exploration of genomic data</a>. <em><strong>Nucleic Acids
+                  Research</strong></em>, 45
+              (9): e67</li>
+            <li>Yang A, Troup M, Lin P, <strong>Ho JWK</strong> (2017) <a
+                href="https://doi.org/10.1093/bioinformatics/btw732">Falco: A quick and flexible single-cell RNA-seq
+                processing
+                framework on the cloud</a>. <strong><em>Bioinformatics</em></strong>, 33(5), 767-769</li>
+            <li>Djordjevic D, Kusumi K, <strong>Ho JWK</strong> (2016) <a
+                href="http://bioinformatics.oxfordjournals.org/content/32/17/i620.full">XGSA: A statistical method for
+                cross-species gene set analysis</a>. <em><strong>Bioinformatics</strong></em>, 32(17), i620-i628</li>
+            <li>Cropley JE, Eaton SA, Aiken A, Young PE, Giannoulatou E, <strong>Ho JWK</strong>, Buckland ME, Keam SP,
+              Hutvagner, Humphreys DT, Langley KG, Henstridge DC, Martin DIK, Febbraio MA, Suter CM (2016) <a
+                href="http://www.molmetab.com/article/S2212-8778(16)30071-0/abstract">Male-lineage transmission of an
+                acquired
+                metabolic phenotype induced by grand-paternal obesity</a>. <strong><em>Molecular
+                  Metabolism</em></strong>, 5(8),
+              699-708</li>
+            <li>Troup M, Yang A, Kamali AH, Giannoulatou E, Chen TY, <strong>Ho JWK</strong> (2016) <a
+                href="http://www.cs.montana.edu/met16/index.html@p=19.html">A cloud-based framework for applying
+                metamorphic
+                testing to a bioinformatics pipeline</a>. In <strong><em>Proceedings of the IEEE/ACM 1st International
+                  Workshop
+                  on Metamorphic Testing</em></strong>, 33-36</li>
+            <li>Zhang Y, Fan J, <strong>Ho JWK</strong>, Hu T, Kneeland SC, Fan X, Xi Q, Sellarole MA, de Vries WN, Lu
+              W, Lachke
+              SA, Lang RA, John SWM, Maas RL (2016) <a href="http://dev.biologists.org/content/143/2/356.long">Crim
+                regulates
+                integrin signaling in murine lens development</a>. <strong><em>Development</em></strong>, 143(2),
+              356-366</li>
+            <li>Al-Zyoud WA, Hynson RMG, Grnuelas LA, Coster ACF, Duff AP, Baker MAB, Stewart AG, Giannoulatou E,
+              <strong>Ho
+                JWK</strong>, Gaus K, Liu D, Lee LK, Boecking T (2016) <a
+                href="http://nar.oxfordjournals.org/content/44/3/1411">Binding of transcription factor GabR to DNA
+                requires
+                recognition of DNA shape at a location distinct from its cognate binding site</a>. <strong><em>Nucleic
+                  Acids
+                  Research</em></strong>, 44(3), 1411-1420</li>
+            <li>Kamali AH, Giannoulatou E, Chen TY, Charleston MA, McEwan AL, <strong>Ho JWK</strong> (2015) <a
+                title="Biophysical Reviews" href="http://link.springer.com/article/10.1007/s12551-015-0177-3">How to
+                test
+                bioinformatics software?</a> <strong><em>Biophysical Reviews</em></strong> 7(3), 343-352</li>
+            <li>Sohn KA*, <strong>Ho JWK*</strong>, Djordjevic D, Jeong HH, Park PJ, Kim JH (2015) <a
+                title="Bioinformatics" href="http://bioinformatics.oxfordjournals.org/content/31/13/2066">hiHMM:
+                Bayesian non-parametric joint
+                inference of chromatin state maps</a>. <strong><em>Bioinformatics</em></strong> 31(13), 2066-2074</li>
+            <li>Anchan R, Gerami-Naini B, Lindsey JS, <strong>Ho JWK</strong>, Kiezun A, Lipskind S, Ng N, LiCausi JA,
+              Kim CS,
+              Brezina P, Tuschl T, Maas RL, Kearns WG, Williams Z (2015)<a title="PLoS One"
+                href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0119275">Efficient
+                differentiation of
+                steroidogenic and germ-like cells from epigenetically-related iPSCs derived from ovarian granulosa
+                cells</a>.
+              <strong><em>PLoS One</em></strong>, 10(3),e0119275</li>
+            <li>Djordjevic D, Deshpande V, Szczesnik T, Yang A, Humphreys DT, Giannoulatou E, <strong>Ho JWK</strong>
+              (2015) <a href="http://link.springer.com/article/10.1007/s12551-014-0145-3">Decoding the complex genetic
+                causes of heart
+                diseases using systems biology</a>. <strong><em>Biophysical Reviews</em></strong> 7, 141-159</li>
+            <li>Blue GM, Kirk EP, Giannoulatou E, Dunwoodie SL, <strong>Ho JWK</strong>, Hilton DCK, White SM, Sholler
+              GF,
+              Harvey RP, Winlaw DS (2014) <a
+                href="http://content.onlinejacc.org/article.aspx?articleid=2022256">Targeted
+                Next-Generation Sequencing Identifies Pathogenic Variants in Familial Congenital Heart Disease</a>.
+              <strong><em>Journal of American College of Cardiology</em></strong>, 64(23):2498-2506 <span
+                classname="significant-paper">[Editorial comment by <a
+                  href="http://content.onlinejacc.org/article.aspx?articleID=2022257">JACC</a>]</span></li>
+            <li>Djordjevic D, Yang A, Zadoorian A, Rungrugeecharoen K, <strong>Ho JWK</strong> (2014) <a
+                href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0111661">How difficult is
+                inference of
+                mammalian causal gene regulatory networks?</a> <strong><em>PLoS One</em></strong>, 9(11), e111661 <span
+                classname="significant-paper">[Recommended by <a
+                  href="http://f1000.com/prime/725223355">F1000Prime</a>]</span>
+            </li>
+            <li>Giannoulatou E, Park SH, Humphreys DT, <strong>Ho JWK</strong> (2014) <a
+                href="http://www.biomedcentral.com/1471-2105/15/S16/S15">Verification and validation of bioinformatics
+                software
+                without a gold standard: A case study of BWA and Bowtie.</a> <strong><em>BMC
+                  Bioinformatics</em></strong>,
+              15(Suppl 16), S15</li>
+            <li><strong>Ho JWK*</strong>, Jung YL*, Liu T*, Alver BH, Lee S, Ikegami K, Sohn KA, Minoda A, Tolstorukov
+              MY,
+              Appert A, Parker SCJ, Gu T, Kundaje Anshul, Riddle NC, Bishop E, Egelhofer TA, Hu SS, Alekseyenko AA,
+              Rechtsteiner
+              A, Asker D, Belsky JA, Bowman SA, Chen QB, Chen RAJ , Day DS, Dong Y, Dose AC, Duan X, Epstein CB, Ercan
+              S,
+              Feingold EA, Ferrari F, Garrigues JM, Gehlenborg N, Good PJ, Haseley P, He D, Herrmann M, Hoffman MM,
+              Jeffers TE,
+              Kharchenko PV, Kolasinska-Zwierz P, Kotwaliwale CV, Kumar N, Langley SA, Larschan EN, Latorre I, Libbrecht
+              MW, Lin
+              X, Park R, Pazin MJ, Pham HN, Plachetka A, Qin B, Schwartz YB, Shoresh N, Stempor P, Vielle A, Wang C,
+              Whittle CM,
+              Xue H, Kingston RE, Kim JH, Bernstein BE, Dernburg AF, Pirrotta V, Kuroda MI, Noble WS, Tullius TD, Kellis
+              M,
+              MacAlpine DM, Strome S, Elgin SCR, Liu XS, Lieb JD, AhringerJ, Karpen GH, Park PJ (2014) <a
+                href="http://www.nature.com/nature/journal/v512/n7515/full/nature13415.html">Comparative analysis of
+                metazoan
+                chromatin organization</a>. <strong><em>Nature</em></strong>, 512(7515), 449-52 <span
+                classname="significant-paper">[News and Views by <a
+                  href="http://www.nature.com/nature/journal/v512/n7515/full/512374a.html">Nature</a>]</span></li>
+            <li>Jung Y, Luquette L, <strong>Ho JWK</strong>, Ferrari F, Tolstorukov M, Minoda A, Issner R, Epstein C,
+              Karpen G,
+              Kuroda M, Park PJ (2014)<a href="http://nar.oxfordjournals.org/content/42/9/e74.full">Impact of sequencing
+                depth
+                in ChIP-seq experiments</a>. <strong><em>Nucleic Acids Research</em></strong>, 42(9), e74</li>
+            <li>Zhang B*, Day DS*, <strong>Ho JW</strong>, Song L, Cao J, Christodoulou D, Seidman JG, Crawford GE, Park
+              PJ, Pu
+              WT (2013)<a href="http://genome.cshlp.org/content/early/2013/04/01/gr.149674.112.abstract">A dynamic
+                H3K27ac
+                signature identifies VEGF-stimulated endothelial enhancers and requires EP300 activity</a>.
+              <strong><em>Genome
+                  Research</em></strong>, 23(6), 917-927</li>
+            <li>Lin MW*, <strong>Ho JWK*</strong>, Harrison LC, dos Remedios CG, Adelstein S. (2013) <a
+                href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0058199">An antibody leukocyte
+                capture
+                microarrayin the diagnosis of Systemic Lupus Erythematosus</a>. <strong><em>PLoS One</em></strong>,
+              8(3), e58199
+            </li>
+            <li>Chen L, Chen Z, Baker K, Halvorsen EM, da Cunha AP, Flak MB, Gerber G, Huang Y-H, Hosomi S, Arthur JC,
+              Dery KJ,
+              Nagaishi T, Beauchemin N, Holmes KV, <strong>Ho JWK</strong>, Shively JE,Jobin C, Onderdonk AB, Bry L,
+              Weiner HL,
+              Higgins DE, Blumberg RS. (2012) <a
+                href="http://www.sciencedirect.com/science/article/pii/S107476131200461X">The
+                Short isoform of the CEACAM1 receptor inintestinal T cells regulates mucosal immunity and homeostasis
+                via Tfh
+                cell induction</a>. <strong><em>Immunity</em></strong>, 37, 930-946</li>
+            <li><strong>Ho JWK</strong> (2012) <a
+                href="http://www.springerlink.com/content/h535274748k61313/">Application of a
+                systems approach to studydevelopmental gene regulation</a>. <strong><em>Biophysical
+                  Reviews</em></strong>, 4(3),
+              245-253</li>
+            <li>Jumlongras D*, Lachke SA*, O'Connell DJ, Aboukhalil A, Li X, Choe SE, <strong>Ho JWK</strong>,
+              Turbe-Doan A,
+              Robertson EA, Olsen BR, Bulyk ML, Amendt BA, Maas RL. (2012) <a
+                href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0038568">An evolutionarily
+                conserved
+                enhancerregulates Bmp4 expression in developing incisor and limb bud</a>. <strong><em>PLoS
+                  One</em></strong>,
+              7(6), e38568</li>
+            <li>Alekseyenko AA*, <strong>Ho JWK*</strong>, Peng S*, Gelbart M, Tolstorukov M, Plachetka A, Kharchenko
+              PV, Jung
+              YL, Gorchakov AA, Larschan E, Gu T, Minoda A, Riddle NC, Schwartz YB,Elgin SCR, Karpen GH, Pirrotta V,
+              Kuroda MI,
+              Park PJ (2012) <a href="http://www.plosgenetics.org/article/info%3Adoi%2F10.1371%2Fjournal.pgen.1002646">
+                Sequence-specific targeting ofdosage compensation in Drosophila favors an active chromatin context</a>.
+              <strong><em>PLoS Genetics</em></strong>, 8, e1002646</li>
+            <li>Lachke SA*, <strong>Ho JWK*</strong>, Kryukov GV*, O'Connell DJ, Aboukhalil A, Bulyk M, Park PJ, Maas RL
+              (2012)
+              <a href="http://www.iovs.org/content/early/2012/02/02/iovs.11-8839.abstract"><em>iSyTE</em>: integrated
+                systems
+                tool for eyegene discovery</a>. <strong><em>Investigative Ophthalmology &amp; Visual
+                  Sciences</em></strong>, 53,
+              1617-1627</li>
+            <li>O'Connell DJ*, <strong>Ho JWK*</strong>, Mammoto T, Turbe-Doan A, O'Connell JT, Haseley PS, Koo S,
+              Kamiya N,
+              Ingber DE, Park PJ, Maas RL (2012) <a
+                href="http://stke.sciencemag.org/cgi/content/abstract/sigtrans;5/206/ra4">A
+                Wnt-Bmp feedback circuit controls intertissuesignaling dynamics in tooth organogenesis</a>.
+              <strong><em>Science
+                  Signaling</em></strong>, 5, ra4 <span classname="significant-paper">[Featured on the cover of this
+                issue ofthe
+                journal]</span></li>
+            <li>Sadi MS, Kuo FC, <strong>Ho JWK</strong>, Charleston MA, Chen TY (2011) <a
+                href="http://www.worldscinet.com/jbcb/09/0906/S021972001100563X.html">Verification of phylogenetic
+                inference
+                programsusing metamorphic testing</a>. <strong><em>Journal of Bioinformatics and Computational
+                  Biology</em></strong>, 6, 729-747</li>
+            <li>Zacharek SJ, Fillmore CM, Gludish D, Zamponi R, Chou A, <strong>Ho JWK</strong>, Gazit R, Bock C, Jager
+              N, Smith
+              ZD, Lee J-H, Lau A, Kim T, Roach RR, Rossi DJ, Meissner A,Gimelbrant AA, Park PJ, Kim CF (2011) <a
+                href="http://www.cell.com/cell-stem-cell/abstract/S1934-5909%2811%2900337-7">Lungstem cell self-renewal
+                relies
+                on Bmi1-dependent control of expression at imprinted loci</a>. <strong><em>Cell Stem Cell</em></strong>,
+              9,
+              272-281</li>
+            <li><strong>Ho JWK</strong>, Bishop E, Kharchenko PV, Negre N, White K, Park PJ (2011) <a
+                href="http://www.biomedcentral.com/1471-2164/12/134">ChIP-chip versus ChIP-seq: Lessons for experimental
+                design
+                and data analysis</a>. <strong><em>BMC Genomics</em></strong>, 12, 134 <span
+                classname="significant-paper">[labeled as "Highly accessed" by BMC Bioinformatics]</span></li>
+            <li><strong>Ho JWK</strong>, Charleston MA (2011) <a
+                href="http://www.springerlink.com/content/w835g4p68901186q/">Network modeling of gene regulation.</a>
+              <strong><em>Biophysical Reviews</em></strong>, 3, 1-13</li>
+            <li>Xie X, <strong>Ho JWK</strong> , Murphy C, Kaiser G, Xu B, Chen TY (2011) <a
+                href="http://dx.doi.org/10.1016/j.jss.2010.11.920">Testing and Validating Machine Learning Classifiers
+                by
+                Metamorphic Testing.</a> <strong><em>Journal of Systems and Software</em></strong>, 84, 544-558</li>
+            <li>Yang P*, <strong>Ho JWK*</strong>, Yang YH, Zhou BB (2011) <a
+                href="http://www.biomedcentral.com.ezp-prod1.hul.harvard.edu/1471-2105/12/S1/S10">Gene-gene interaction
+                filtering withensemble of filters</a>. <strong><em>BMC Bioinformatics</em></strong>, 12, S10</li>
+            <li>Yang P, <strong>Ho JWK</strong>, Zomaya AY, Zhou BB (2010) <a
+                href="http://www.biomedcentral.com/1471-2105/11/524">A genetic ensemble approach for gene-gene
+                interactionidentification</a>. <strong><em>BMC Bioinformatics</em></strong>, 11, 524 <span
+                classname="significant-paper">[labeled as "Highly accessed" by BMC Bioinformatics]</span></li>
+            <li>dos Remedios CG, Estigoy C, Cameron D, <strong>Ho JWK</strong>, Herbert B, Padula M, Pickford R,
+              Guilhaus M,
+              Odeberg J, Ponten F (2010) <a
+                href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B94RW-4Y7W930-50F&amp;_user=209690&amp;_coverDate=01%2F31%2F2010&amp;_rdoc=1&amp;_fmt=high&amp;_orig=search&amp;_sort=d&amp;_docanchor=&amp;view=c&amp;_acct=C000014438&amp;_version=1&amp;_urlVersion=0&amp;_userid=209690&amp;md5=07c031915ff3281e13ee8beff1f9adec">Proteomics
+                of Human Cardiac Intercalated Disc: A more Complex Multi-Functional Structure than was Previously
+                Thought.
+              </a><strong><em>Biophysical Journal</em></strong> 98: 755a-756a</li>
+            <li>Kong SW*, Hu YW*, <strong>Ho JWK</strong>, Ikeda S, Polster S, John R, Hall JL, Bisping E, Pieske B, dos
+              Remedios CG, Pu WT (2010)<a
+                href="http://circgenetics.ahajournals.org/cgi/content/short/CIRCGENETICS.109.904698v1">Heart Failure
+                Associated
+                Changesin RNA Splicing of Sarcomere Genes</a>. <strong><em>Circulation Cardiovasular
+                  Genetics</em></strong>, 3,
+              138-146</li>
+            <li><strong>Ho JWK*</strong>, Lin MW*, Braet F, Su YY, Adelstein S, dos Remedios CG (2010) <a
+                href="http://www3.interscience.wiley.com/journal/123197636/abstract">Customising an antibodyleukocyte
+                capture
+                microarray for Systemic Lupus Erythematosus: Beyond biomarker discovery</a>. <strong><em>Proteomics
+                  Clinical
+                  Applications</em></strong>, 4, 179-189 <span classname="significant-paper">[Featured on the cover of
+                this
+                issue of the journal]</span></li>
+            <li><strong>Ho JWK</strong>, Stefani M, dos Remedios CG, Charleston MA (2009) <a
+                href="http://www.biomedcentral.com/1471-2164/10/S3/S16">A model selection approach to
+                discoverage-dependent gene
+                expression patterns using quantile regression models</a>. <strong><em>BMC Genomics</em></strong>, 10,
+              S16</li>
+            <li>Xie X, <strong>Ho J</strong> Murphy C, Kaiser G, Xu B, Chen TY (2009) <a
+                href="www.ncbi.nlm.nih.gov/pmc/articles/PMC3019603/">Application of Metamorphic Testing to Supervised
+                Classifiers</a>. In <strong><em>Proceedings of The 9th International Conference on Quality
+                  Software</em></strong> <span classname="significant-paper">[Winner of the best paper award]</span>
+            </li>
+            <li>Mohamed A, Koundinya R, Junius F, Dyer W, Yong A, <strong>Ho J</strong>, Kritharides L, Freedman B, dos
+              Remedios
+              C (2009) <a
+                href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B7CW2-4WRDYCW-8W&amp;_user=115085&amp;_coverDate=12%2F31%2F2009&amp;_rdoc=249&amp;_fmt=high&amp;_orig=browse&amp;_srch=doc-info(%23toc%2318094%232009%23999819999.8996%231301077%23FLA%23display%23Volume)&amp;_cdi=18094&amp;_sort=d&amp;_docanchor=&amp;view=c&amp;_ct=705&amp;_acct=C000008818&amp;_version=1&amp;_urlVersion=0&amp;_userid=115085&amp;md5=c09efdae9abe1be6df359ef223abc2a6">CD
+                antibodymicroarrays as an objective tool to differentiate between inflammatory conditions of coronary
+                arteries</a>. In <strong><em>Heart, Lung and Circulation</em></strong>, 18S, S110</li>
+            <li>Estigoy CB, Ponten F, Odeberg J, Herbert B, Guilhaus M, Charleston M, <strong>Ho JWK</strong>, Cameron
+              D, dos
+              RemediosCG (2009) <a
+                href="http://www.springerlink.com/content/t31143634442/?p=f56b28aaa7724c49998cddddc426ed55&amp;pi=0">IntercalatedDiscs:
+                Multiple proteins perform multiple functions in non-failing and failing human hearts</a>.
+              <strong><em>Biophysical Reviews</em></strong>, 1, 43-49</li>
+            <li>Chen TY, <strong>Ho JWK</strong>, Liu H, Xie X (2009) <a
+                href="http://www.biomedcentral.com/1471-2105/10/24/abstract">An innovative approach for testing
+                bioinformatics
+                programsusing metamorphic testing</a>. <strong><em>BMC Bioinformatics</em></strong>, 10, 24 <span
+                classname="significant-paper">[labeled as "Highly accessed" by BMC Bioinformatics]</span></li>
+            <li>Hassan MR, Hossain MM, Bailey J, Macintyre G, <strong>Ho JWK</strong>, Kotagiri R (2009) <a
+                href="http://www.biomedcentral.com/1471-2105/10/S1/S19">A voting approach to identify a small number of
+                highly
+                predictivegenes using multiple classifiers</a>. <strong><em>BMC Bioinformatics</em></strong>, 10, S19
+            </li>
+            <li><strong>Ho JWK</strong>, Koundinya R, Caetano TS, dos Remedios CG, Charleston MA (2008) <a
+                href="http://www.jsbi.org/pdfs/journal1/GIW08/GIW08011.pdf">Inferring differential leukocyteactivity
+                from
+                antibody microarrays using a latent variable model</a>. <strong><em>Genome Informatics</em></strong>,
+              21,
+              126-137</li>
+            <li><strong>Ho JWK</strong>, Stefani M, dos Remedios CG, Charleston MA (2008) <a
+                href="http://bioinformatics.oxfordjournals.org/cgi/content/full/24/13/i390">Differential variability
+                analysis of
+                gene expression and its application to human diseases</a>, <strong><em>Bioinformatics</em></strong>, 24,
+              i390-i398</li>
+            <li><strong>Ho JWK</strong>, Charleston MA (2007) <a href="Papers/ICSB2007.pdf">Modeling the Evolution of
+                GeneRegulatory Networks</a>. <strong><em>In Proceedings of The Eighth International Conference on
+                  Systems
+                  Biology (ICSB 2007)</em></strong>, Long Beach, USA</li>
+            <li><strong>Ho JWK</strong>, Morrissey B, Downard KM (2007) <a
+                href="http://www.ncbi.nlm.nih.gov/pubmed/17161618">A
+                ComputerAlgorithm for the Identification of Protein Interaction from the Spectra of Masses (PRISM)</a>.
+              <strong><em>Journal of American Society of Mass Spectrometry</em></strong>, 18, 563-566</li>
+            <li><strong>Ho JWK</strong>, Adams CE, Lew JB, Matthews TJ, Ng CC, Shahabi-Sirjani A, Tan LH, Zhao Y,
+              Easteal S,
+              Wilson SR, Jermiin LS(2006) <a
+                href="http://bioinformatics.oxfordjournals.org/cgi/content/full/22/17/2162">SeqVis:
+                Visualization ofcompositional heterogeneity in large alignments of nucleotides</a>.
+              <strong><em>Bioinformatics</em></strong>, 22(17), 2162-2163</li>
+            <li><strong>Ho JWK</strong>, Manwaring T, Hong SH, Roehm U, Fung DCY, Xu K, Kraska T, Hart D (2006) <a
+                href="http://sydney.edu.au/engineering/it/~visual/valacon/pdf/papers/CGIV06-PathBank.pdf">PathBank:
+                Web-based
+                Querying and Visualization of an IntegratedBiological Pathway Database</a>. In Banissi E, Sarfraz M,
+              Huang ML,
+              Wu Q (Eds) <strong><em>Computer Graphics, Imaging and Visualization - Techniquesand Application
+                  (Proceedings of
+                  CGIV2006)</em></strong>, IEEE Computer Society,84-89</li>
+            <li><strong>Ho J</strong>, Lukov L, Chawla S (2005) <a href="Papers/comad2005b_9.pdf">Sequential Pattern
+                Mining with
+                Constraints on Large Protein Databases</a>. InChakrabarti S, Sudarshan S, Radha Krishnan P (Eds)
+              <strong><em>Proceedings of the 12th International Conference on Management of Data
+                  (COMAD2005b)</em></strong>,
+              89-100</li>
+            <li><strong>Ho J</strong>, Hong SH (2005) <a
+                href="http://sydney.edu.au/engineering/it/~visual/valacon/pdf/papers/GD05-ClusteredGraphs.pdf">Drawing
+                Clustered
+                Graph in Three Dimensions</a>. In Haely P, Nikolov NS (Eds) <strong><em>Proceedings of the 13th
+                  International
+                  Symposium of Graph Drawing (GD2005)</em></strong>. Lecture Notes in Computer Science, Springer,
+              492-502</li>
+            <li>Ahmed A, Dwyer T, Foster M, Fu X, <strong>Ho J</strong>, Hong SH, Koschutzki D, Murray C, Nikolov N,
+              Taib R,
+              Tarassov A, Xu K, (2005) <a href="http://sydney.edu.au/engineering/it/~cmurray/geomi.pdf">GEOMI:GEOmetry
+                for
+                Maximum Insight</a>. In Haely P, Nikolov NS (Eds) <strong><em>Proceedings of the 13th International
+                  Symposium of
+                  Graph Drawing(GD2005)</em></strong>. Lecture Notes in Computer Science, Springer, 468-479</li>
+          </ol>
+
+
+
+        </div>
+
+        <!-- </div> -->
+
+
+
+      </div>
+    </section>
+
+
+    <section id="software" class="software">
+      <div class="container">
+
+        <h2 class="text-center">Software</h2>
+
+          <ul>
+            <li><a href="https://github.com/VCCRI/CIDR">CIDR</a> is an R package thay implements an ultrafast and accurate
+              dimensionality reduction and clustering algorithm for single-cell RNA-seq data. The method is described in this <a
+                href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1188-0"><i>Genome Biology</i></a>
+              paper.</li>
+            <li><a href="https://github.com/VCCRI/Falco">Falco</a> is flexible big data framework for fast processing of
+              single-cell RNA-seq data on the cloud. The method is described in this <a
+                href="http://bioinformatics.oxfordjournals.org/content/early/2016/12/24/bioinformatics.btw732.abstract"><i>Bioinformatics</i></a>
+              paper.</li>
+            <li><a href="https://github.com/VCCRI/PBrowse">PBrowse</a> is web-based platform for real-time collaborative
+              exploration and sharing of genomic data. A test server can be found <a
+                href="http://pbrowse.victorchang.edu.au/">here</a>. The method is described in this <a
+                href="http://dx.doi.org/10.1093/nar/gkw1358"><i>Nucleic Acids Research</i></a> paper.</li>
+            <li><a href="https://github.com/VCCRI/PAD">PAD</a> is a web-based bioinformatics tool for analysing transcription
+              factor (TF) co-binding at gene-proximal or distal regulatory elements in mouse embryonic stem cells. A test server
+              can be found <a href="http://pad.victorchang.edu.au/">here</a>. The method is described in this <a
+                href="https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btx092"><i>Bioinformatics</i></a>
+              paper. </li>
+            <li><a href="https://github.com/VCCRI/XGSA">XGSA</a> is an R package that implements our statistical method for
+              cross-species gene set analysis. A full description of the method can be found in this <a
+                href="http://bioinformatics.oxfordjournals.org/content/32/17/i620.full"><i>Bioinformatics</i> paper</a>.</li>
+            <li><a href="http://modencode.med.harvard.edu/data_sets/chromatin/">ENCODE-X Cross-species chromatin data
+                browser</a> is an online portal for ENCODE and modENCODE chromatin datasets. A full description of the data can
+              be found in our <a href="http://www.nature.com/nature/journal/v512/n7515/full/nature13415.html"><i>Nature</i>
+                paper</a>.</li>
+            <li><a href="https://github.com/kasohn/hiHMM">hiHMM</a> is a new Bayesian non-parametric method to jointly infer
+              chromatin state maps in multiple genomes (different cell types, developmental stages, even multiple species) using
+              genome-wide histone modification data.</li>
+            <li><a href="http://compbio.med.harvard.edu/ToothCODE/">ToothCODE</a> is an online portal of embryonic mouse tooth
+              development data generated by the tooth regeneration team of SysCODE.</li>
+            <li><a href="http://bioinformatics.udel.edu/Research/iSyTE/">iSyTE</a> is an integrated systems tool for eye gene
+              discovery.</li>
+            <li><a href="https://github.com/hojwk/SeqVis">SeqVis</a> is a stand-alone, platform-independent Java application
+              developed with the aim to facilitate analysis and 3D visualization of compositional heterogeneity in species-rich
+              alignments of nucleotide sequences. A software website can be found <a
+                href="http://sydney.edu.au/science/biology/about_us/honorary_staff/jermiin_lars/seqvis/index.htm">here</a> and
+              <a href="http://bioinformatics.victorchang.edu.au/seqvis/">here</a></li>
+            <li><a href="https://github.com/VCCRI/SeqVis">SeqVis 2.0</a> is a web-based version of SeqVis. The demo can be found
+              here: <a href="https://vccri.github.io/SeqVis/">https://vccri.github.io/SeqVis/</a> </li>
+            <li><a href="tools/DVA_2.0.zip">DVA</a> is a R script that performs differential variability analysis. A full
+              description of this method can be found in this <a
+                href="http://bioinformatics.oxfordjournals.org/content/24/13/i390.full"><i>Bioinformatics</i> paper</a>.</li>
+            <li><a href="https://github.com/VCCRI/C3/">C3</a> is an R package for cross-species compendium-based cell-type
+              identification.</li>
+            <li><a href="https://github.com/VCCRI/GEOracle">GEOracle</a> is an R/shiny package for identifying and analysing
+              perturbation experiments in NCBI GEO. Source code can be found in <a
+                href="https://github.com/VCCRI/GEOracle">GitHub</a>.</li>
+            <li><a href="https://github.com/VCCRI/Scavenger/">Scavenger</a> a phyton tool to recover false negative unmapped
+              reads.</li>
+            <li><a href="http://bioinformatics.victorchang.edu.au/ularcirc.html">Ularcirc</a> is an R package for visualisation
+              and analysis of circular RNA.</li>
+            <li><a href="https://github.com/VCCRI/CardiacProfileR">CardiacProfileR</a> is an R package for extraction and
+              visualisation of heart rate profiles from wearable fitness trackers.</li>
+            <li><a href="https://github.com/VCCRI/starmap">starmap</a> is a web-based VR-enabled tool which combines a 3D
+              scatter plot with star plots to visualise hundreds of thousands of multivariate data points, such as single-cell
+              expression data. starmap can be accessed from a desktop, laptop or a mobile device from the following link: <a
+                href="https://vccri.github.io/starmap/">https://vccri.github.io/starmap/</a>.</li>
+            <li><a href="https://github.com/VCCRI/FlowGrid">FlowGrid</a> is an ultrafast clustering algorithm for single-cell
+              flow cytometry data. It implements a novel grid-based DBSCAN clustering algorithm.</li>
+          </ul>
+          <h3 class="">Data sets</h3>
+          <ul>
+            <li>Antibody microarray of patients with Systemic Lupus Erythematosus (<a
+                href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?&amp;acc=GSE27293">GEO</a>)</li>
+            <li>Histone modification and gene expression in dosage compensation of <i>Drosophila melanogaster</i> (<a
+                href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE34859">GEO</a>)</li>
+            <li>Developmental timecourse of mouse ocular lens and whole embryo control (<a
+                href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32334">GEO</a>)</li>
+            <li>Gene expression during embryonic mouse molar tooth development (<a
+                href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32321">GEO</a>)</li>
+          </ul>
+        </div>
+
+          </div>
+          </section>
+
+    <!-- ======= Skills Section ======= -->
+    <!-- <section id="skills" class="skills">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center skills-content">
+
+          <div class="col-xl-5 col-lg-6">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-xl-5 col-lg-6">
+
+            <div class="progress">
+              <span class="skill">PHP <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Photoshop <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Skills Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <!-- <section id="counts" class="counts section-bg">
+      <div class="container-fluid">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">232</span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">521</span>
+            <p>Projects</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,463</span>
+            <p>Hours Of Support</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">15</span>
+            <p>Hard Workers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!-- <section id="services" class="services">
+      <div class="container-fluid">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <h3>Check our <span>Services</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
+            autem.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-pie-chart-line"></i></div>
+                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                  occaecati cupiditate non provident</p>
+              </div>
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-stack-line"></i></div>
+                <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo consequat tarad limino ata</p>
+              </div>
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-markup-line"></i></div>
+                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur</p>
+              </div>
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-shape-line"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum</p>
+              </div>
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-fingerprint-line"></i></div>
+                <h4 class="title"><a href="">Nemo Enim</a></h4>
+                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                  praesentium voluptatum deleniti atque</p>
+              </div>
+              <div class="col-lg-4 col-md-6 icon-box">
+                <div class="icon"><i class="ri-body-scan-line"></i></div>
+                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+                  soluta nobis est eligendi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <!-- <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Call To Action</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
+          <a class="cta-btn" href="#">Call To Action</a>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <!-- <section id="portfolio" class="portfolio">
+      <div class="container-fluid">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <h3>Check our <span>Portfolio</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
+            autem.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container justify-content-center">
+
+          <div class="col-xl-10">
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>App 1</h4>
+                    <p>App</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="App 1"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Web 3</h4>
+                    <p>Web</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Web 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>App 2</h4>
+                    <p>App</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="App 2"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Card 2</h4>
+                    <p>Card</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Card 2"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Web 2</h4>
+                    <p>Web</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Web 2"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>App 3</h4>
+                    <p>App</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="App 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Card 1</h4>
+                    <p>Card</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Card 1"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Card 3</h4>
+                    <p>Card</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Card 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                  <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>Web 3</h4>
+                    <p>Web</p>
+                    <div class="portfolio-links">
+                      <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox"
+                        title="Web 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- <section id="testimonials" class="testimonials section-bg">
+      <div class="container-fluid">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <h3>What They <span>Are Saying</span> About Us</h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
+            autem.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="testimonial-item mt-4 mt-lg-0">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="testimonial-item mt-4">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                    tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="testimonial-item mt-4">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                    minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="testimonial-item mt-4">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
+                    culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
+                    quid.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="testimonial-item mt-4">
+                  <img src="assets/img/testimonials/testimonials-6.jpg" class="testimonial-img" alt="">
+                  <h3>Emily Harison</h3>
+                  <h4>Store Owner</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus
+                    qui iste cupiditate sed temporibus est aspernatur. Sequi officiis ea et quia quidem.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <!-- <section id="team" class="team">
+      <div class="container-fluid">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <h3>Our Hard Working <span>Team</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
+            autem.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="member">
+                  <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Walter White</h4>
+                      <span>Chief Executive Officer</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="icofont-twitter"></i></a>
+                      <a href=""><i class="icofont-facebook"></i></a>
+                      <a href=""><i class="icofont-instagram"></i></a>
+                      <a href=""><i class="icofont-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
+                <div class="member">
+                  <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Sarah Jhonson</h4>
+                      <span>Product Manager</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="icofont-twitter"></i></a>
+                      <a href=""><i class="icofont-facebook"></i></a>
+                      <a href=""><i class="icofont-instagram"></i></a>
+                      <a href=""><i class="icofont-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
+                <div class="member">
+                  <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>William Anderson</h4>
+                      <span>CTO</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="icofont-twitter"></i></a>
+                      <a href=""><i class="icofont-facebook"></i></a>
+                      <a href=""><i class="icofont-instagram"></i></a>
+                      <a href=""><i class="icofont-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+                <div class="member">
+                  <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Amanda Jepson</h4>
+                      <span>Accountant</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="icofont-twitter"></i></a>
+                      <a href=""><i class="icofont-facebook"></i></a>
+                      <a href=""><i class="icofont-instagram"></i></a>
+                      <a href=""><i class="icofont-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <h2 class="text-center">Contact</h2>
+
+          <p>Dr. Joshua W. K. Ho<br>Associate Professor <br>School of Biomedical Sciences, Li Ka Shing Faculty of Medicine<br>Rm
+            4-44, Laboratory Block, 21 Sassoon Road<br>Hong Kong SAR, China<br></p>
+          <p>Email: <a href="mailto:jwkho@hku.hk">jwkho@hku.hk</a> <br></p>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <div class="row">
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h4>Contact Us</h4>
+                <p>
+                  A108 Adam Street <br>
+                  New York, NY 535022<br>
+                  United States <br><br>
+                  <strong>Phone:</strong> +1 5589 55488 55<br>
+                  <strong>Email:</strong> info@example.com<br>
+                </p>
+
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-info">
+                <h3>About Hidayah</h3>
+                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
+                  darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Joshua Ho</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/hidayah-free-simple-html-template-for-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
