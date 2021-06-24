@@ -1,0 +1,737 @@
+--- 
+title: "Introduction to R"
+author: "Ho Lab"
+date: "`r Sys.Date()`"
+
+link-citations: yes
+description: "This is an introduction of R."
+output:
+  html_document
+---
+
+
+# Prerequisites
+
+## Windows
+### To Install R
+- Open an internet browser and go to https://cran.r-project.org/.
+- Click the "download R" link in the middle of the page under "Getting Started."
+- Select a CRAN location (a mirror site) and click the corresponding link.
+- Click on the "Download R for Windows" link at the top of the page.
+- Choose the "base" and then Click on the "Download R 4.1.0 for Windows" link at the top of the page.
+- Once the download is finished, you will obtain a file named "R-4.1.0-win.exe" or similar depending on the version of R that you download.
+- Most of the time, you will likely want to go with the defaults, so click the button 'Next' until the process is complete.
+- Now that R is installed, you need to download and install RStudio.
+
+### To Install RStudio
+- Go to www.rstudio.com and click on the "Download RStudio" button.
+- Click on "Download RStudio Desktop."
+- The installation process is very straightforward as the gif below.
+
+```{r fig1, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/windows_rs.gif")
+```
+
+## Mac OSX
+### To Install R
+- Open an internet browser and go to www.r-project.org.
+- Click the "download R" link in the middle of the page under "Getting Started."
+- Select a CRAN location (a mirror site) and click the corresponding link.
+- Click on the "Download R for (Mac) OS X" link at the top of the page.
+- Click on the file containing the latest version of R under "Files."
+- Save the ``.pkg`` file, double-click it to open, and follow the installation instructions.
+- Now that R is installed, you need to download and install RStudio.
+
+### To Install RStudio
+Very similar with Windows,
+- Go to www.rstudio.com and click on the "Download RStudio" button.
+- Click on "Download RStudio Desktop."
+- Click on the version recommended for your system, or the latest Mac version, save the ``.dmg`` file on your computer, double-click it to open, and then drag and drop it to your applications folder.
+```{r fig2, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/mac_rs.png")
+```
+
+## Ubuntu
+### To Install R
+As it is common, prior to installing R, let us update the system package index and upgrade all our installed packages using the following two commands:
+```
+sudo apt update
+sudo apt -y upgrade
+```
+After that, all that you have to do is run the following in the command line to install base R.
+```
+sudo apt -y install r-base
+```
+### To Install RStudio
+Once base R is installed, you can go ahead and install RStudio. For that we are going to head over again to the RStudio downloads page and download the ``.deb`` file for our Ubuntu version as shown in the image below:
+```{r fig3, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/ubuntu_rs.png")
+```
+
+# Data structure in R
+
+R is a free and powerful statistical software for analyzing and visualizing data. In this chapter, we provide a quick and easy introduction to R programming. With the knowledge gained in this workshop, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. So, enjoy your R journey!
+
+
+## Vectors
+
+Vectors are a fundamental concept in R, as many functions operate on and return vectors, so it is best to master these as soon as possible. For the technically inclined, in R, a (numeric) vector is an object consisting of a one-dimensional array of scalars.
+HINT: YOU can get the documentation of a function using ?. E.g `?rep`
+
+TRY:
+```{r, results='hide'}
+a <- rep(1,10)
+```
+```{r, results='hide'}
+b <- 1:10
+```
+```{r, results='hide'}
+c(a,b)
+```
+```{r, results='hide'}
+a+b
+```
+
+**Quiz**
+```
+1. What is the difference of c(a,b) and a+b
+2. Create a vector with "R" "is" "fun"
+HINT: use c()
+```
+A new vector can be created by splicing an exisiting vector with a numerical indexes.
+To produce a vector slice between two indexes, we can use the colon operator ``:``. This can be convenient for situations involving large vectors.
+How to splice your vector?
+```{r, results='hide'}
+marks <- c(50, 100, 90, 80, 70) 
+student_names <- c("Amy","Bobby","Cindy","Eddy","Dylon")
+```
+```{r, results='hide'}
+names(marks) <- student_names
+```
+```{r, results='hide'}
+marks[c(2, 3)] 
+```
+```{r, results='hide'}
+marks[c("Bobby","Cindy")] 
+```
+**Quiz**
+```
+1. Get the highest mark amongst Amy, Cindy, Dylon
+HINT: use max()
+```
+
+## Matrix
+
+Matrix is a two dimensional data structure in R programming.
+
+Matrix is similar to vector but additionally contains the dimension attribute. All attributes of an object can be checked with the ``attributes()`` function (dimension can be checked directly with the ``dim()`` function).
+
+### Make a matrix
+
+```{r, results='hide'}
+m <- matrix(1:9, nrow = 3, dimnames = list(c("X","Y","Z"), c("A","B","C")))
+#Change names
+colnames(m) <- c("C1","C2","C3")
+rownames(m) <- c("R1","R2","R3")
+```
+Make a matrix by using functions ``cbind()`` and ``rbind()`` as in column bind and row bind.
+```{r, results='hide'}
+cbind(c(1,2,3),c(4,5,6))
+rbind(c(1,2,3),c(4,5,6))
+```
+```{r, results='hide'}
+cbind(m,c(10,11,12))
+rbind(m,c(10,11,12))
+```
+We can access elements of a matrix using the square bracket [ indexing method. Elements can be accessed as var[row, column]. Here rows and columns are vectors.
+```{r, results='hide'}
+m <- matrix(1:9, nrow = 3, dimnames = list(c("X","Y","Z"), c("A","B","C")))
+# select rows 1 & 2 and columns 2 &
+m[c(1,2),c(2,3)] 
+# leaving column field blank will select entire columns
+m[c(3,2),] 
+```
+### Modify a matrix 
+Assign a value
+```
+-> ->>          rightwards assignment
+<- <<-          assignment (right to left)
+=               assignment (right to left)
+```
+Assign all elements less than 5 to 0
+```{r, results='hide'}
+m[m<5] <- 0
+```
+Transpose a matrix
+```{r, results='hide'}
+t(m)
+```
+Remove last row
+```{r, results='hide'}
+m <- m[-3,]
+# or
+m <- m[-nrow(m),]
+```
+
+
+## DataFrame & List
+
+List is a data structure having components of mixed data types.
+
+A vector having all elements of the same type is called atomic vector but a vector having elements of different type is called list.
+
+We can check if it’s a list with ``typeof()`` function and find its length using ``length()``.
+```{r, results='hide'}
+x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
+typeof(x)
+length(x)
+```
+Compactly Display the Structure of an Arbitrary R Object using ``str()``
+```{r, results='hide'}
+str(x)
+```
+Data frame is a two dimensional data structure in R. It is a special case of a list which has each component of equal length.
+```{r, results='hide'}
+x <- data.frame("SID" = 1:3, "Age" = c(23,25,21), "Name" = c("Amy","Bobby","Cindy"), "Mark" = c(100,82,75))
+```
+Accessing with ``[[`` or ``$`` is similar. However, it differs for ``[`` in that, indexing with ``[``  will return us a data frame but the other two will reduce it into a vector.
+TRY:
+```{r, results='hide'}
+x["Name"]
+x[,"Name",drop=F]
+x[["Name"]]
+x$Name
+```
+Select students with mark greater than 80 and make a new list called x_highmark.
+
+```{r, results='hide'}
+x_highmark <- x[x$Mark>80,]
+```
+
+**Quiz**
+```
+1.Select Students with mark greater than 80 and get the average age of them.
+HINT: use mean()
+```
+
+
+**What is the difference between list and dataframe?**
+
+Lists are by far the most flexible data structure in R. They can be seen as a collection of elements without any restriction on the class, length or structure of each element. The only thing you need to take care of, is that you don't give two elements the same name. 
+Data frames are a special case of list, but they have a few restrictions:
+
+- you can't use the same name for two different variables
+- all elements of a data frame are vectors
+- all elements of a data frame have an equal length.
+
+# Data manipulation
+## apply functions
+### apply()
+``apply()`` takes Data frame or matrix as an input and gives output in vector, list or array. Apply function in R is primarily used to avoid explicit uses of loop constructs. It is the most basic of all collections can be used over a matrix.
+
+```
+apply(X, MARGIN, FUN)
+Here:
+-x: an array or matrix
+-MARGIN:  take a value or range between 1 and 2 to define where to apply the function:
+-MARGIN=1: the manipulation is performed on rows
+-MARGIN=2: the manipulation is performed on columns
+-MARGIN=c(1,2) the manipulation is performed on rows and columns
+-FUN: tells which function to apply. Built functions like mean, median, sum, min, max and even user-defined functions can be applied>
+```
+Example1:
+```{r, results='hide'}
+m1 <- matrix(C<-(1:10),nrow=5, ncol=6)
+
+m1_colsum <- apply(m1, 2, sum)
+```
+Example2: a function to find standard error was created, then passed into an apply function to find the standard error of each column.
+```{r, results='hide'}
+m2 <- matrix(c(1:10, 11:20, 21:30), nrow = 10, ncol = 3)
+
+st.err <- function(x){
+  sd(x)/sqrt(length(x))
+}
+
+apply(m2, 2, st.err)
+```
+Example3: the apply function is used to transform the values in each cell
+If you set the MARGIN to 1:2 it will have the function operate on each cell.
+```{r, results='hide'}
+apply(m2, 1:2, function(x) x+3)
+```
+### lapply()
+``lapply()`` in R takes list, vector or data frame as input and gives output in list.
+```
+lapply(X, FUN)
+Arguments:
+-X: A vector or an object
+-FUN: Function applied to each element of x
+```
+Example:
+```{r, results='hide'}
+A<-c(1:9)
+B<-c(1:12)
+C<-c(1:15)
+mylist<-list(A,B,C)
+lapply(mylist, sum)
+```
+### sapply()
+``sapply()`` works just like lapply, but will simplify the output if possible. This means that instead of returning a list like lapply, it will return a vector instead.
+Example:
+```{r, results='hide'}
+sapply(mylist, sum)
+```
+### tapply()
+Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors.
+
+Example1:
+```{r, results='hide'}
+tdata <- as.data.frame(cbind(c(1,1,1,1,1,2,2,2,2,2), m2))
+tapply(tdata$V2, tdata$V1, mean)
+```
+Example2:
+```{r, results='hide'}
+summary <- tapply(tdata$V2, tdata$V1, function(x) c(mean(x), sd(x)))
+```
+##  Pattern matching
+### Find strings
+``grep(pattern, string)`` returns by default a list of indices. If the regular expression, pattern, matches a particular element in the vector string, it returns the element's index.
+
+For returning the actual matching element values, set the option value to TRUE by value=TRUE. Pattern matching in R defaults to be case sensitive. Turn the setting off with ignore.case = TRUE.(``tolower()`` and ``toupper()`` functions can convert everything to lower or upper case.)
+```{r, results='hide'}
+strings <- c("Abcd", "cdab", "ca bd")
+grep("ab", strings)
+grep("ab", strings, value = FALSE)
+grep("ab", strings, value = TRUE)
+grep("ab", strings, value = TRUE,ignore.case = TRUE)
+
+```
+### Find and replace patterns
+
+``gsub(pattern, replacement, string)`` returns the modified string after replacing every pattern occurrence with replacement in string.
+sub(pattern, replacement, string) replaces the first pattern occurrence.
+
+```{r, results='hide'}
+studentID <- c("u1000", "u1001", "u1002")
+gsub("u", "U", studentID)
+
+```
+
+### Regular expression
+**Basic**
+
+Quantifiers specify how many times that the preceding pattern should occur.
+
+- `*` : matches at least 0 times.
+- `+` : matches at least 1 times.
+- `?` : matches at most 1 times.
+- `{n}` : matches exactly n times.
+- `{n,}` : matches at least n times.
+- `{,m}` : matches at most m times.
+- `{n,m}` : matches between n and m times.
+```{r, results='hide'}
+strings <- c("a", "ab", "acb", "accb", "acccb", "accccb")
+grep("ac*b", strings, value = TRUE)
+grep("ac+b", strings, value = TRUE)
+grep("ac?b", strings, value = TRUE)
+grep("ac{2}b", strings, value = TRUE)
+grep("ac{2,}b", strings, value = TRUE)
+grep("ac{2,3}b", strings, value = TRUE)
+```
+- `^` : Start of the string.
+- `$` : End of the string.
+- `\\<` : Beginning of a word
+- `\\>` : End of a word
+```{r, results='hide'}
+strings <- c("abcd", "cdab", "cabd", "c abd", "abc","*ab")
+grep("^ab", strings, value = TRUE)
+grep("ab$", strings, value = TRUE)
+grep("\\<a", strings, value = TRUE)
+grep("c\\>", strings, value = TRUE)
+```
+- `.` : Any non-empty character
+
+- `[...]` : a permitted character list. Use `-` inside the brackets to specify a range of characters.
+
+- `[^...]` : an excluded character list. Match any characters except those inside the square brackets.
+
+- `|` : an OR operator, matches patterns on either side of the |.
+
+- `\`: Escape metacharacters in regular expression, i.e.
+```
+$ * + . ? [ ] ^ { } | ( ) \`
+```
+```{r, results='hide'}
+strings <- c("^ab", "ab", "abc", "abd", " abc d", "abe", "ab 12")
+grep("ab.", strings, value = TRUE)
+grep("ab[c-e]", strings, value = TRUE)
+grep("ab[^c]", strings, value = TRUE)
+grep("\\^ab", strings, value = TRUE)
+grep("abc|abd", strings, value = TRUE)
+```
+
+**Advance**
+
+- `[[:digit:]]` or `\\d` or `[0-9]` : digits 0 1 2 3 4 5 6 7 8 9
+- `\\D` or `[^0-9]` : non-digits
+- `[[:lower:]]` or `[a-z]` : lower-case letters
+
+- `[[:upper:]]` or `[A-Z]` : upper-case letters
+
+- `[[:alpha:]]` or `[A-z]` : alphabetic characters
+
+- `[[:alnum:]]` or `[A-z0-9]` : alphanumeric characters
+
+- `\\w` : word characters include alphanumeric characters `0-9,a-z,A-Z`, `-` and underscores `_`
+
+- `\\W` : non-word characters
+
+- `[[:blank:]]` : space and tab
+
+- `[[:space:]]` or `\\s` : space characters: tab, newline, vertical tab, form feed, carriage return, space
+
+- `\\S` : not space characters
+
+- `[[:punct:]]` : punctuation characters
+
+`! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [  ] ^ _ ` { | } ~`
+
+- `[[:cntrl:]]` or `\\c` : control characters, like ``\n`` or ``\r`` etc.
+
+Regular expressions are a concise and flexible tool for describing patterns in strings. If you are interested, there are more examples in the tutorial provided by Cran.
+https://cran.rstudio.com/web/packages/stringr/vignettes/regular-expressions.html
+
+# Basic Statistics
+Statistics is the study of how best to collect, analyze, and draw conclusions from data. A strong foundation will serve you well, no matter what industry you work in. This section describes basic (and not so basic) statistics.
+
+## Generate data 
+Height(cm) of 50 males and 50 females are estimated from https://dqydj.com/height-percentile-calculator-for-men-and-women/).
+``set.seed(1) ``Set the seed to the random number generation to be 1. This ensures the results are reproducible across everyone's execution.
+``rnorm()`` rnorm.X generates multivariate normal random variates.
+```{r}
+set.seed(1) 
+male_height = rnorm(n = 50, mean = 175.6, sd = 11)
+female_height = rnorm(n = 50, mean = 161.5, sd = 10.5)
+```
+We can keep only two decimal places using ``round()``.
+```{r}
+male_height = round(male_height, 2)
+female_height = round(female_height, 2)
+```
+Check the number of elements in the vector.
+```{r}
+length(male_height)
+```
+
+Get basic information about the vector (minimum, maximum and quantiles) using ``summary()`` .
+```{r}
+summary(male_height)
+summary(female_height)
+```
+Specific functions for Mean, Median, Minimum, Maximum, Standard deviation, Variance, Sum are shown below:
+```
+mean(), median(), min(), max(), sd(), var(), sum()
+```
+
+
+The R software provides access to the uniform distribution, ``runif()`` function generates random deviates of the uniform distribution and is written as ``runif(n, min = 0, max = 1)``. We may easily generate n number of random samples within any interval, defined by the min and the max argument.
+Example: approximate the density function for X∼U(0,1)
+```{r}
+rand.unif <- runif(10000, min = 0, max = 1)
+hist(rand.unif, freq = FALSE, xlab = 'x', density = 20)
+```
+If we have another record about weight for the same group of people, we can group weight and height data together into a list(assuming weight has correlation with height).
+```{r}
+set.seed(1)
+male_weight = 0.52*male_height + runif(n = 50, min = -15, max = 15)
+male_weight = round(male_weight, 2)
+female_weight = 0.48*female_height + runif(n = 50, min = -14, max = 14)
+female_weight = round(female_weight, 2)
+```
+Make a group Weight data and height data together.
+```{r}
+male_group = list(height = male_height, weight = male_weight)
+female_group = list(height = female_height, weight = female_weight)
+```
+## Statistical analysis
+Correlation: check the correlation between height and weight in male group and female group.
+```{r}
+cor(male_group$height, male_group$weight)
+cor(female_group$height, female_group$weight)
+```
+``t.test()``: test if there is a significant difference between the means of height&weight in the male group and female group.
+```{r}
+t.test(male_group$height, female_group$height)
+t.test(male_group$weight, female_group$weight)
+```
+``fisher.test()``: test the proportions of people with obesity in male group and  female group have significant difference or not.
+
+Calculate BMI using equation BMI = weight(kg)/height(m)^2
+```{r}
+male_BMI = male_group$weight/(male_group$height/100)^2
+female_BMI = female_group$weight/(female_group$height/100)^2
+```
+For people with BMI equal or larger than 30, define them as having obesity.
+```{r}
+male_obesity = ifelse(male_BMI >= 30, "Yes", "No")
+female_obesity = ifelse(female_BMI >= 30, "Yes", "No")
+```
+Get the number of people with obesity in each group and summary in a matrix.
+```{r}
+male_num = table(male_obesity)
+female_num = table(female_obesity)
+obesity_num = rbind(male_num, female_num)
+```
+Fisher's exact test:
+```{r}
+fisher.test(obesity_num)
+```
+## Some Basic Plots
+
+Histogram plot
+```{r}
+hist(male_group$height, freq = FALSE, main = "Histogram Plot")
+```
+Density plot
+```{r}
+plot(density(male_group$height), main = "Density Plot")
+```
+Combine histogram plot and density plot using ``lines()``
+The ``lines( )`` function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.
+```{r}
+hist(male_group$height, freq = FALSE, main = "Histogram and Density")
+lines(density(male_group$height), col = "red")
+```
+Boxplot of height in male group and female group
+```{r}
+boxplot(male_group$height, female_group$height, names = c("male", "female"), ylab = "height(cm)")
+```
+
+## Example 1
+This exercise uses the PlantGrowth data set to demonstrate how to:
+1. select / filter a value in a dataframe
+2. plot density plot
+3. Perform t test
+
+```{r}
+PlantGrowth
+```
+
+Extract weight of control and treatment groups and name them as ctrl_grp and trt1_grp.
+
+```{r}
+ctrl_grp <- PlantGrowth[PlantGrowth[, 2] == "ctrl",1]
+trt1_grp <- PlantGrowth[PlantGrowth[, 2] == "trt1",1]
+```
+Plot density.
+```{r}
+plot(density(ctrl_grp), main = "Control Group vs Treatment 1", xlab = "weight", xlim = c(2.5,7.5), ylim = c(0,0.65))
+par(new = TRUE)
+plot(density(trt1_grp), main = "", axes = FALSE, xlab = "", ylab = "", lty = 2, xlim = c(2.5,7.5), ylim = c(0,0.65))
+```
+Run t test.
+```{r}
+t.test(ctrl_grp, trt1_grp)
+```
+
+## Example 2
+
+This exercise demonstrates how to use apply and tapply to summarize information from a table.
+More information of apply functions can be found in *3.1*.
+
+Using ``apply()`` to get the mean and sd on every column
+```{r}
+mtcars.mean <- apply(mtcars[,1:7], 2, mean)
+mtcars.sd <- apply(mtcars[,1:7], 2, sd)
+```
+Using ``tapply()`` to get the maxmimum mpg per vs type
+```{r}
+mtcars.max.vs <- tapply(mtcars$mpg, mtcars$vs, max)
+```
+**Filtering**
+Using ``grep()`` to select names with Merc
+```{r}
+mtcars[grep("Merc", rownames(mtcars)),]
+```
+combining ``tapply()`` and ``apply()``.
+```{r}
+apply(mtcars[,1:7],2,function(x) tapply(x, mtcars$gear, sum))
+```
+Using filter to select disp larger than 200.
+```{r}
+mtcars[mtcars$disp > 200,]
+```
+
+# Exercise 1 
+## Quiz
+Using the ``PlantGrowth`` data, try to answer:
+Are there significant increase between the treatment group 1 and 2? Plot the density plot and perform the t test.
+
+
+# Exercise 2
+
+Load dataset mpg
+```
+install.packages('ggplot2')
+library(ggplot2)
+data("mpg")
+```
+## quiz
+
+Q1 How  many different car manufacturers are present?
+``Tip: Use functions: length() and unique()``
+
+Q2 How many SUV's (class) does each car manufacturer have?
+``Tip: Use table()``
+
+Q3 Create a new data.table with only automatic transmission type (trans) and 4 cylinders (cyl)
+``Tip: Use grepl()``
+
+Q4 Create a new column called trans_subtype, with the transmission subtype information (the value inside the brackets)
+``Tip: Use gsub``
+
+
+Q5 For toyota's "toyota tacoma 4wd" model, rename them to only "tacoma 4wd"
+``Tip: Try use gsub``
+
+
+Q6 Create a new column called ID, with the first 3 characters of the manufacturer name capitalised with year of manufacturer separated by a _
+``Tip: Use toupper() and substr() and paste0()
+E.g. audi 1999 --> AUD_1999``
+
+
+
+Q7 How many different model names have number(s) in their name for each manufacturer?
+``Tips: Use table() and grepl()``
+
+Q8 Find the average city mileage (cty) for each manufacturer type
+``Tip: use sapply``
+
+Q9 What is the average city mileage (cty) for models with number(s) in the name for each manufacturer?
+
+
+Q10 Create a new data frame called mpg_summary with the following columns: 
+- (A) Manufacturer name
+- (B) number of different models for that manufacturer 
+- (C) average displ
+- (D) manufacturing range (e.g. 1999,2000,2003 --> 1999-2003)
+- (E) average cyl
+- (F) most frequent transmission type (if there is a tie, print out all separated by |)
+- (G) least frequent drv (if there is a tie, print out all separated by |)
+- (H) Max cty 
+- (I) Min Hwy
+- (J) All fuel types (fl). Separate by | (E.g. f,r,e --> "f|r|e")
+- (K) Class with the longest name
+- (L) Transition sub-type with the largest number (if there is tie, print out all separated by |)
+
+``Tips: Use this to set up your new dataframe:``
+```
+mpg_summary <- data.frame(A=character(), B=character(), C=character(), D=character(), E=character(), F=character(), G=character(), H=character(),
+I=character(), J=character(), K=character(), L=character())
+```
+Q11 Write a function that takes in a manufacturer name and print out the highway mileage (hwy) range for each car model
+
+
+
+# Answers
+## Answer for exercise1
+
+```{r}
+trt1_grp <- PlantGrowth[PlantGrowth[, 2] == "trt1",1]
+trt2_grp <- PlantGrowth[PlantGrowth[, 2] == "trt2",1]
+
+# plot density
+plot(density(trt1_grp), main = "Control Group vs Treatment 1", xlab = "weight", xlim = c(2.5,7.5), ylim = c(0,1))
+par(new = TRUE)
+plot(density(trt2_grp), main = "", axes = FALSE, xlab = "", ylab = "", lty = 2, xlim = c(2.5,7.5), ylim = c(0,1))
+
+# run t test
+t.test(trt1_grp, trt2_grp)
+
+```
+## Answer for exercise2
+
+```{r echo=TRUE}
+library(ggplot2)
+data("mpg")
+```
+
+A1 
+```{r echo=TRUE}
+length(unique(mpg$manufacturer))
+```
+A2
+```{r echo=TRUE}
+table(mpg[mpg$class=="suv","manufacturer"])
+```
+A3
+```{r}
+mpg[grepl("auto",mpg$trans)&mpg$cyl==4,]
+```
+A4
+```{r}
+mpg$trans_subtype <- gsub(".*\\((.*)\\)","\\1",mpg$trans)
+```
+A5
+```{r}
+mpg[mpg$model=="toyota tacoma 4wd","model"] <- "tacoma 4wd"
+#or
+mpg$model <- gsub("^toyota ", "",mpg$model)
+```
+A6
+```{r}
+mpg$ID <- paste0(toupper(substr(mpg$manufacturer,1,3)),"_",mpg$year)
+```
+
+A7
+```{r}
+table(mpg[grepl('\\d',mpg$model),"manufacturer"])
+```
+A8
+```{r}
+manufacturers <- unique(mpg$manufacturer)
+sapply(manufacturers, function(x){
+  mean(mpg[mpg$manufacturer==x,]$cty)
+})
+```
+A9
+```{r}
+manufacturers <- unique(mpg$manufacturer)
+sapply(manufacturers, function(x){
+  x <- mean(mpg[mpg$manufacturer==x&grepl('\\d',mpg$model),]$cty)
+  if(is.na(x)){0}else{x}
+})
+```
+A10
+```{r}
+mpg_summary <- data.frame(A=character(), B=character(), C=character(), D=character(),
+                          E=character(), F=character(), G=character(), H=character(),
+                          I=character(), J=character(), K=character(), L=character())
+for(x in unique(mpg$manufacturer)){
+  subset <- mpg[mpg$manufacturer==x,]
+  A <- x
+  B <- length(unique(subset$model))
+  C <- mean(subset$displ)
+  D <- paste0(min(subset$year),"-",max(subset$year))
+  E <- mean(subset$cyl)
+  F <- paste(names(which(table(subset$trans)==max(table(subset$trans)))),collapse = "|")
+  G <- paste(names(which(table(subset$trans)==min(table(subset$trans)))),collapse = "|")
+  H <- max(subset$cty)
+  I <- min(subset$hwy)
+  J <- paste(unique(subset$fl),collapse = "|")
+  K <- subset$class[which.max(nchar(subset$class))]
+
+  largest_value <- max(gsub(".(\\d)","\\1",subset$trans_subtype[grepl("\\d",subset$trans_subtype)]))
+  L <- paste(unique(subset$trans_subtype[grepl(largest_value,subset$trans_subtype)]), collapse = "|")
+  mpg_summary[nrow(mpg_summary)+1,] <- c(A,B,C,D,E,F,G,H,I,J,K,L)
+}
+```
+A11
+```{r}
+get_hwy_ranage <-function(x){
+  lower <- min(mpg[mpg$manufacturer==x,"hwy"])
+  upper <- max(mpg[mpg$manufacturer==x,"hwy"])
+  print(paste0(lower,"-",upper))
+}
+```
