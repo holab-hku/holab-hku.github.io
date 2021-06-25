@@ -101,7 +101,7 @@ knitr::include_graphics("./images/rstudio.png")
 ### Set working directory
 -  Create a folder named “R-workshop” in your preferred directory
 -  Create a "Data" folder in the "R-workshop" 
--  Download the data in the link used for this workshop and extract the data in the "Data" folder
+-  Download the data in the link https://drive.google.com/drive/folders/1RD6PY8IatnJ9ECcpAiCNZlc3KPBInGwo?usp=sharingused for this workshop and extract the data in the "Data" folder
 -  From RStudio, use the menu to change your working directory under 
 ``Session > Set Working Directory > Choose Directory``
 -  Choose the directory to “R-workshop”
@@ -119,12 +119,20 @@ For Windows, the command might look like :
 setwd("c:/yourdirectory/R-workshop")
 ```
 
+### Install packages
+There are two packages used in this workshop, in the R console, type:
+```
+install.packages('ggplot2')
+install.packages('gplots')
+```
+
+
 # Data structure in R
 
 R is a free and powerful statistical software for analyzing and visualizing data. In this chapter, we provide a quick and easy introduction to R programming. With the knowledge gained in this workshop, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. So, enjoy your R journey!
 
 
-## Vectors
+## Vector
 
 Vectors are a fundamental concept in R, as many functions operate on and return vectors, so it is best to master these as soon as possible. For the technically inclined, in R, a (numeric) vector is an object consisting of a one-dimensional array of scalars.
 HINT: YOU can get the documentation of a function using ?. E.g `?rep`
@@ -482,6 +490,7 @@ Using ``tapply()`` to get the maxmimum mpg per vs type
 mtcars.max.vs <- tapply(mtcars$mpg, mtcars$vs, max)
 ```
 **Filtering**
+
 Using ``grep()`` to select names with Merc
 ```{r}
 mtcars[grep("Merc", rownames(mtcars)),]
@@ -499,11 +508,10 @@ mtcars[mtcars$disp > 200,]
 
 Load dataset mpg
 ```
-install.packages('ggplot2')
 library(ggplot2)
 data("mpg")
 ```
-### quiz
+***Quiz***
 
 Q1 How  many different car manufacturers are present?
 ``Tip: Use functions: length() and unique()``
@@ -581,6 +589,24 @@ Check the number of elements in the vector.
 ```{r}
 length(male_height)
 ```
+Visualization of male group's height with histogram plot
+```{r}
+hist(male_height, freq = FALSE, main = "Histogram Plot")
+```
+Visualization of male group's height with density plot
+```{r}
+plot(density(male_height), main = "Density Plot")
+```
+Combine histogram plot and density plot using ``lines()``
+The ``lines( )`` function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.
+```{r}
+hist(male_height, freq = FALSE, main = "Histogram and Density")
+lines(density(male_height), col = "red")
+```
+Boxplot of height in male group and female group
+```{r}
+boxplot(male_height, female_height, names = c("male", "female"), ylab = "height(cm)")
+```
 
 Get basic information about the vector (minimum, maximum and quantiles) using ``summary()`` .
 ```{r}
@@ -612,6 +638,15 @@ Make a group Weight data and height data together.
 male_group = list(height = male_height, weight = male_weight)
 female_group = list(height = female_height, weight = female_weight)
 ```
+Use scatterplot to visualize the relationship of height and weight in male group
+```{r}
+plot(x = male_group$height,y = male_group$weight,
+   xlab = "Height", ylab = "Weight",
+   main = "Height vs Weight"
+)
+```
+
+
 ## Statistical analysis
 Correlation: check the correlation between height and weight in male group and female group.
 ```{r}
@@ -645,29 +680,49 @@ Fisher's exact test:
 ```{r}
 fisher.test(obesity_num)
 ```
-## Some Basic Plots
 
-Histogram plot
+
+## Advanced plotting: ggplot2
+
+[ggplot2](https://ggplot2.tidyverse.org/reference/index.html) is an R package to creat plots in a more flexible way. It can be used to generate different types of plots including `density plot`, `dot plot`, `box plot` and so on.
+
+Here, we can use `ggplot2` to generate the scatterplot of height and weight in male group we did before.
+
+First, we need to make a dataframe.
+
 ```{r}
-hist(male_group$height, freq = FALSE, main = "Histogram Plot")
+library(ggplot2)
+data <- data.frame(male_height, male_weight, female_height, female_weight)
 ```
-Density plot
+
 ```{r}
-plot(density(male_group$height), main = "Density Plot")
+ggplot(data, aes(male_height, male_weight)) +
+  geom_point() +
+  labs(x = "Height", y = "Weight", title = "Height vs Weight")
 ```
-Combine histogram plot and density plot using ``lines()``
-The ``lines( )`` function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.
+
+[A violin plot](https://chartio.com/learn/charts/violin-plot-complete-guide/) depicts distributions of numeric data for one or more groups using density curves. The width of each curve corresponds with the approximate frequency of data points in each region.
+
+Create data frame for violin plot including the height of the male group and the female group as well as a column indicating which group it comes from.
+
 ```{r}
-hist(male_group$height, freq = FALSE, main = "Histogram and Density")
-lines(density(male_group$height), col = "red")
+data <- data.frame(height = c(male_height, female_height), group = c(rep("male", length(male_height)), rep("female", length(female_height))))
 ```
-Boxplot of height in male group and female group
+
+Use `ggplot2` to plot a violin plot of height in male and female group.
+
 ```{r}
-boxplot(male_group$height, female_group$height, names = c("male", "female"), ylab = "height(cm)")
+ggplot(data, aes(factor(group),height)) +
+  geom_violin() + geom_boxplot(width=0.1)+ 
+  labs(x = "Group", y = "Height")
 ```
+
 
 ## Exercise
+
 Use the PlantGrowth, perform t test to evaluate the weight of control and treatment groups.
+
+**Quiz**
 
 Q1 Extract weight of control and treatment groups and name them as ctrl_grp and trt1_grp.
 
@@ -756,6 +811,56 @@ table(rowSums(myRPM > 0.5))
 counts.keep <- countdata[rowSums(myRPM > 0.5) >= 2,]
 dim(counts.keep)
 ```
+**Normalization**
+Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. Next we’ll use box plots to check the distribution of the read counts on the natural logarithm scale. To avoid -infinite number of log(0) we manually assign log(0) to 0).
+```{r}
+logcounts <- as.matrix(log(counts.keep))
+logcounts[is.infinite(logcounts)] <- 0
+boxplot(logcounts, xlab="", ylab="Log counts per million",las=2)
+```
+
+## Select highly variable genes
+Let’s select data for the 500 most variable genes and plot the heatmap.
+```{r}
+# We estimate the variance for each row in the logcounts matrix
+var_genes <- apply(logcounts, 1, var)
+head(var_genes)
+```
+
+Get the gene names for the top 500 most variable genes
+```{r}
+select_var <- names(sort(var_genes, decreasing=TRUE))[1:500]
+head(select_var)
+```
+
+Subset logcounts matrix.
+```{r}
+highly_variable_lcpm <- logcounts[select_var,]
+dim(highly_variable_lcpm)
+```
+## Hierarchical clustering with heatmaps
+
+And finally we can do hierarchical clustering with heatmaps.``heatmap.2()`` is a very powerful tool from the ``gplots`` library to create enhanced heatmap with a dendrogram added to the left side and/or to the top.
+Typically, reordering of the rows and columns according to some set of values (row or column means) within the restrictions imposed by the dendrogram is carried out.
+
+This heatmap provides a number of extensions to the standard R ``heatmap`` function.
+```{r, results='hide'}
+library('gplots')
+```
+```{r}
+heatmap.2(highly_variable_lcpm,trace="none", main="Top variable genes ",scale="row",cexCol=.8,cexRow=.8)
+
+```
+
+Create a folder called "result", and now we can save the heatmap into the "result" folder.
+
+```{r, results='hide'}
+png(file="./result/High_var_genes.heatmap.png",res=100)
+heatmap.2(highly_variable_lcpm,trace="none", main="Top variable genes ",scale="row",cexCol=.8,cexRow=.8)
+dev.off()
+```
+You can also use ``pdf()`` to save your figures in pdf format.
+
 # Answers
 
 ## Exercise for Chapter2
