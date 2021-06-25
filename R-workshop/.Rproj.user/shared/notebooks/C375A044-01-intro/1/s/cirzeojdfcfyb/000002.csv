@@ -1,0 +1,5 @@
+"0","set.seed(1)"
+"0","male_weight = 0.52*male_height + runif(n = 50, min = -15, max = 15)"
+"0","male_weight = round(male_weight, 2)"
+"0","female_weight = 0.48*female_height + runif(n = 50, min = -14, max = 14)"
+"0","female_weight = round(female_weight, 2)"

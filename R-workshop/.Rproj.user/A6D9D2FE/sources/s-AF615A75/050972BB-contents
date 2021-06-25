@@ -1,0 +1,114 @@
+--- 
+title: "10X Transcriptomic Data Cloud Processing"
+author: "Ho Lab"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services."
+---
+--- 
+title: "10X Transcriptomic Data Cloud Processing"
+author: "Ho Lab"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a guide to outline the steps required for 10X genomic data pre-processing through Amazon Web Services."
+---
+
+# Prerequisites
+
+**1. Amazon Web Services (AWS) Account:**
+
+Create free Amazon Web Services (AWS) Account
+
+https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start
+
+
+**2. Command Line Interface (CLI):**
+
+MacOS or Linux Operating System.
+
+**For Windows Users:**
+Install Windows Subsystem for Linux
+
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction {#intro}
+
+Amazon Web Services provides cloud computing capabilities, which allows on-demand compute power, database, storage, applications, and other IT resources via the internet. This allows extremely flexibile and customisable of usage of their products depending on your specific demands/requirements. 
+
+This could be in the form of computing power, i.e. CPU cores and memory, or data storage space. All requested resources from AWS can be rescaled for your business operations, thus optimising efficiency and cost savings. Set up and usage is also extremely fast and simple, available for usage for all user background types.
+
+In this workshop, we will exploit AWS's cloud computing service, Elastic Compute Cloud (EC2), to perform single cell 10X genomics RNA-sequencing data processing. Specifically, the mapping of raw transcript reads to an annotated human genome, which is generally a computationally demanding task, requiring more than 32GBs of RAM and numerous threads for efficient/timely processing. 
+
+10X genomics single cell RNA-sequencing (scRNA-seq) technology is becoming the most predominant type of scRNA-seq performed due to its high sequencing depth and library preparation technique to capture UMI/cell barcodes. This technology has enabled sequencing on the scale of thousands to millions of individual cells, which generates raw data files much larger than previous bulk sequencing experiements. For this reason, the average local computer generally does not hold enough computing power to perform analysis on this big data.
+
+```
+**Quiz**
+1. What are UMIs and cell barcodes? and why are they beneficial?
+2. What format are raw transcript reads stored as? 
+(a) Fasta (b) Fastq (c) Fastx (d) BAM (e) SAM
+3. Estimate the file size of 
+(a) Raw transcript file
+(b) Aligned reads file (binary compressed format)
+(c) Feature count matrix
+```
+
+<!--chapter:end:01-intro.Rmd-->
+
+
+# AWS EC2 Instance
+
+Placeholder
+
+
+## Introduction
+## Set Up
+## Connecting to your EC2 instance
+
+<!--chapter:end:02-aws-ec2-instance.Rmd-->
+
+
+# Processing 10X RNA-seq data
+
+Placeholder
+
+
+## Introduction
+## Read Alignment
+### Building a reference genome index
+### Alignment of reads
+## STARsolo Output
+
+<!--chapter:end:03-starsolo.Rmd-->
+
+
+# scRNA-seq Downstream Analysis
+
+Placeholder
+
+
+## Seurat Package
+### Differentially expressed Genes
+### Cell Clustering
+### Analysis of Variable Gene Markers
+### Heatmap of gene expression by clusters
+
+<!--chapter:end:04-downstream-analysis.Rmd-->
+
+# References
+
+Dobin, A., Davis, C. A., Schlesinger, F., Drenkow, J., Zaleski, C., Jha, S., … Gingeras, T. R. (2013). STAR: Ultrafast universal RNA-seq aligner. Bioinformatics, 29(1), 15–21. https://doi.org/10.1093/bioinformatics/bts635
+
+
+
+<!--chapter:end:05-References.Rmd-->
+

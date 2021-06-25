@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 RNA-seq analysis in R | Introduction to R</title>
+  <meta name="description" content="This is an introduction of R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 RNA-seq analysis in R | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction of R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 RNA-seq analysis in R | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introduction of R." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2021-06-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="basic-statistics.html"/>
+<link rel="next" href="answers.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introuction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="1.1" data-path="prerequisites.html"><a href="prerequisites.html#installation"><i class="fa fa-check"></i><b>1.1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="prerequisites.html"><a href="prerequisites.html#windows"><i class="fa fa-check"></i><b>1.1.1</b> Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="prerequisites.html"><a href="prerequisites.html#mac-osx"><i class="fa fa-check"></i><b>1.1.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="1.1.3" data-path="prerequisites.html"><a href="prerequisites.html#ubuntu"><i class="fa fa-check"></i><b>1.1.3</b> Ubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="prerequisites.html"><a href="prerequisites.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>1.2</b> Use R inside RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="prerequisites.html"><a href="prerequisites.html#r-studio"><i class="fa fa-check"></i><b>1.2.1</b> R studio</a></li>
+<li class="chapter" data-level="1.2.2" data-path="prerequisites.html"><a href="prerequisites.html#set-working-directory"><i class="fa fa-check"></i><b>1.2.2</b> Set working directory</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>2</b> Data structure in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#matrix"><i class="fa fa-check"></i><b>2.2</b> Matrix</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>2.2.1</b> Make a matrix</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>2.2.2</b> Modify a matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>2.3</b> DataFrame</a></li>
+<li class="chapter" data-level="2.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>2.4</b> Factor</a></li>
+<li class="chapter" data-level="2.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>2.5</b> List</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Data manipulation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>3.1</b> apply functions</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply"><i class="fa fa-check"></i><b>3.1.1</b> apply()</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>3.1.2</b> lapply()</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>3.1.3</b> sapply()</a></li>
+<li class="chapter" data-level="3.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>3.1.4</b> tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>3.2</b> Pattern matching</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>3.2.1</b> Find strings</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>3.2.2</b> Find and replace patterns</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>3.2.3</b> Regular expression</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>3.3</b> Example</a></li>
+<li class="chapter" data-level="3.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>3.4</b> Exercise</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#quiz"><i class="fa fa-check"></i><b>3.4.1</b> quiz</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="basic-statistics.html"><a href="basic-statistics.html#generate-data"><i class="fa fa-check"></i><b>4.1</b> Generate data</a></li>
+<li class="chapter" data-level="4.2" data-path="basic-statistics.html"><a href="basic-statistics.html#statistical-analysis"><i class="fa fa-check"></i><b>4.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="4.3" data-path="basic-statistics.html"><a href="basic-statistics.html#some-basic-plots"><i class="fa fa-check"></i><b>4.3</b> Some Basic Plots</a></li>
+<li class="chapter" data-level="4.4" data-path="basic-statistics.html"><a href="basic-statistics.html#exercise-1"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html"><i class="fa fa-check"></i><b>5</b> RNA-seq analysis in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#read-the-count-data"><i class="fa fa-check"></i><b>5.1</b> Read the count data</a></li>
+<li class="chapter" data-level="5.2" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#format-the-data"><i class="fa fa-check"></i><b>5.2</b> Format the data</a></li>
+<li class="chapter" data-level="5.3" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#reads-per-million-rpm"><i class="fa fa-check"></i><b>5.3</b> Reads per million (RPM)</a></li>
+<li class="chapter" data-level="5.4" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#filtering"><i class="fa fa-check"></i><b>5.4</b> Filtering</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>6</b> Answers</a><ul>
+<li class="chapter" data-level="6.1" data-path="answers.html"><a href="answers.html#exercise-for-chapter2"><i class="fa fa-check"></i><b>6.1</b> Exercise for Chapter2</a></li>
+<li class="chapter" data-level="6.2" data-path="answers.html"><a href="answers.html#exercise-for-chapter3"><i class="fa fa-check"></i><b>6.2</b> Exercise for Chapter3</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rna-seq-analysis-in-r" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> RNA-seq analysis in R</h1>
+<p>This study examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates.
+## Read the sample information
+The sampleinfo file contains basic information about the samples that we will need for the analysis today.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="rna-seq-analysis-in-r.html#cb92-1"></a><span class="co"># Read the sample information into R</span></span>
+<span id="cb92-2"><a href="rna-seq-analysis-in-r.html#cb92-2"></a>sampleinfo &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb92-3"><a href="rna-seq-analysis-in-r.html#cb92-3"></a><span class="kw">View</span>(sampleinfo)</span>
+<span id="cb92-4"><a href="rna-seq-analysis-in-r.html#cb92-4"></a>sampleinfo</span></code></pre></div>
+<pre><code>##                             FileName SampleName CellType   Status
+## 1  MCL1.DG_BC2CTUACXX_ACTTGA_L002_R1    MCL1.DG  luminal   virgin
+## 2  MCL1.DH_BC2CTUACXX_CAGATC_L002_R1    MCL1.DH    basal   virgin
+## 3  MCL1.DI_BC2CTUACXX_ACAGTG_L002_R1    MCL1.DI    basal pregnant
+## 4  MCL1.DJ_BC2CTUACXX_CGATGT_L002_R1    MCL1.DJ    basal pregnant
+## 5  MCL1.DK_BC2CTUACXX_TTAGGC_L002_R1    MCL1.DK    basal  lactate
+## 6  MCL1.DL_BC2CTUACXX_ATCACG_L002_R1    MCL1.DL    basal  lactate
+## 7  MCL1.LA_BC2CTUACXX_GATCAG_L001_R1    MCL1.LA    basal   virgin
+## 8  MCL1.LB_BC2CTUACXX_TGACCA_L001_R1    MCL1.LB  luminal   virgin
+## 9  MCL1.LC_BC2CTUACXX_GCCAAT_L001_R1    MCL1.LC  luminal pregnant
+## 10 MCL1.LD_BC2CTUACXX_GGCTAC_L001_R1    MCL1.LD  luminal pregnant
+## 11 MCL1.LE_BC2CTUACXX_TAGCTT_L001_R1    MCL1.LE  luminal  lactate
+## 12 MCL1.LF_BC2CTUACXX_CTTGTA_L001_R1    MCL1.LF  luminal  lactate</code></pre>
+<div id="read-the-count-data" class="section level2">
+<h2><span class="header-section-number">5.1</span> Read the count data</h2>
+<p>You can use the <code>head()</code> command to see the first 6 lines. In RStudio the View command will open the dataframe in a new tab. The dim command will tell you how many rows and columns the data frame has.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="rna-seq-analysis-in-r.html#cb94-1"></a><span class="co"># Read the data into R</span></span>
+<span id="cb94-2"><a href="rna-seq-analysis-in-r.html#cb94-2"></a>seqdata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GSE60450_Lactation-GenewiseCounts.txt&quot;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb94-3"><a href="rna-seq-analysis-in-r.html#cb94-3"></a><span class="kw">View</span>(seqdata)</span>
+<span id="cb94-4"><a href="rna-seq-analysis-in-r.html#cb94-4"></a><span class="kw">dim</span>(seqdata)</span></code></pre></div>
+<pre><code>## [1] 27179    14</code></pre>
+<p>The seqdata object contains information about genes (one gene per row), the first column has the Entrez gene id, the second has the gene length and the remaining columns contain information about the number of reads aligning to the gene in each experimental sample. There are two replicates for each cell type and timepoint.
+Next, we should format the data and create a dataframe with 12 samples and 27179 genes.</p>
+</div>
+<div id="format-the-data" class="section level2">
+<h2><span class="header-section-number">5.2</span> Format the data</h2>
+<p>The first two columns in the seqdata dataframe contain annotation information. We need to make a new matrix containing only the counts, but we can store the gene identifiers (the EntrezGeneID column) as rownames. We will add more annotation information about each gene later on in the workshop.</p>
+<p>Let’s create a new data object, countdata, that contains only the counts for the 12 samples.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="rna-seq-analysis-in-r.html#cb96-1"></a><span class="co"># Remove first two columns from seqdata</span></span>
+<span id="cb96-2"><a href="rna-seq-analysis-in-r.html#cb96-2"></a>countdata &lt;-<span class="st"> </span>seqdata[,<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</span>
+<span id="cb96-3"><a href="rna-seq-analysis-in-r.html#cb96-3"></a></span>
+<span id="cb96-4"><a href="rna-seq-analysis-in-r.html#cb96-4"></a><span class="co"># Store EntrezGeneID as rownames</span></span>
+<span id="cb96-5"><a href="rna-seq-analysis-in-r.html#cb96-5"></a><span class="kw">rownames</span>(countdata) &lt;-<span class="st"> </span>seqdata[,<span class="dv">1</span>]</span>
+<span id="cb96-6"><a href="rna-seq-analysis-in-r.html#cb96-6"></a><span class="kw">View</span>(countdata)</span></code></pre></div>
+<p>As we can see the column names for the countdata now is V1 to V14, we want to have a more meaningful column names. But the sample name is too long so we want to just keep the first 7 characters.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="rna-seq-analysis-in-r.html#cb97-1"></a>samplename &lt;-<span class="st"> </span><span class="kw">substr</span>(<span class="kw">colnames</span>(countdata), <span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb97-2"><a href="rna-seq-analysis-in-r.html#cb97-2"></a>samplename</span></code></pre></div>
+<pre><code>##  [1] &quot;MCL1.DG&quot; &quot;MCL1.DH&quot; &quot;MCL1.DI&quot; &quot;MCL1.DJ&quot; &quot;MCL1.DK&quot; &quot;MCL1.DL&quot; &quot;MCL1.LA&quot;
+##  [8] &quot;MCL1.LB&quot; &quot;MCL1.LC&quot; &quot;MCL1.LD&quot; &quot;MCL1.LE&quot; &quot;MCL1.LF&quot;</code></pre>
+<p>And we can now modify the column names.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="rna-seq-analysis-in-r.html#cb99-1"></a><span class="kw">colnames</span>(countdata) &lt;-<span class="st"> </span>samplename</span>
+<span id="cb99-2"><a href="rna-seq-analysis-in-r.html#cb99-2"></a><span class="kw">head</span>(countdata)</span></code></pre></div>
+<pre><code>##           MCL1.DG MCL1.DH MCL1.DI MCL1.DJ MCL1.DK MCL1.DL MCL1.LA MCL1.LB
+## 497097        438     300      65     237     354     287       0       0
+## 100503874       1       0       1       1       0       4       0       0
+## 100038431       0       0       0       0       0       0       0       0
+## 19888           1       1       0       0       0       0      10       3
+## 20671         106     182      82     105      43      82      16      25
+## 27395         309     234     337     300     290     270     560     464
+##           MCL1.LC MCL1.LD MCL1.LE MCL1.LF
+## 497097          0       0       0       0
+## 100503874       0       0       0       0
+## 100038431       0       0       0       0
+## 19888          10       2       0       0
+## 20671          18       8       3      10
+## 27395         489     328     307     342</code></pre>
+<p>Now the column names are now the same as SampleName in the sampleinfo file.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="rna-seq-analysis-in-r.html#cb101-1"></a><span class="kw">table</span>(<span class="kw">colnames</span>(countdata)<span class="op">==</span>sampleinfo<span class="op">$</span>SampleName)</span></code></pre></div>
+<pre><code>## 
+## TRUE 
+##   12</code></pre>
+</div>
+<div id="reads-per-million-rpm" class="section level2">
+<h2><span class="header-section-number">5.3</span> Reads per million (RPM)</h2>
+<p>Reads per million attempt to normalize for sequencing depth. Here’s how you do it for RPM:</p>
+<ul>
+<li>Count up the total reads in a sample and divide that number by 1,000,000 – this is our “per million” scaling factor.</li>
+<li>Divide the read counts by the “per million” scaling factor. This normalizes for sequencing depth, giving you reads per million (RPM)</li>
+</ul>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="rna-seq-analysis-in-r.html#cb103-1"></a>scaling_factor &lt;-<span class="st"> </span><span class="kw">sum</span>(countdata)<span class="op">/</span><span class="dv">1000000</span></span>
+<span id="cb103-2"><a href="rna-seq-analysis-in-r.html#cb103-2"></a>myRPM &lt;-<span class="st"> </span>countdata<span class="op">/</span>scaling_factor</span></code></pre></div>
+</div>
+<div id="filtering" class="section level2">
+<h2><span class="header-section-number">5.4</span> Filtering</h2>
+<p>Summary of how many RPM greater than 0.5 there are in each row</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="rna-seq-analysis-in-r.html#cb104-1"></a><span class="co"># There are 11433 genes that have RPM greater than 0.5 in all 12 samples.</span></span>
+<span id="cb104-2"><a href="rna-seq-analysis-in-r.html#cb104-2"></a><span class="kw">table</span>(<span class="kw">rowSums</span>(myRPM <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>))</span></code></pre></div>
+<pre><code>## 
+##     0     1     2     3     4     5     6     7     8     9    10    11    12 
+## 14996   351   544   247   380   262   846   293   647   281   836   308  7188</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="rna-seq-analysis-in-r.html#cb106-1"></a><span class="co"># we would like to keep genes that have at least 2 RPM greater than 0.5 in each row of thresh</span></span>
+<span id="cb106-2"><a href="rna-seq-analysis-in-r.html#cb106-2"></a><span class="co"># Subset the rows of countdata to keep the more highly expressed genes</span></span>
+<span id="cb106-3"><a href="rna-seq-analysis-in-r.html#cb106-3"></a>counts.keep &lt;-<span class="st"> </span>countdata[<span class="kw">rowSums</span>(myRPM <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>,]</span>
+<span id="cb106-4"><a href="rna-seq-analysis-in-r.html#cb106-4"></a><span class="kw">dim</span>(counts.keep)</span></code></pre></div>
+<pre><code>## [1] 11832    12</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="answers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

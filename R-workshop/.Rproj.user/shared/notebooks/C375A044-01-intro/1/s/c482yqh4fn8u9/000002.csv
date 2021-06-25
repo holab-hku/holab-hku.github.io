@@ -1,0 +1,1 @@
+"0","mpg$ID <- paste0(toupper(substr(mpg$manufacturer,1,3)),""_"",mpg$year)"

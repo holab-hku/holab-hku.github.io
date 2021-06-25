@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Answers | Introduction to R</title>
+  <title>Chapter 6 Answers | Introduction to R</title>
   <meta name="description" content="This is an introduction of R." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Answers | Introduction to R" />
+  <meta property="og:title" content="Chapter 6 Answers | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Answers | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 6 Answers | Introduction to R" />
   
   <meta name="twitter:description" content="This is an introduction of R." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-06-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="exercise-2.html"/>
+<link rel="prev" href="rna-seq-analysis-in-r.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,17 +138,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a><ul>
-<li class="chapter" data-level="1.1" data-path="prerequisites.html"><a href="prerequisites.html#windows"><i class="fa fa-check"></i><b>1.1</b> Windows</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r"><i class="fa fa-check"></i><b>1.1.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.1.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> To Install RStudio</a></li>
+<li class="chapter" data-level="1.1" data-path="prerequisites.html"><a href="prerequisites.html#installation"><i class="fa fa-check"></i><b>1.1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="prerequisites.html"><a href="prerequisites.html#windows"><i class="fa fa-check"></i><b>1.1.1</b> Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="prerequisites.html"><a href="prerequisites.html#mac-osx"><i class="fa fa-check"></i><b>1.1.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="1.1.3" data-path="prerequisites.html"><a href="prerequisites.html#ubuntu"><i class="fa fa-check"></i><b>1.1.3</b> Ubuntu</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="prerequisites.html"><a href="prerequisites.html#mac-osx"><i class="fa fa-check"></i><b>1.2</b> Mac OSX</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r-1"><i class="fa fa-check"></i><b>1.2.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio-1"><i class="fa fa-check"></i><b>1.2.2</b> To Install RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="prerequisites.html"><a href="prerequisites.html#ubuntu"><i class="fa fa-check"></i><b>1.3</b> Ubuntu</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r-2"><i class="fa fa-check"></i><b>1.3.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.3.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio-2"><i class="fa fa-check"></i><b>1.3.2</b> To Install RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="prerequisites.html"><a href="prerequisites.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>1.2</b> Use R inside RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="prerequisites.html"><a href="prerequisites.html#r-studio"><i class="fa fa-check"></i><b>1.2.1</b> R studio</a></li>
+<li class="chapter" data-level="1.2.2" data-path="prerequisites.html"><a href="prerequisites.html#set-working-directory"><i class="fa fa-check"></i><b>1.2.2</b> Set working directory</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>2</b> Data structure in R</a><ul>
@@ -157,7 +154,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>2.2.1</b> Make a matrix</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>2.2.2</b> Modify a matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe-list"><i class="fa fa-check"></i><b>2.3</b> DataFrame &amp; List</a></li>
+<li class="chapter" data-level="2.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>2.3</b> DataFrame</a></li>
+<li class="chapter" data-level="2.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>2.4</b> Factor</a></li>
+<li class="chapter" data-level="2.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>2.5</b> List</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Data manipulation</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>3.1</b> apply functions</a><ul>
@@ -171,23 +170,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>3.2.2</b> Find and replace patterns</a></li>
 <li class="chapter" data-level="3.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>3.2.3</b> Regular expression</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>3.3</b> Example</a></li>
+<li class="chapter" data-level="3.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>3.4</b> Exercise</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#quiz"><i class="fa fa-check"></i><b>3.4.1</b> quiz</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics</a><ul>
 <li class="chapter" data-level="4.1" data-path="basic-statistics.html"><a href="basic-statistics.html#generate-data"><i class="fa fa-check"></i><b>4.1</b> Generate data</a></li>
 <li class="chapter" data-level="4.2" data-path="basic-statistics.html"><a href="basic-statistics.html#statistical-analysis"><i class="fa fa-check"></i><b>4.2</b> Statistical analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="basic-statistics.html"><a href="basic-statistics.html#some-basic-plots"><i class="fa fa-check"></i><b>4.3</b> Some Basic Plots</a></li>
-<li class="chapter" data-level="4.4" data-path="basic-statistics.html"><a href="basic-statistics.html#example-1"><i class="fa fa-check"></i><b>4.4</b> Example 1</a></li>
-<li class="chapter" data-level="4.5" data-path="basic-statistics.html"><a href="basic-statistics.html#example-2"><i class="fa fa-check"></i><b>4.5</b> Example 2</a></li>
+<li class="chapter" data-level="4.4" data-path="basic-statistics.html"><a href="basic-statistics.html#exercise-1"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>5</b> Exercise 1</a><ul>
-<li class="chapter" data-level="5.1" data-path="exercise-1.html"><a href="exercise-1.html#quiz"><i class="fa fa-check"></i><b>5.1</b> Quiz</a></li>
+<li class="chapter" data-level="5" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html"><i class="fa fa-check"></i><b>5</b> RNA-seq analysis in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#read-the-count-data"><i class="fa fa-check"></i><b>5.1</b> Read the count data</a></li>
+<li class="chapter" data-level="5.2" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#format-the-data"><i class="fa fa-check"></i><b>5.2</b> Format the data</a></li>
+<li class="chapter" data-level="5.3" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#reads-per-million-rpm"><i class="fa fa-check"></i><b>5.3</b> Reads per million (RPM)</a></li>
+<li class="chapter" data-level="5.4" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#filtering"><i class="fa fa-check"></i><b>5.4</b> Filtering</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>6</b> Exercise 2</a><ul>
-<li class="chapter" data-level="6.1" data-path="exercise-2.html"><a href="exercise-2.html#quiz-1"><i class="fa fa-check"></i><b>6.1</b> quiz</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>7</b> Answers</a><ul>
-<li class="chapter" data-level="7.1" data-path="answers.html"><a href="answers.html#answer-for-exercise1"><i class="fa fa-check"></i><b>7.1</b> Answer for exercise1</a></li>
-<li class="chapter" data-level="7.2" data-path="answers.html"><a href="answers.html#answer-for-exercise2"><i class="fa fa-check"></i><b>7.2</b> Answer for exercise2</a></li>
+<li class="chapter" data-level="6" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>6</b> Answers</a><ul>
+<li class="chapter" data-level="6.1" data-path="answers.html"><a href="answers.html#exercise-for-chapter2"><i class="fa fa-check"></i><b>6.1</b> Exercise for Chapter2</a></li>
+<li class="chapter" data-level="6.2" data-path="answers.html"><a href="answers.html#exercise-for-chapter3"><i class="fa fa-check"></i><b>6.2</b> Exercise for Chapter3</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -210,48 +212,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="answers" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Answers</h1>
-<div id="answer-for-exercise1" class="section level2">
-<h2><span class="header-section-number">7.1</span> Answer for exercise1</h2>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="answers.html#cb87-1"></a>trt1_grp &lt;-<span class="st"> </span>PlantGrowth[PlantGrowth[, <span class="dv">2</span>] <span class="op">==</span><span class="st"> &quot;trt1&quot;</span>,<span class="dv">1</span>]</span>
-<span id="cb87-2"><a href="answers.html#cb87-2"></a>trt2_grp &lt;-<span class="st"> </span>PlantGrowth[PlantGrowth[, <span class="dv">2</span>] <span class="op">==</span><span class="st"> &quot;trt2&quot;</span>,<span class="dv">1</span>]</span>
-<span id="cb87-3"><a href="answers.html#cb87-3"></a></span>
-<span id="cb87-4"><a href="answers.html#cb87-4"></a><span class="co"># plot density</span></span>
-<span id="cb87-5"><a href="answers.html#cb87-5"></a><span class="kw">plot</span>(<span class="kw">density</span>(trt1_grp), <span class="dt">main =</span> <span class="st">&quot;Control Group vs Treatment 1&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;weight&quot;</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">2.5</span>,<span class="fl">7.5</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb87-6"><a href="answers.html#cb87-6"></a><span class="kw">par</span>(<span class="dt">new =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb87-7"><a href="answers.html#cb87-7"></a><span class="kw">plot</span>(<span class="kw">density</span>(trt2_grp), <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">2.5</span>,<span class="fl">7.5</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="answers.html#cb88-1"></a><span class="co"># run t test</span></span>
-<span id="cb88-2"><a href="answers.html#cb88-2"></a><span class="kw">t.test</span>(trt1_grp, trt2_grp)</span></code></pre></div>
-<pre><code>## 
-##  Welch Two Sample t-test
-## 
-## data:  trt1_grp and trt2_grp
-## t = -3.0101, df = 14.104, p-value = 0.009298
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -1.4809144 -0.2490856
-## sample estimates:
-## mean of x mean of y 
-##     4.661     5.526</code></pre>
-</div>
-<div id="answer-for-exercise2" class="section level2">
-<h2><span class="header-section-number">7.2</span> Answer for exercise2</h2>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="answers.html#cb90-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<h1><span class="header-section-number">Chapter 6</span> Answers</h1>
+<div id="exercise-for-chapter2" class="section level2">
+<h2><span class="header-section-number">6.1</span> Exercise for Chapter2</h2>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="answers.html#cb108-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.5</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="answers.html#cb92-1"></a><span class="kw">data</span>(<span class="st">&quot;mpg&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="answers.html#cb110-1"></a><span class="kw">data</span>(<span class="st">&quot;mpg&quot;</span>)</span></code></pre></div>
 <p>A1</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="answers.html#cb93-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer))</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="answers.html#cb111-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer))</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>A2</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="answers.html#cb95-1"></a><span class="kw">table</span>(mpg[mpg<span class="op">$</span>class<span class="op">==</span><span class="st">&quot;suv&quot;</span>,<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="answers.html#cb113-1"></a><span class="kw">table</span>(mpg[mpg<span class="op">$</span>class<span class="op">==</span><span class="st">&quot;suv&quot;</span>,<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
 <pre><code>## 
 ##  chevrolet      dodge       ford       jeep land rover    lincoln    mercury 
 ##          9          7          9          8          4          3          4 
 ##     nissan     subaru     toyota 
 ##          4          6          8</code></pre>
 <p>A3</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="answers.html#cb97-1"></a>mpg[<span class="kw">grepl</span>(<span class="st">&quot;auto&quot;</span>,mpg<span class="op">$</span>trans)<span class="op">&amp;</span>mpg<span class="op">$</span>cyl<span class="op">==</span><span class="dv">4</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="answers.html#cb115-1"></a>mpg[<span class="kw">grepl</span>(<span class="st">&quot;auto&quot;</span>,mpg<span class="op">$</span>trans)<span class="op">&amp;</span>mpg<span class="op">$</span>cyl<span class="op">==</span><span class="dv">4</span>,]</span></code></pre></div>
 <pre><code>## # A tibble: 41 x 11
 ##    manufacturer model    displ  year   cyl trans  drv     cty   hwy fl    class 
 ##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -267,25 +245,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 honda        civic      1.8  2008     4 auto(~ f        25    36 r     subco~
 ## # ... with 31 more rows</code></pre>
 <p>A4</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="answers.html#cb99-1"></a>mpg<span class="op">$</span>trans_subtype &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;.*</span><span class="ch">\\</span><span class="st">((.*)</span><span class="ch">\\</span><span class="st">)&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,mpg<span class="op">$</span>trans)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="answers.html#cb117-1"></a>mpg<span class="op">$</span>trans_subtype &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;.*</span><span class="ch">\\</span><span class="st">((.*)</span><span class="ch">\\</span><span class="st">)&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,mpg<span class="op">$</span>trans)</span></code></pre></div>
 <p>A5</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="answers.html#cb100-1"></a>mpg[mpg<span class="op">$</span>model<span class="op">==</span><span class="st">&quot;toyota tacoma 4wd&quot;</span>,<span class="st">&quot;model&quot;</span>] &lt;-<span class="st"> &quot;tacoma 4wd&quot;</span></span>
-<span id="cb100-2"><a href="answers.html#cb100-2"></a><span class="co">#or</span></span>
-<span id="cb100-3"><a href="answers.html#cb100-3"></a>mpg<span class="op">$</span>model &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;^toyota &quot;</span>, <span class="st">&quot;&quot;</span>,mpg<span class="op">$</span>model)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="answers.html#cb118-1"></a>mpg[mpg<span class="op">$</span>model<span class="op">==</span><span class="st">&quot;toyota tacoma 4wd&quot;</span>,<span class="st">&quot;model&quot;</span>] &lt;-<span class="st"> &quot;tacoma 4wd&quot;</span></span>
+<span id="cb118-2"><a href="answers.html#cb118-2"></a><span class="co">#or</span></span>
+<span id="cb118-3"><a href="answers.html#cb118-3"></a>mpg<span class="op">$</span>model &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;^toyota &quot;</span>, <span class="st">&quot;&quot;</span>,mpg<span class="op">$</span>model)</span></code></pre></div>
 <p>A6</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="answers.html#cb101-1"></a>mpg<span class="op">$</span>ID &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">toupper</span>(<span class="kw">substr</span>(mpg<span class="op">$</span>manufacturer,<span class="dv">1</span>,<span class="dv">3</span>)),<span class="st">&quot;_&quot;</span>,mpg<span class="op">$</span>year)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="answers.html#cb119-1"></a>mpg<span class="op">$</span>ID &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">toupper</span>(<span class="kw">substr</span>(mpg<span class="op">$</span>manufacturer,<span class="dv">1</span>,<span class="dv">3</span>)),<span class="st">&quot;_&quot;</span>,mpg<span class="op">$</span>year)</span></code></pre></div>
 <p>A7</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="answers.html#cb102-1"></a><span class="kw">table</span>(mpg[<span class="kw">grepl</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,mpg<span class="op">$</span>model),<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="answers.html#cb120-1"></a><span class="kw">table</span>(mpg[<span class="kw">grepl</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,mpg<span class="op">$</span>model),<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
 <pre><code>## 
 ##      audi chevrolet     dodge      ford      jeep   lincoln   mercury    nissan 
 ##        18         9        37        16         8         3         4         4 
 ##    toyota 
 ##        15</code></pre>
 <p>A8</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="answers.html#cb104-1"></a>manufacturers &lt;-<span class="st"> </span><span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)</span>
-<span id="cb104-2"><a href="answers.html#cb104-2"></a><span class="kw">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
-<span id="cb104-3"><a href="answers.html#cb104-3"></a>  <span class="kw">mean</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,]<span class="op">$</span>cty)</span>
-<span id="cb104-4"><a href="answers.html#cb104-4"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="answers.html#cb122-1"></a>manufacturers &lt;-<span class="st"> </span><span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)</span>
+<span id="cb122-2"><a href="answers.html#cb122-2"></a><span class="kw">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
+<span id="cb122-3"><a href="answers.html#cb122-3"></a>  <span class="kw">mean</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,]<span class="op">$</span>cty)</span>
+<span id="cb122-4"><a href="answers.html#cb122-4"></a>})</span></code></pre></div>
 <pre><code>##       audi  chevrolet      dodge       ford      honda    hyundai       jeep 
 ##   17.61111   15.00000   13.13514   14.00000   24.44444   18.64286   13.50000 
 ## land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
@@ -293,11 +271,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## volkswagen 
 ##   20.92593</code></pre>
 <p>A9</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="answers.html#cb106-1"></a>manufacturers &lt;-<span class="st"> </span><span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)</span>
-<span id="cb106-2"><a href="answers.html#cb106-2"></a><span class="kw">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
-<span id="cb106-3"><a href="answers.html#cb106-3"></a>  x &lt;-<span class="st"> </span><span class="kw">mean</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,mpg<span class="op">$</span>model),]<span class="op">$</span>cty)</span>
-<span id="cb106-4"><a href="answers.html#cb106-4"></a>  <span class="cf">if</span>(<span class="kw">is.na</span>(x)){<span class="dv">0</span>}<span class="cf">else</span>{x}</span>
-<span id="cb106-5"><a href="answers.html#cb106-5"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="answers.html#cb124-1"></a>manufacturers &lt;-<span class="st"> </span><span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)</span>
+<span id="cb124-2"><a href="answers.html#cb124-2"></a><span class="kw">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
+<span id="cb124-3"><a href="answers.html#cb124-3"></a>  x &lt;-<span class="st"> </span><span class="kw">mean</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,mpg<span class="op">$</span>model),]<span class="op">$</span>cty)</span>
+<span id="cb124-4"><a href="answers.html#cb124-4"></a>  <span class="cf">if</span>(<span class="kw">is.na</span>(x)){<span class="dv">0</span>}<span class="cf">else</span>{x}</span>
+<span id="cb124-5"><a href="answers.html#cb124-5"></a>})</span></code></pre></div>
 <pre><code>##       audi  chevrolet      dodge       ford      honda    hyundai       jeep 
 ##   17.61111   12.66667   13.13514   12.93750    0.00000    0.00000   13.50000 
 ## land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
@@ -305,33 +283,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## volkswagen 
 ##    0.00000</code></pre>
 <p>A10</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="answers.html#cb108-1"></a>mpg_summary &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">A=</span><span class="kw">character</span>(), <span class="dt">B=</span><span class="kw">character</span>(), <span class="dt">C=</span><span class="kw">character</span>(), <span class="dt">D=</span><span class="kw">character</span>(),</span>
-<span id="cb108-2"><a href="answers.html#cb108-2"></a>                          <span class="dt">E=</span><span class="kw">character</span>(), <span class="dt">F=</span><span class="kw">character</span>(), <span class="dt">G=</span><span class="kw">character</span>(), <span class="dt">H=</span><span class="kw">character</span>(),</span>
-<span id="cb108-3"><a href="answers.html#cb108-3"></a>                          <span class="dt">I=</span><span class="kw">character</span>(), <span class="dt">J=</span><span class="kw">character</span>(), <span class="dt">K=</span><span class="kw">character</span>(), <span class="dt">L=</span><span class="kw">character</span>())</span>
-<span id="cb108-4"><a href="answers.html#cb108-4"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)){</span>
-<span id="cb108-5"><a href="answers.html#cb108-5"></a>  subset &lt;-<span class="st"> </span>mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,]</span>
-<span id="cb108-6"><a href="answers.html#cb108-6"></a>  A &lt;-<span class="st"> </span>x</span>
-<span id="cb108-7"><a href="answers.html#cb108-7"></a>  B &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(subset<span class="op">$</span>model))</span>
-<span id="cb108-8"><a href="answers.html#cb108-8"></a>  C &lt;-<span class="st"> </span><span class="kw">mean</span>(subset<span class="op">$</span>displ)</span>
-<span id="cb108-9"><a href="answers.html#cb108-9"></a>  D &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">min</span>(subset<span class="op">$</span>year),<span class="st">&quot;-&quot;</span>,<span class="kw">max</span>(subset<span class="op">$</span>year))</span>
-<span id="cb108-10"><a href="answers.html#cb108-10"></a>  E &lt;-<span class="st"> </span><span class="kw">mean</span>(subset<span class="op">$</span>cyl)</span>
-<span id="cb108-11"><a href="answers.html#cb108-11"></a>  F &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">names</span>(<span class="kw">which</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)<span class="op">==</span><span class="kw">max</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)))),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
-<span id="cb108-12"><a href="answers.html#cb108-12"></a>  G &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">names</span>(<span class="kw">which</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)<span class="op">==</span><span class="kw">min</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)))),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
-<span id="cb108-13"><a href="answers.html#cb108-13"></a>  H &lt;-<span class="st"> </span><span class="kw">max</span>(subset<span class="op">$</span>cty)</span>
-<span id="cb108-14"><a href="answers.html#cb108-14"></a>  I &lt;-<span class="st"> </span><span class="kw">min</span>(subset<span class="op">$</span>hwy)</span>
-<span id="cb108-15"><a href="answers.html#cb108-15"></a>  J &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">unique</span>(subset<span class="op">$</span>fl),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
-<span id="cb108-16"><a href="answers.html#cb108-16"></a>  K &lt;-<span class="st"> </span>subset<span class="op">$</span>class[<span class="kw">which.max</span>(<span class="kw">nchar</span>(subset<span class="op">$</span>class))]</span>
-<span id="cb108-17"><a href="answers.html#cb108-17"></a></span>
-<span id="cb108-18"><a href="answers.html#cb108-18"></a>  largest_value &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">gsub</span>(<span class="st">&quot;.(</span><span class="ch">\\</span><span class="st">d)&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,subset<span class="op">$</span>trans_subtype[<span class="kw">grepl</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>,subset<span class="op">$</span>trans_subtype)]))</span>
-<span id="cb108-19"><a href="answers.html#cb108-19"></a>  L &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">unique</span>(subset<span class="op">$</span>trans_subtype[<span class="kw">grepl</span>(largest_value,subset<span class="op">$</span>trans_subtype)]), <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
-<span id="cb108-20"><a href="answers.html#cb108-20"></a>  mpg_summary[<span class="kw">nrow</span>(mpg_summary)<span class="op">+</span><span class="dv">1</span>,] &lt;-<span class="st"> </span><span class="kw">c</span>(A,B,C,D,E,F,G,H,I,J,K,L)</span>
-<span id="cb108-21"><a href="answers.html#cb108-21"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="answers.html#cb126-1"></a>mpg_summary &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">A=</span><span class="kw">character</span>(), <span class="dt">B=</span><span class="kw">character</span>(), <span class="dt">C=</span><span class="kw">character</span>(), <span class="dt">D=</span><span class="kw">character</span>(),</span>
+<span id="cb126-2"><a href="answers.html#cb126-2"></a>                          <span class="dt">E=</span><span class="kw">character</span>(), <span class="dt">F=</span><span class="kw">character</span>(), <span class="dt">G=</span><span class="kw">character</span>(), <span class="dt">H=</span><span class="kw">character</span>(),</span>
+<span id="cb126-3"><a href="answers.html#cb126-3"></a>                          <span class="dt">I=</span><span class="kw">character</span>(), <span class="dt">J=</span><span class="kw">character</span>(), <span class="dt">K=</span><span class="kw">character</span>(), <span class="dt">L=</span><span class="kw">character</span>())</span>
+<span id="cb126-4"><a href="answers.html#cb126-4"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="kw">unique</span>(mpg<span class="op">$</span>manufacturer)){</span>
+<span id="cb126-5"><a href="answers.html#cb126-5"></a>  subset &lt;-<span class="st"> </span>mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,]</span>
+<span id="cb126-6"><a href="answers.html#cb126-6"></a>  A &lt;-<span class="st"> </span>x</span>
+<span id="cb126-7"><a href="answers.html#cb126-7"></a>  B &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(subset<span class="op">$</span>model))</span>
+<span id="cb126-8"><a href="answers.html#cb126-8"></a>  C &lt;-<span class="st"> </span><span class="kw">mean</span>(subset<span class="op">$</span>displ)</span>
+<span id="cb126-9"><a href="answers.html#cb126-9"></a>  D &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">min</span>(subset<span class="op">$</span>year),<span class="st">&quot;-&quot;</span>,<span class="kw">max</span>(subset<span class="op">$</span>year))</span>
+<span id="cb126-10"><a href="answers.html#cb126-10"></a>  E &lt;-<span class="st"> </span><span class="kw">mean</span>(subset<span class="op">$</span>cyl)</span>
+<span id="cb126-11"><a href="answers.html#cb126-11"></a>  F &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">names</span>(<span class="kw">which</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)<span class="op">==</span><span class="kw">max</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)))),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb126-12"><a href="answers.html#cb126-12"></a>  G &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">names</span>(<span class="kw">which</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)<span class="op">==</span><span class="kw">min</span>(<span class="kw">table</span>(subset<span class="op">$</span>trans)))),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb126-13"><a href="answers.html#cb126-13"></a>  H &lt;-<span class="st"> </span><span class="kw">max</span>(subset<span class="op">$</span>cty)</span>
+<span id="cb126-14"><a href="answers.html#cb126-14"></a>  I &lt;-<span class="st"> </span><span class="kw">min</span>(subset<span class="op">$</span>hwy)</span>
+<span id="cb126-15"><a href="answers.html#cb126-15"></a>  J &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">unique</span>(subset<span class="op">$</span>fl),<span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb126-16"><a href="answers.html#cb126-16"></a>  K &lt;-<span class="st"> </span>subset<span class="op">$</span>class[<span class="kw">which.max</span>(<span class="kw">nchar</span>(subset<span class="op">$</span>class))]</span>
+<span id="cb126-17"><a href="answers.html#cb126-17"></a></span>
+<span id="cb126-18"><a href="answers.html#cb126-18"></a>  largest_value &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">gsub</span>(<span class="st">&quot;.(</span><span class="ch">\\</span><span class="st">d)&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,subset<span class="op">$</span>trans_subtype[<span class="kw">grepl</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>,subset<span class="op">$</span>trans_subtype)]))</span>
+<span id="cb126-19"><a href="answers.html#cb126-19"></a>  L &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">unique</span>(subset<span class="op">$</span>trans_subtype[<span class="kw">grepl</span>(largest_value,subset<span class="op">$</span>trans_subtype)]), <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb126-20"><a href="answers.html#cb126-20"></a>  mpg_summary[<span class="kw">nrow</span>(mpg_summary)<span class="op">+</span><span class="dv">1</span>,] &lt;-<span class="st"> </span><span class="kw">c</span>(A,B,C,D,E,F,G,H,I,J,K,L)</span>
+<span id="cb126-21"><a href="answers.html#cb126-21"></a>}</span></code></pre></div>
 <p>A11</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="answers.html#cb109-1"></a>get_hwy_ranage &lt;-<span class="cf">function</span>(x){</span>
-<span id="cb109-2"><a href="answers.html#cb109-2"></a>  lower &lt;-<span class="st"> </span><span class="kw">min</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
-<span id="cb109-3"><a href="answers.html#cb109-3"></a>  upper &lt;-<span class="st"> </span><span class="kw">max</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
-<span id="cb109-4"><a href="answers.html#cb109-4"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(lower,<span class="st">&quot;-&quot;</span>,upper))</span>
-<span id="cb109-5"><a href="answers.html#cb109-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="answers.html#cb127-1"></a>get_hwy_ranage &lt;-<span class="cf">function</span>(x){</span>
+<span id="cb127-2"><a href="answers.html#cb127-2"></a>  lower &lt;-<span class="st"> </span><span class="kw">min</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
+<span id="cb127-3"><a href="answers.html#cb127-3"></a>  upper &lt;-<span class="st"> </span><span class="kw">max</span>(mpg[mpg<span class="op">$</span>manufacturer<span class="op">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
+<span id="cb127-4"><a href="answers.html#cb127-4"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(lower,<span class="st">&quot;-&quot;</span>,upper))</span>
+<span id="cb127-5"><a href="answers.html#cb127-5"></a>}</span></code></pre></div>
+</div>
+<div id="exercise-for-chapter3" class="section level2">
+<h2><span class="header-section-number">6.2</span> Exercise for Chapter3</h2>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="answers.html#cb128-1"></a>PlantGrowth</span></code></pre></div>
+<pre><code>##    weight group
+## 1    4.17  ctrl
+## 2    5.58  ctrl
+## 3    5.18  ctrl
+## 4    6.11  ctrl
+## 5    4.50  ctrl
+## 6    4.61  ctrl
+## 7    5.17  ctrl
+## 8    4.53  ctrl
+## 9    5.33  ctrl
+## 10   5.14  ctrl
+## 11   4.81  trt1
+## 12   4.17  trt1
+## 13   4.41  trt1
+## 14   3.59  trt1
+## 15   5.87  trt1
+## 16   3.83  trt1
+## 17   6.03  trt1
+## 18   4.89  trt1
+## 19   4.32  trt1
+## 20   4.69  trt1
+## 21   6.31  trt2
+## 22   5.12  trt2
+## 23   5.54  trt2
+## 24   5.50  trt2
+## 25   5.37  trt2
+## 26   5.29  trt2
+## 27   4.92  trt2
+## 28   6.15  trt2
+## 29   5.80  trt2
+## 30   5.26  trt2</code></pre>
+<p>A1</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="answers.html#cb130-1"></a>ctrl_grp &lt;-<span class="st"> </span>PlantGrowth[PlantGrowth[, <span class="dv">2</span>] <span class="op">==</span><span class="st"> &quot;ctrl&quot;</span>,<span class="dv">1</span>]</span>
+<span id="cb130-2"><a href="answers.html#cb130-2"></a>trt1_grp &lt;-<span class="st"> </span>PlantGrowth[PlantGrowth[, <span class="dv">2</span>] <span class="op">==</span><span class="st"> &quot;trt1&quot;</span>,<span class="dv">1</span>]</span></code></pre></div>
+<p>A2</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="answers.html#cb131-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(ctrl_grp), <span class="dt">main =</span> <span class="st">&quot;Control Group vs Treatment 1&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;weight&quot;</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">2.5</span>,<span class="fl">7.5</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.65</span>))</span>
+<span id="cb131-2"><a href="answers.html#cb131-2"></a><span class="kw">par</span>(<span class="dt">new =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb131-3"><a href="answers.html#cb131-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(trt1_grp), <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">2.5</span>,<span class="fl">7.5</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.65</span>))</span></code></pre></div>
+<p><img src="01-intro_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p>A3</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="answers.html#cb132-1"></a><span class="kw">t.test</span>(ctrl_grp, trt1_grp)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  ctrl_grp and trt1_grp
+## t = 1.1913, df = 16.524, p-value = 0.2504
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.2875162  1.0295162
+## sample estimates:
+## mean of x mean of y 
+##     5.032     4.661</code></pre>
 </div>
 </div>
             </section>
@@ -339,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="exercise-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rna-seq-analysis-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

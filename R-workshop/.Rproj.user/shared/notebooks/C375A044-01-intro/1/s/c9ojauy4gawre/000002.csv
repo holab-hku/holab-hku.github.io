@@ -1,0 +1,2 @@
+"0","ctrl_grp <- PlantGrowth[PlantGrowth[, 2] == ""ctrl"",1]"
+"0","trt1_grp <- PlantGrowth[PlantGrowth[, 2] == ""trt1"",1]"

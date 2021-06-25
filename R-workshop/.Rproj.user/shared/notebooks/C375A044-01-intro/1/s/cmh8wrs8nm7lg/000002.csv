@@ -1,0 +1,4 @@
+"0","m <- matrix(1:9, nrow = 3, dimnames = list(c(""X"",""Y"",""Z""), c(""A"",""B"",""C"")))"
+"0","#Change names"
+"0","colnames(m) <- c(""C1"",""C2"",""C3"")"
+"0","rownames(m) <- c(""R1"",""R2"",""R3"")"

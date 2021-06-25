@@ -1,0 +1,1 @@
+"0","summary <- tapply(tdata$V2, tdata$V1, function(x) c(mean(x), sd(x)))"

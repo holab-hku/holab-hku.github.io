@@ -1,0 +1,2 @@
+"0","male_obesity = ifelse(male_BMI >= 30, ""Yes"", ""No"")"
+"0","female_obesity = ifelse(female_BMI >= 30, ""Yes"", ""No"")"

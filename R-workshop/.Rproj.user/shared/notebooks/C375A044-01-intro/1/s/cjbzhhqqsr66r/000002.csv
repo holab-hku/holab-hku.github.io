@@ -1,0 +1,1 @@
+"0","mpg$trans_subtype <- gsub("".*\\((.*)\\)"",""\\1"",mpg$trans)"

@@ -1,0 +1,2 @@
+"0","mtcars.mean <- apply(mtcars[,1:7], 2, mean)"
+"0","mtcars.sd <- apply(mtcars[,1:7], 2, sd)"

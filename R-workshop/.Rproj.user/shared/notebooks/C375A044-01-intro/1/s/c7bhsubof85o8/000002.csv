@@ -1,0 +1,3 @@
+"0","male_num = table(male_obesity)"
+"0","female_num = table(female_obesity)"
+"0","obesity_num = rbind(male_num, female_num)"

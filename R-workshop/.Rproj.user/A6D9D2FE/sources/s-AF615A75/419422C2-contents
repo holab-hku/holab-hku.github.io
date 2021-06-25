@@ -1,0 +1,44 @@
+# AWS EC2 Instance
+
+## Introduction
+
+An AWS EC2 instance is equivalent to a portable, customisable, intangible computer which is accessible through your personal local computer with a command line interface. We are able to specify memory requirements, CPU power (computing cores/threads), data storage size, and the operation system (e.g. Linux, Ubuntu, Windows) of this intangible computer. 
+
+
+## Set Up
+
+1. Log into your AWS Account.
+
+2. Navigate to EC2 under Amazon's Services tab.
+
+4. Select AMIs under IMAGES tab.
+
+3. Change filter bar to "Public Images" and search for "10X Workshop" and launch.
+
+4. Launch specfication to use: `m5.4xlarge` instance type and `64GBs` of storage space. (Leave other options to default)
+
+5. Click Launch.
+
+6. When given the "Key pair" prompt: select "Create a new key pair". Name your key pair "10X" and download. Then "Launch Instances"
+
+```
+**Quiz**
+1. What is an AMI?
+2. What is the purpose of a key pair?
+```
+
+## Connecting to your EC2 instance
+
+1. Open your command line interface
+
+2. Connect to your EC2 instance by entering the following command.
+```
+ssh -i "10X.pem" ec2-user@ec2-XX-XXX-XX-XXX.ap-east-1.compute.amazonaws.com
+```
+
+"10X.pem" should be the location of where you have stored your key pair. The X's is the ip address of your personal EC2 instance. This can be found by going to EC2 Dashboard > Running Instances > Selecting your running instance > Click Connect.
+
+```
+**Quiz**
+1. What is ssh?
+```

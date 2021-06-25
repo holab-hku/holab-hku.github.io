@@ -1,0 +1,5 @@
+"0","trt1_grp <- PlantGrowth[PlantGrowth[, 2] == ""trt1"",1]"
+"0","trt2_grp <- PlantGrowth[PlantGrowth[, 2] == ""trt2"",1]"
+"0",""
+"0","# plot density"
+"0","plot(density(trt1_grp), main = ""Control Group vs Treatment 1"", xlab = ""weight"", xlim = c(2.5,7.5), ylim = c(0,1))"

@@ -1,0 +1,5 @@
+"0","get_hwy_ranage <-function(x){"
+"0","  lower <- min(mpg[mpg$manufacturer==x,""hwy""])"
+"0","  upper <- max(mpg[mpg$manufacturer==x,""hwy""])"
+"0","  print(paste0(lower,""-"",upper))"
+"0","}"

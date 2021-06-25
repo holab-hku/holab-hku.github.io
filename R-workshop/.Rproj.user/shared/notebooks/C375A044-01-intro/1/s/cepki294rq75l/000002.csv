@@ -1,0 +1,1 @@
+"0","mpg[grepl(""auto"",mpg$trans)&mpg$cyl==4,]"

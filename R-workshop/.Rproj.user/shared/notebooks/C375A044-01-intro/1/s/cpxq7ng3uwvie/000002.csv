@@ -1,0 +1,2 @@
+"0","male_BMI = male_group$weight/(male_group$height/100)^2"
+"0","female_BMI = female_group$weight/(female_group$height/100)^2"

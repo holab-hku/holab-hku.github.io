@@ -11,9 +11,10 @@ output:
 
 
 # Prerequisites
+## Installation
+### Windows
+**To Install R** 
 
-## Windows
-### To Install R
 - Open an internet browser and go to https://cran.r-project.org/.
 - Click the "download R" link in the middle of the page under "Getting Started."
 - Select a CRAN location (a mirror site) and click the corresponding link.
@@ -23,7 +24,8 @@ output:
 - Most of the time, you will likely want to go with the defaults, so click the button 'Next' until the process is complete.
 - Now that R is installed, you need to download and install RStudio.
 
-### To Install RStudio
+**To Install RStudio**
+
 - Go to www.rstudio.com and click on the "Download RStudio" button.
 - Click on "Download RStudio Desktop."
 - The installation process is very straightforward as the gif below.
@@ -32,8 +34,9 @@ output:
 knitr::include_graphics("./images/windows_rs.gif")
 ```
 
-## Mac OSX
-### To Install R
+### Mac OSX
+**To Install R**
+
 - Open an internet browser and go to www.r-project.org.
 - Click the "download R" link in the middle of the page under "Getting Started."
 - Select a CRAN location (a mirror site) and click the corresponding link.
@@ -42,8 +45,9 @@ knitr::include_graphics("./images/windows_rs.gif")
 - Save the ``.pkg`` file, double-click it to open, and follow the installation instructions.
 - Now that R is installed, you need to download and install RStudio.
 
-### To Install RStudio
+**To Install RStudio**
 Very similar with Windows,
+
 - Go to www.rstudio.com and click on the "Download RStudio" button.
 - Click on "Download RStudio Desktop."
 - Click on the version recommended for your system, or the latest Mac version, save the ``.dmg`` file on your computer, double-click it to open, and then drag and drop it to your applications folder.
@@ -51,8 +55,10 @@ Very similar with Windows,
 knitr::include_graphics("./images/mac_rs.png")
 ```
 
-## Ubuntu
-### To Install R
+### Ubuntu
+
+**To Install R**
+
 As it is common, prior to installing R, let us update the system package index and upgrade all our installed packages using the following two commands:
 ```
 sudo apt update
@@ -62,10 +68,55 @@ After that, all that you have to do is run the following in the command line to 
 ```
 sudo apt -y install r-base
 ```
-### To Install RStudio
+
+**To Install RStudio**
+
 Once base R is installed, you can go ahead and install RStudio. For that we are going to head over again to the RStudio downloads page and download the ``.deb`` file for our Ubuntu version as shown in the image below:
 ```{r fig3, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("./images/ubuntu_rs.png")
+```
+
+## Use R inside RStudio
+### R studio 
+RStudio is a four pane work-space for 1) creating file containing R script, 2) typing R commands, 3) viewing command histories, 4) viewing plots and more.
+
+Top-left panel: Code editor allowing you to create and open a file containing R script. The R script is where you keep a record of your work. R script can be created as follow:
+
+`` File –> New –> R Script``
+
+Bottom-left panel: R console for typing R commands
+
+Top-right panel:
+Workspace tab: shows the list of R objects you created during your R session
+History tab: shows the history of all previous commands
+
+Bottom-right panel:
+Files tab: show files in your working directory
+Plots tab: show the history of plots you created. From this tab, you can export a plot to a PDF or an image files
+Packages tab: show external R packages available on your system. If checked, the package is loaded in R.
+```{r fig4, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/rstudio.png")
+```
+
+### Set working directory
+-  Create a folder named “R-workshop” in your preferred directory
+-  Create a "Data" folder in the "R-workshop" 
+-  Download the data in the link used for this workshop and extract the data in the "Data" folder
+-  From RStudio, use the menu to change your working directory under 
+``Session > Set Working Directory > Choose Directory``
+-  Choose the directory to “R-workshop”
+
+```{r fig5, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/directory.png")
+```
+
+Or you can type in the console:
+```
+setwd("/yourdirectory/R-workshop")
+```
+For Windows, the command might look like :
+```
+setwd("c:/yourdirectory/R-workshop")
 ```
 
 # Data structure in R
@@ -174,22 +225,8 @@ m <- m[-nrow(m),]
 ```
 
 
-## DataFrame & List
+## DataFrame 
 
-List is a data structure having components of mixed data types.
-
-A vector having all elements of the same type is called atomic vector but a vector having elements of different type is called list.
-
-We can check if it’s a list with ``typeof()`` function and find its length using ``length()``.
-```{r, results='hide'}
-x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
-typeof(x)
-length(x)
-```
-Compactly Display the Structure of an Arbitrary R Object using ``str()``
-```{r, results='hide'}
-str(x)
-```
 Data frame is a two dimensional data structure in R. It is a special case of a list which has each component of equal length.
 ```{r, results='hide'}
 x <- data.frame("SID" = 1:3, "Age" = c(23,25,21), "Name" = c("Amy","Bobby","Cindy"), "Mark" = c(100,82,75))
@@ -214,15 +251,43 @@ x_highmark <- x[x$Mark>80,]
 HINT: use mean()
 ```
 
-
-**What is the difference between list and dataframe?**
-
-Lists are by far the most flexible data structure in R. They can be seen as a collection of elements without any restriction on the class, length or structure of each element. The only thing you need to take care of, is that you don't give two elements the same name. 
+## Factor
+Factors are variables in R which take on a limited number of different values, such variables are often referred to as categorical variables.
+```{r}
+category = c(1,2,2,3,1,2,3,3,1,2,3,3,1)
+fdata = factor(category)
+fdata
+```
+Or you can factor the vector with specific names.
+```{r}
+fdata1 = factor(category,labels=c("A","B","C"))
+fdata1
+```
+You can not treat the values in factors as numerical data, for example, if you use ``mean(fdata)`` you will get the warning as below.
+```{r}
+mean(fdata)
+```
+If we want to calculate the mean of the original numeric values of the fdata variable, we would have to convert the values using the levels function:
+```{r}
+mean(as.numeric(levels(fdata)[fdata]))
+```
+## List
+List is a data structure having components of mixed data types. Lists are by far the most flexible data structure in R. They can be seen as a collection of elements without any restriction on the class, length or structure of each element. The only thing you need to take care of, is that you don't give two elements the same name. 
 Data frames are a special case of list, but they have a few restrictions:
-
 - you can't use the same name for two different variables
 - all elements of a data frame are vectors
 - all elements of a data frame have an equal length.
+
+We can check if it’s a list with ``typeof()`` function and find its length using ``length()``.
+```{r, results='hide'}
+x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
+typeof(x)
+length(x)
+```
+Compactly Display the Structure of an Arbitrary R Object using ``str()``
+```{r, results='hide'}
+str(x)
+```
 
 # Data manipulation
 ## apply functions
@@ -402,6 +467,99 @@ grep("abc|abd", strings, value = TRUE)
 Regular expressions are a concise and flexible tool for describing patterns in strings. If you are interested, there are more examples in the tutorial provided by Cran.
 https://cran.rstudio.com/web/packages/stringr/vignettes/regular-expressions.html
 
+## Example
+
+This exercise demonstrates how to use apply and tapply to summarize information from a table.
+More information of apply functions can be found in *3.1*.
+
+Using ``apply()`` to get the mean and sd on every column
+```{r}
+mtcars.mean <- apply(mtcars[,1:7], 2, mean)
+mtcars.sd <- apply(mtcars[,1:7], 2, sd)
+```
+Using ``tapply()`` to get the maxmimum mpg per vs type
+```{r}
+mtcars.max.vs <- tapply(mtcars$mpg, mtcars$vs, max)
+```
+**Filtering**
+Using ``grep()`` to select names with Merc
+```{r}
+mtcars[grep("Merc", rownames(mtcars)),]
+```
+combining ``tapply()`` and ``apply()``.
+```{r}
+apply(mtcars[,1:7],2,function(x) tapply(x, mtcars$gear, sum))
+```
+Using filter to select disp larger than 200.
+```{r}
+mtcars[mtcars$disp > 200,]
+```
+
+## Exercise
+
+Load dataset mpg
+```
+install.packages('ggplot2')
+library(ggplot2)
+data("mpg")
+```
+### quiz
+
+Q1 How  many different car manufacturers are present?
+``Tip: Use functions: length() and unique()``
+
+Q2 How many SUV's (class) does each car manufacturer have?
+``Tip: Use table()``
+
+Q3 Create a new data.table with only automatic transmission type (trans) and 4 cylinders (cyl)
+``Tip: Use grepl()``
+
+Q4 Create a new column called trans_subtype, with the transmission subtype information (the value inside the brackets)
+``Tip: Use gsub``
+
+
+Q5 For toyota's "toyota tacoma 4wd" model, rename them to only "tacoma 4wd"
+``Tip: Try use gsub``
+
+
+Q6 Create a new column called ID, with the first 3 characters of the manufacturer name capitalised with year of manufacturer separated by a _
+``Tip: Use toupper() and substr() and paste0()
+E.g. audi 1999 --> AUD_1999``
+
+
+
+Q7 How many different model names have number(s) in their name for each manufacturer?
+``Tips: Use table() and grepl()``
+
+Q8 Find the average city mileage (cty) for each manufacturer type
+``Tip: use sapply``
+
+Q9 What is the average city mileage (cty) for models with number(s) in the name for each manufacturer?
+
+
+Q10 Create a new data frame called mpg_summary with the following columns: 
+- (A) Manufacturer name
+- (B) number of different models for that manufacturer 
+- (C) average displ
+- (D) manufacturing range (e.g. 1999,2000,2003 --> 1999-2003)
+- (E) average cyl
+- (F) most frequent transmission type (if there is a tie, print out all separated by |)
+- (G) least frequent drv (if there is a tie, print out all separated by |)
+- (H) Max cty 
+- (I) Min Hwy
+- (J) All fuel types (fl). Separate by | (E.g. f,r,e --> "f|r|e")
+- (K) Class with the longest name
+- (L) Transition sub-type with the largest number (if there is tie, print out all separated by |)
+
+``Tips: Use this to set up your new dataframe:``
+```
+mpg_summary <- data.frame(A=character(), B=character(), C=character(), D=character(), E=character(), F=character(), G=character(), H=character(),
+I=character(), J=character(), K=character(), L=character())
+```
+Q11 Write a function that takes in a manufacturer name and print out the highway mileage (hwy) range for each car model
+
+
+
 # Basic Statistics
 Statistics is the study of how best to collect, analyze, and draw conclusions from data. A strong foundation will serve you well, no matter what industry you work in. This section describes basic (and not so basic) statistics.
 
@@ -508,149 +666,99 @@ Boxplot of height in male group and female group
 boxplot(male_group$height, female_group$height, names = c("male", "female"), ylab = "height(cm)")
 ```
 
-## Example 1
-This exercise uses the PlantGrowth data set to demonstrate how to:
-1. select / filter a value in a dataframe
-2. plot density plot
-3. Perform t test
+## Exercise
+Use the PlantGrowth, perform t test to evaluate the weight of control and treatment groups.
+
+Q1 Extract weight of control and treatment groups and name them as ctrl_grp and trt1_grp.
+
+Q2 Plot density for Control and Treatment1, with xlim from 2.5 to 7.5, and ylim from 0 tp 0.65.
+HINT: use ``par(new = TRUE)`` to combine two graphs
+
+Q3 Perform t test.
+
+
+# RNA-seq analysis in R
+This study examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates.
+## Read the sample information
+The sampleinfo file contains basic information about the samples that we will need for the analysis today.
+```{r}
+# Read the sample information into R
+sampleinfo <- read.table("data/SampleInfo.txt",header = TRUE)
+View(sampleinfo)
+sampleinfo
+```
+
+## Read the count data
+You can use the ``head()`` command to see the first 6 lines. In RStudio the View command will open the dataframe in a new tab. The dim command will tell you how many rows and columns the data frame has.
 
 ```{r}
-PlantGrowth
+# Read the data into R
+seqdata <- read.table("data/GSE60450_Lactation-GenewiseCounts.txt",header = TRUE, stringsAsFactors = FALSE)
+View(seqdata)
+dim(seqdata)
 ```
 
-Extract weight of control and treatment groups and name them as ctrl_grp and trt1_grp.
+ The seqdata object contains information about genes (one gene per row), the first column has the Entrez gene id, the second has the gene length and the remaining columns contain information about the number of reads aligning to the gene in each experimental sample. There are two replicates for each cell type and timepoint.
+Next, we should format the data and create a dataframe with 12 samples and 27179 genes.
+
+## Format the data 
+
+The first two columns in the seqdata dataframe contain annotation information. We need to make a new matrix containing only the counts, but we can store the gene identifiers (the EntrezGeneID column) as rownames. We will add more annotation information about each gene later on in the workshop.
+
+Let’s create a new data object, countdata, that contains only the counts for the 12 samples.
 
 ```{r}
-ctrl_grp <- PlantGrowth[PlantGrowth[, 2] == "ctrl",1]
-trt1_grp <- PlantGrowth[PlantGrowth[, 2] == "trt1",1]
+# Remove first two columns from seqdata
+countdata <- seqdata[,-(1:2)]
+
+# Store EntrezGeneID as rownames
+rownames(countdata) <- seqdata[,1]
+View(countdata)
 ```
-Plot density.
+
+As we can see the column names for the countdata now is V1 to V14, we want to have a more meaningful column names. But the sample name is too long so we want to just keep the first 7 characters.
 ```{r}
-plot(density(ctrl_grp), main = "Control Group vs Treatment 1", xlab = "weight", xlim = c(2.5,7.5), ylim = c(0,0.65))
-par(new = TRUE)
-plot(density(trt1_grp), main = "", axes = FALSE, xlab = "", ylab = "", lty = 2, xlim = c(2.5,7.5), ylim = c(0,0.65))
+samplename <- substr(colnames(countdata), 1, 7)
+samplename
 ```
-Run t test.
+And we can now modify the column names.
 ```{r}
-t.test(ctrl_grp, trt1_grp)
+colnames(countdata) <- samplename
+head(countdata)
 ```
 
-## Example 2
+Now the column names are now the same as SampleName in the sampleinfo file. 
 
-This exercise demonstrates how to use apply and tapply to summarize information from a table.
-More information of apply functions can be found in *3.1*.
-
-Using ``apply()`` to get the mean and sd on every column
 ```{r}
-mtcars.mean <- apply(mtcars[,1:7], 2, mean)
-mtcars.sd <- apply(mtcars[,1:7], 2, sd)
+table(colnames(countdata)==sampleinfo$SampleName)
 ```
-Using ``tapply()`` to get the maxmimum mpg per vs type
+
+## Reads per million (RPM)
+Reads per million attempt to normalize for sequencing depth. Here’s how you do it for RPM:
+
+- Count up the total reads in a sample and divide that number by 1,000,000 – this is our “per million” scaling factor.
+- Divide the read counts by the “per million” scaling factor. This normalizes for sequencing depth, giving you reads per million (RPM)
+
 ```{r}
-mtcars.max.vs <- tapply(mtcars$mpg, mtcars$vs, max)
+scaling_factor <- sum(countdata)/1000000
+myRPM <- countdata/scaling_factor
 ```
-**Filtering**
-Using ``grep()`` to select names with Merc
+
+## Filtering 
+
+Summary of how many RPM greater than 0.5 there are in each row
 ```{r}
-mtcars[grep("Merc", rownames(mtcars)),]
+# There are 11433 genes that have RPM greater than 0.5 in all 12 samples.
+table(rowSums(myRPM > 0.5))
+
+# we would like to keep genes that have at least 2 RPM greater than 0.5 in each row of thresh
+# Subset the rows of countdata to keep the more highly expressed genes
+counts.keep <- countdata[rowSums(myRPM > 0.5) >= 2,]
+dim(counts.keep)
 ```
-combining ``tapply()`` and ``apply()``.
-```{r}
-apply(mtcars[,1:7],2,function(x) tapply(x, mtcars$gear, sum))
-```
-Using filter to select disp larger than 200.
-```{r}
-mtcars[mtcars$disp > 200,]
-```
-
-# Exercise 1 
-## Quiz
-Using the ``PlantGrowth`` data, try to answer:
-Are there significant increase between the treatment group 1 and 2? Plot the density plot and perform the t test.
-
-
-# Exercise 2
-
-Load dataset mpg
-```
-install.packages('ggplot2')
-library(ggplot2)
-data("mpg")
-```
-## quiz
-
-Q1 How  many different car manufacturers are present?
-``Tip: Use functions: length() and unique()``
-
-Q2 How many SUV's (class) does each car manufacturer have?
-``Tip: Use table()``
-
-Q3 Create a new data.table with only automatic transmission type (trans) and 4 cylinders (cyl)
-``Tip: Use grepl()``
-
-Q4 Create a new column called trans_subtype, with the transmission subtype information (the value inside the brackets)
-``Tip: Use gsub``
-
-
-Q5 For toyota's "toyota tacoma 4wd" model, rename them to only "tacoma 4wd"
-``Tip: Try use gsub``
-
-
-Q6 Create a new column called ID, with the first 3 characters of the manufacturer name capitalised with year of manufacturer separated by a _
-``Tip: Use toupper() and substr() and paste0()
-E.g. audi 1999 --> AUD_1999``
-
-
-
-Q7 How many different model names have number(s) in their name for each manufacturer?
-``Tips: Use table() and grepl()``
-
-Q8 Find the average city mileage (cty) for each manufacturer type
-``Tip: use sapply``
-
-Q9 What is the average city mileage (cty) for models with number(s) in the name for each manufacturer?
-
-
-Q10 Create a new data frame called mpg_summary with the following columns: 
-- (A) Manufacturer name
-- (B) number of different models for that manufacturer 
-- (C) average displ
-- (D) manufacturing range (e.g. 1999,2000,2003 --> 1999-2003)
-- (E) average cyl
-- (F) most frequent transmission type (if there is a tie, print out all separated by |)
-- (G) least frequent drv (if there is a tie, print out all separated by |)
-- (H) Max cty 
-- (I) Min Hwy
-- (J) All fuel types (fl). Separate by | (E.g. f,r,e --> "f|r|e")
-- (K) Class with the longest name
-- (L) Transition sub-type with the largest number (if there is tie, print out all separated by |)
-
-``Tips: Use this to set up your new dataframe:``
-```
-mpg_summary <- data.frame(A=character(), B=character(), C=character(), D=character(), E=character(), F=character(), G=character(), H=character(),
-I=character(), J=character(), K=character(), L=character())
-```
-Q11 Write a function that takes in a manufacturer name and print out the highway mileage (hwy) range for each car model
-
-
-
 # Answers
-## Answer for exercise1
 
-```{r}
-trt1_grp <- PlantGrowth[PlantGrowth[, 2] == "trt1",1]
-trt2_grp <- PlantGrowth[PlantGrowth[, 2] == "trt2",1]
-
-# plot density
-plot(density(trt1_grp), main = "Control Group vs Treatment 1", xlab = "weight", xlim = c(2.5,7.5), ylim = c(0,1))
-par(new = TRUE)
-plot(density(trt2_grp), main = "", axes = FALSE, xlab = "", ylab = "", lty = 2, xlim = c(2.5,7.5), ylim = c(0,1))
-
-# run t test
-t.test(trt1_grp, trt2_grp)
-
-```
-## Answer for exercise2
+## Exercise for Chapter2
 
 ```{r echo=TRUE}
 library(ggplot2)
@@ -734,4 +842,29 @@ get_hwy_ranage <-function(x){
   upper <- max(mpg[mpg$manufacturer==x,"hwy"])
   print(paste0(lower,"-",upper))
 }
+```
+
+## Exercise for Chapter3
+```{r}
+PlantGrowth
+```
+
+
+A1
+```{r}
+ctrl_grp <- PlantGrowth[PlantGrowth[, 2] == "ctrl",1]
+trt1_grp <- PlantGrowth[PlantGrowth[, 2] == "trt1",1]
+```
+
+A2
+```{r}
+plot(density(ctrl_grp), main = "Control Group vs Treatment 1", xlab = "weight", xlim = c(2.5,7.5), ylim = c(0,0.65))
+par(new = TRUE)
+plot(density(trt1_grp), main = "", axes = FALSE, xlab = "", ylab = "", lty = 2, xlim = c(2.5,7.5), ylim = c(0,0.65))
+
+```
+
+A3
+```{r}
+t.test(ctrl_grp, trt1_grp)
 ```
