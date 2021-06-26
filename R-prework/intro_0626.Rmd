@@ -47,13 +47,14 @@ knitr::include_graphics("./images/windows_rs.gif")
 ### Mac OSX
 **To Install R**
 
-- Open an internet browser and go to www.r-project.org.
+- Open an internet browser and go to https://cran.r-project.org/.
 - Click on the "Download R for (Mac) OS X" link at the top of the page.
 - Click on the file containing the latest version of R under "Files."
 - Save the ``.pkg`` file, double-click it to open, and follow the installation instructions.
 - Now that R is installed, you need to download and install RStudio.
 
 **To Install RStudio**
+
 Very similar with Windows,
 
 - Go to www.rstudio.com and click on the "Download RStudio" button.
