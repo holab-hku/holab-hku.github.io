@@ -148,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
 <li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
-<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.3</b> Install packages</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#some-general-knowledge"><i class="fa fa-check"></i><b>2.2.3</b> Some general knowledge</a></li>
+<li class="chapter" data-level="2.2.4" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.4</b> Install packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
@@ -219,20 +220,20 @@ Here:
 -MARGIN=c(1,2) the manipulation is performed on rows and columns
 -FUN: tells which function to apply. Built functions like mean, median, sum, min, max and even user-defined functions can be applied&gt;</code></pre>
 <p>Example1:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-manipulation.html#cb43-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(C<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),<span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb43-2"><a href="data-manipulation.html#cb43-2" aria-hidden="true" tabindex="-1"></a>m1</span>
-<span id="cb43-3"><a href="data-manipulation.html#cb43-3" aria-hidden="true" tabindex="-1"></a>m1_colsum <span class="ot">&lt;-</span> <span class="fu">apply</span>(m1, <span class="dv">2</span>, sum)</span>
-<span id="cb43-4"><a href="data-manipulation.html#cb43-4" aria-hidden="true" tabindex="-1"></a>m1_colsum </span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-manipulation.html#cb46-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(C<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),<span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb46-2"><a href="data-manipulation.html#cb46-2" aria-hidden="true" tabindex="-1"></a>m1</span>
+<span id="cb46-3"><a href="data-manipulation.html#cb46-3" aria-hidden="true" tabindex="-1"></a>m1_colsum <span class="ot">&lt;-</span> <span class="fu">apply</span>(m1, <span class="dv">2</span>, sum)</span>
+<span id="cb46-4"><a href="data-manipulation.html#cb46-4" aria-hidden="true" tabindex="-1"></a>m1_colsum </span></code></pre></div>
 <p>If you want to perform the function in each cell, you can set the margin to <code>1:2</code> or c(1,2)</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-manipulation.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m1, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-manipulation.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m1, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">3</span>)</span></code></pre></div>
 <p>Example2: a function to find standard error was created, then passed into an apply function to find the standard error of each column.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-manipulation.html#cb45-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb45-2"><a href="data-manipulation.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="data-manipulation.html#cb45-3" aria-hidden="true" tabindex="-1"></a>st.err <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb45-4"><a href="data-manipulation.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span>
-<span id="cb45-5"><a href="data-manipulation.html#cb45-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb45-6"><a href="data-manipulation.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="data-manipulation.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m2, <span class="dv">2</span>, st.err)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-manipulation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb48-2"><a href="data-manipulation.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="data-manipulation.html#cb48-3" aria-hidden="true" tabindex="-1"></a>st.err <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb48-4"><a href="data-manipulation.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span>
+<span id="cb48-5"><a href="data-manipulation.html#cb48-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb48-6"><a href="data-manipulation.html#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="data-manipulation.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m2, <span class="dv">2</span>, st.err)</span></code></pre></div>
 </div>
 <div id="lapply" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> lapply()</h3>
@@ -242,26 +243,26 @@ Arguments:
 -X: A vector or an object
 -FUN: Function applied to each element of x</code></pre>
 <p>Example:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-manipulation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb47-2"><a href="data-manipulation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb47-3"><a href="data-manipulation.html#cb47-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb47-4"><a href="data-manipulation.html#cb47-4" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
-<span id="cb47-5"><a href="data-manipulation.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(mylist, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-manipulation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb50-2"><a href="data-manipulation.html#cb50-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb50-3"><a href="data-manipulation.html#cb50-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb50-4"><a href="data-manipulation.html#cb50-4" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
+<span id="cb50-5"><a href="data-manipulation.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(mylist, sum)</span></code></pre></div>
 </div>
 <div id="sapply" class="section level3" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> sapply()</h3>
 <p><code>sapply()</code> works just like lapply, but will simplify the output if possible. This means that instead of returning a list like lapply, it will return a vector instead.
 Example:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-manipulation.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mylist, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-manipulation.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mylist, sum)</span></code></pre></div>
 </div>
 <div id="tapply" class="section level3" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> tapply()</h3>
 <p>Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors.</p>
 <p>Example1:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-manipulation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>tdata <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), m2))</span>
-<span id="cb49-2"><a href="data-manipulation.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-manipulation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>tdata <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), m2))</span>
+<span id="cb52-2"><a href="data-manipulation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, mean)</span></code></pre></div>
 <p>Example2:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-manipulation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-manipulation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x)))</span></code></pre></div>
 </div>
 </div>
 <div id="pattern-matching" class="section level2" number="4.2">
@@ -271,18 +272,18 @@ Example:</p>
 <p><code>grep(pattern, string)</code> returns by default a vector of indices.</p>
 <p><code>grepl(pattern, string)</code> returns by default a vector of logical values.
 In <code>grep()</code>, if you want to have the actual matching element values, set the option value to TRUE by value=TRUE. Pattern matching in R defaults to be case sensitive. You can use ignore.case = TRUE to avoid case sensitivivity.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-manipulation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;ca bd&quot;</span>)</span>
-<span id="cb51-2"><a href="data-manipulation.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
-<span id="cb51-3"><a href="data-manipulation.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
-<span id="cb51-4"><a href="data-manipulation.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb51-5"><a href="data-manipulation.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-6"><a href="data-manipulation.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>,<span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-manipulation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;ca bd&quot;</span>)</span>
+<span id="cb54-2"><a href="data-manipulation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
+<span id="cb54-3"><a href="data-manipulation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
+<span id="cb54-4"><a href="data-manipulation.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb54-5"><a href="data-manipulation.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-6"><a href="data-manipulation.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>,<span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="find-and-replace-patterns" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Find and replace patterns</h3>
 <p><code>gsub(pattern, replacement, string)</code> returns the modified string after replacing every pattern occurrence with replacement in string.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-manipulation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>studentID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;u1000&quot;</span>, <span class="st">&quot;u1001&quot;</span>, <span class="st">&quot;u1002&quot;</span>)</span>
-<span id="cb52-2"><a href="data-manipulation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;u&quot;</span>, <span class="st">&quot;U&quot;</span>, studentID)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-manipulation.html#cb55-1" aria-hidden="true" tabindex="-1"></a>studentID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;u1000&quot;</span>, <span class="st">&quot;u1001&quot;</span>, <span class="st">&quot;u1002&quot;</span>)</span>
+<span id="cb55-2"><a href="data-manipulation.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;u&quot;</span>, <span class="st">&quot;U&quot;</span>, studentID)</span></code></pre></div>
 </div>
 <div id="regular-expression" class="section level3" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Regular expression</h3>
@@ -298,24 +299,24 @@ Quantifiers specify how many times that the preceding pattern should occur.</p>
 <li><code>{,m}</code> : matches at most m times.</li>
 <li><code>{n,m}</code> : matches between n and m times.</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-manipulation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;acb&quot;</span>, <span class="st">&quot;accb&quot;</span>, <span class="st">&quot;acccb&quot;</span>, <span class="st">&quot;accccb&quot;</span>)</span>
-<span id="cb53-2"><a href="data-manipulation.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac*b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-3"><a href="data-manipulation.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac+b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-4"><a href="data-manipulation.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac?b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-5"><a href="data-manipulation.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-6"><a href="data-manipulation.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-7"><a href="data-manipulation.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,3}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-manipulation.html#cb56-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;acb&quot;</span>, <span class="st">&quot;accb&quot;</span>, <span class="st">&quot;acccb&quot;</span>, <span class="st">&quot;accccb&quot;</span>)</span>
+<span id="cb56-2"><a href="data-manipulation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac*b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-3"><a href="data-manipulation.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac+b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-4"><a href="data-manipulation.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac?b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-5"><a href="data-manipulation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-6"><a href="data-manipulation.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-7"><a href="data-manipulation.html#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,3}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <ul>
 <li><code>^</code> : Start of the string.</li>
 <li><code>$</code> : End of the string.</li>
 <li><code>\\&lt;</code> : Beginning of a word</li>
 <li><code>\\&gt;</code> : End of a word</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-manipulation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;cabd&quot;</span>, <span class="st">&quot;c abd&quot;</span>, <span class="st">&quot;abc&quot;</span>,<span class="st">&quot;*ab&quot;</span>)</span>
-<span id="cb54-2"><a href="data-manipulation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb54-3"><a href="data-manipulation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab$&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb54-4"><a href="data-manipulation.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">&lt;a&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb54-5"><a href="data-manipulation.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;c</span><span class="sc">\\</span><span class="st">&gt;&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-manipulation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;cabd&quot;</span>, <span class="st">&quot;c abd&quot;</span>, <span class="st">&quot;abc&quot;</span>,<span class="st">&quot;*ab&quot;</span>)</span>
+<span id="cb57-2"><a href="data-manipulation.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-3"><a href="data-manipulation.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab$&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-4"><a href="data-manipulation.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">&lt;a&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-5"><a href="data-manipulation.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;c</span><span class="sc">\\</span><span class="st">&gt;&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <ul>
 <li><p><code>.</code> : Any non-empty character</p></li>
 <li><p><code>[...]</code> : a permitted character list. Use <code>-</code> inside the brackets to specify a range of characters.</p></li>
@@ -324,12 +325,12 @@ Quantifiers specify how many times that the preceding pattern should occur.</p>
 <li><p><code>\</code>: Escape metacharacters in regular expression, i.e.</p></li>
 </ul>
 <pre><code>$ * + . ? [ ] ^ { } | ( ) \`</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-manipulation.html#cb56-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;^ab&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;abc&quot;</span>, <span class="st">&quot;abd&quot;</span>, <span class="st">&quot; abc d&quot;</span>, <span class="st">&quot;abe&quot;</span>, <span class="st">&quot;ab 12&quot;</span>)</span>
-<span id="cb56-2"><a href="data-manipulation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab.&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-3"><a href="data-manipulation.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[c-e]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-4"><a href="data-manipulation.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[^c]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-5"><a href="data-manipulation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-6"><a href="data-manipulation.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;abc|abd&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;^ab&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;abc&quot;</span>, <span class="st">&quot;abd&quot;</span>, <span class="st">&quot; abc d&quot;</span>, <span class="st">&quot;abe&quot;</span>, <span class="st">&quot;ab 12&quot;</span>)</span>
+<span id="cb59-2"><a href="data-manipulation.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab.&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb59-3"><a href="data-manipulation.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[c-e]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb59-4"><a href="data-manipulation.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[^c]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb59-5"><a href="data-manipulation.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb59-6"><a href="data-manipulation.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;abc|abd&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><strong>Advance</strong></p>
 <ul>
 <li><p><code>[[:digit:]]</code> or <code>\\d</code> or <code>[0-9]</code> : digits 0 1 2 3 4 5 6 7 8 9</p></li>
@@ -358,13 +359,13 @@ Quantifiers specify how many times that the preceding pattern should occur.</p>
 <p>This exercise demonstrates how to use apply and tapply to summarize information from a table.
 More information of apply functions can be found in <em>3.1</em>.</p>
 <p>Using <code>apply()</code> to get the mean and sd on every column</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-manipulation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>mtcars.mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, mean)</span>
-<span id="cb57-2"><a href="data-manipulation.html#cb57-2" aria-hidden="true" tabindex="-1"></a>mtcars.sd <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-manipulation.html#cb60-1" aria-hidden="true" tabindex="-1"></a>mtcars.mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, mean)</span>
+<span id="cb60-2"><a href="data-manipulation.html#cb60-2" aria-hidden="true" tabindex="-1"></a>mtcars.sd <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, sd)</span></code></pre></div>
 <p>Using <code>tapply()</code> to get the maxmimum mpg per vs type</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-manipulation.html#cb58-1" aria-hidden="true" tabindex="-1"></a>mtcars.max.vs <span class="ot">&lt;-</span> <span class="fu">tapply</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>vs, max)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" aria-hidden="true" tabindex="-1"></a>mtcars.max.vs <span class="ot">&lt;-</span> <span class="fu">tapply</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>vs, max)</span></code></pre></div>
 <p><strong>Filtering</strong></p>
 <p>Using <code>grep()</code> to select names with Merc</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" aria-hidden="true" tabindex="-1"></a>mtcars[<span class="fu">grep</span>(<span class="st">&quot;Merc&quot;</span>, <span class="fu">rownames</span>(mtcars)),]</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-manipulation.html#cb62-1" aria-hidden="true" tabindex="-1"></a>mtcars[<span class="fu">grep</span>(<span class="st">&quot;Merc&quot;</span>, <span class="fu">rownames</span>(mtcars)),]</span></code></pre></div>
 <pre><code>##              mpg cyl  disp  hp drat   wt qsec vs am gear carb
 ## Merc 240D   24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2
 ## Merc 230    22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2
@@ -374,13 +375,13 @@ More information of apply functions can be found in <em>3.1</em>.</p>
 ## Merc 450SL  17.3   8 275.8 180 3.07 3.73 17.6  0  0    3    3
 ## Merc 450SLC 15.2   8 275.8 180 3.07 3.78 18.0  0  0    3    3</code></pre>
 <p>combining <code>tapply()</code> and <code>apply()</code>.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>],<span class="dv">2</span>,<span class="cf">function</span>(x) <span class="fu">tapply</span>(x, mtcars<span class="sc">$</span>gear, sum))</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-manipulation.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>],<span class="dv">2</span>,<span class="cf">function</span>(x) <span class="fu">tapply</span>(x, mtcars<span class="sc">$</span>gear, sum))</span></code></pre></div>
 <pre><code>##     mpg cyl   disp   hp  drat     wt   qsec
 ## 3 241.6 112 4894.5 2642 46.99 58.389 265.38
 ## 4 294.4  56 1476.2 1074 48.52 31.400 227.58
 ## 5 106.9  30 1012.4  978 19.58 13.163  78.20</code></pre>
 <p>Using filter to select disp larger than 200.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-manipulation.html#cb63-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>disp <span class="sc">&gt;</span> <span class="dv">200</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-manipulation.html#cb66-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>disp <span class="sc">&gt;</span> <span class="dv">200</span>,]</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2

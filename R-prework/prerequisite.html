@@ -148,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
 <li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
-<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.3</b> Install packages</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#some-general-knowledge"><i class="fa fa-check"></i><b>2.2.3</b> Some general knowledge</a></li>
+<li class="chapter" data-level="2.2.4" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.4</b> Install packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
@@ -212,8 +213,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>To Install R</strong></p>
 <ul>
 <li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
-<li>Click the “download R” link in the middle of the page under “Getting Started.”</li>
-<li>Select a CRAN location (a mirror site) and click the corresponding link.</li>
 <li>Click on the “Download R for Windows” link at the top of the page.</li>
 <li>Choose the “base” and then Click on the “Download R 4.1.0 for Windows” link at the top of the page.</li>
 <li>Once the download is finished, you will obtain a file named “R-4.1.0-win.exe” or similar depending on the version of R that you download.</li>
@@ -233,8 +232,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>To Install R</strong></p>
 <ul>
 <li>Open an internet browser and go to www.r-project.org.</li>
-<li>Click the “download R” link in the middle of the page under “Getting Started.”</li>
-<li>Select a CRAN location (a mirror site) and click the corresponding link.</li>
 <li>Click on the “Download R for (Mac) OS X” link at the top of the page.</li>
 <li>Click on the file containing the latest version of R under “Files.”</li>
 <li>Save the <code>.pkg</code> file, double-click it to open, and follow the installation instructions.</li>
@@ -295,8 +292,29 @@ for this workshop and extract the data in the “Data” folder</li>
 <p>For Windows, the command might look like :</p>
 <pre><code>setwd(&quot;c:/yourdirectory/R-workshop&quot;)</code></pre>
 </div>
-<div id="install-packages" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Install packages</h3>
+<div id="some-general-knowledge" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Some general knowledge</h3>
+<ul>
+<li>R is case-sensitive</li>
+<li>Type enter to run R code in console pane</li>
+<li>Ctrl-enter or Cmd-return if the code is in the scripts pane.</li>
+<li>Comments comes after # will not be treated as codes</li>
+<li>R has some pre-loaded data sets, to see the list of pre-loaded data, type <code>data()</code></li>
+<li>In R, a function is an object, a basic syntax of an R function looks like something below:</li>
+</ul>
+<pre><code>function_name &lt;- function(arg_1, arg_2, ...) {
+   actual function codes
+}</code></pre>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="prerequisite.html#cb6-1" aria-hidden="true" tabindex="-1"></a>st.err <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb6-2"><a href="prerequisite.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span>
+<span id="cb6-3"><a href="prerequisite.html#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>R contains a lot of build-in functions, you can use <code>?</code> to see the documentation of a function, there are also a lot if external libraries with specific functions. To use a library, we do:</p>
+<pre><code>install.packages(&#39;package_name&#39;)
+library(package_name)</code></pre>
+</div>
+<div id="install-packages" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Install packages</h3>
 <p>There are two packages used in this workshop, in the R console, type:</p>
 <pre><code>install.packages(&#39;ggplot2&#39;)
 install.packages(&#39;gplots&#39;)</code></pre>

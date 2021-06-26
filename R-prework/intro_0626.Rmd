@@ -28,8 +28,6 @@ The installation instruction is adapted based on CRAN's R [installation](https:/
 **To Install R** 
 
 - Open an internet browser and go to https://cran.r-project.org/.
-- Click the "download R" link in the middle of the page under "Getting Started."
-- Select a CRAN location (a mirror site) and click the corresponding link.
 - Click on the "Download R for Windows" link at the top of the page.
 - Choose the "base" and then Click on the "Download R 4.1.0 for Windows" link at the top of the page.
 - Once the download is finished, you will obtain a file named "R-4.1.0-win.exe" or similar depending on the version of R that you download.
@@ -50,8 +48,6 @@ knitr::include_graphics("./images/windows_rs.gif")
 **To Install R**
 
 - Open an internet browser and go to www.r-project.org.
-- Click the "download R" link in the middle of the page under "Getting Started."
-- Select a CRAN location (a mirror site) and click the corresponding link.
 - Click on the "Download R for (Mac) OS X" link at the top of the page.
 - Click on the file containing the latest version of R under "Files."
 - Save the ``.pkg`` file, double-click it to open, and follow the installation instructions.
@@ -134,6 +130,30 @@ For Windows, the command might look like :
 setwd("c:/yourdirectory/R-workshop")
 ```
 
+### Some general knowledge
+- R is case-sensitive
+- Type enter to run R code in console pane 
+- Ctrl-enter or Cmd-return if the code is in the scripts pane.
+- Comments comes after # will not be treated as codes
+- R has some pre-loaded data sets, to see the list of pre-loaded data, type ``data()``
+- In R, a function is an object, a basic syntax of an R function looks like something below:
+```
+function_name <- function(arg_1, arg_2, ...) {
+   actual function codes
+}
+```
+For example:
+```{r}
+st.err <- function(x){
+  sd(x)/sqrt(length(x))
+}
+```
+R contains a lot of build-in functions, you can use ``?`` to see the documentation of a function, there are also a lot if external libraries with specific functions. To use a library, we do:
+```
+install.packages('package_name')
+library(package_name)
+```
+
 ### Install packages
 There are two packages used in this workshop, in the R console, type:
 ```
@@ -141,8 +161,8 @@ install.packages('ggplot2')
 install.packages('gplots')
 ```
 
-
 # Data structure in R
+
 Understanding R data structure is very important. Basic data structures in R include *Vector*, *Matrix*, *Data Frame*, *Factor* and *List*. By learning this Chapter you will understand how to work with the right data structure you might need. 
 
 
