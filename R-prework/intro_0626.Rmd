@@ -1,7 +1,6 @@
 --- 
-title: "Introduction to R"
-author: "Ho Lab"
-date: "`r Sys.Date()`"
+title: " "
+
 
 link-citations: yes
 description: "This is an introduction of R."
@@ -9,12 +8,21 @@ output:
   html_document
 ---
 
-# Ackowlegement
-We thank members of Ho-lab for their efforts in making this workshop, especially Xiunan Fang, Gordon Qian, Xinyi Lin, Ian Lee and Dr.Joshua W.K. Ho.
+# Introduction to R
+
+Xiunan Fang, Gordon Qian, Xinyi Lin, Ian Lee, Joshua Ho
+
+Last update: 2021-06-26
+
+Contact: jwkho@hku.hk
+
+
 
 # Prerequisite
 ## Installation
-The installation instruction are based on CRAN's instruction of R installation: https://cran.r-project.org/doc/manuals/r-patched/R-admin.html and DataCamp tutorial on "How to Install R on Windows, Mac OS X, and Ubuntu": https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu.
+The installation instruction is adapted based on CRAN's R [installation](https://cran.r-project.org/doc/manuals/r-patched/R-admin.html) guide and a DataCamp tutorial on ['How to install R on Windows, Mac OS X, and Ubuntu'](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu). 
+
+
 
 ### Windows 
 **To Install R** 
@@ -106,7 +114,9 @@ knitr::include_graphics("./images/rstudio.png")
 ### Set working directory
 -  Create a folder named “R-workshop” in your preferred directory
 -  Create a "Data" folder in the "R-workshop" 
--  Download the data in the link https://drive.google.com/drive/folders/1RD6PY8IatnJ9ECcpAiCNZlc3KPBInGwo?usp=sharingused for this workshop and extract the data in the "Data" folder
+-  Download the data from the GitHub:
+  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data)
+for this workshop and extract the data in the "Data" folder
 -  From RStudio, use the menu to change your working directory under 
 ``Session > Set Working Directory > Choose Directory``
 -  Choose the directory to “R-workshop”
@@ -315,7 +325,7 @@ str(x)
 
 # Data manipulation
 ## apply functions
-This chapter is modified from the tutorial "apply(), lapply(), sapply(), tapply() Function in R with Examples": https://www.guru99.com/r-apply-sapply-tapply.html and RDocumentation apply functions https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply.
+This chapter is adapted based on the tutorial ["apply(), lapply(), sapply(), tapply() Function in R with Examples"](https://www.guru99.com/r-apply-sapply-tapply.html)  and [RDocumentation apply functions](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply).
 
 ### apply()
 ``apply()`` takes Data frame or matrix as an input and gives output in vector, list or array. Apply function is used for matrix, it is designed to avoid explicit uses of loop constructs. 
@@ -414,7 +424,7 @@ gsub("u", "U", studentID)
 ```
 
 ### Regular expression
-The content in this chapter is based on "Regular Expressions in R" https://rstudio-pubs-static.s3.amazonaws.com/74603_76cd14d5983f47408fdf0b323550b846.html and CRAN documentation "Regular expressions" https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html. 
+The content in this chapter is adpted based on ["Regular Expressions in R"](https://rstudio-pubs-static.s3.amazonaws.com/74603_76cd14d5983f47408fdf0b323550b846.html) and CRAN documentation ["Regular expressions"](https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html). 
 
 **Basic**
 Quantifiers specify how many times that the preceding pattern should occur.
@@ -594,7 +604,7 @@ Q11 Write a function that takes in a manufacturer name and print out the highway
 
 # Answers
 
-## Exercise for Chapter4
+**Answer for Exercise4.4**
 
 ```{r echo=TRUE}
 library(ggplot2)
