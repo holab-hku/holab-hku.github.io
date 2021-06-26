@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Answers | Introduction to R</title>
+  <meta name="description" content="This is an introduction of R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Answers | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction of R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Answers | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introduction of R." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2021-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-manipulation.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introuction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="ackowlegement.html"><a href="ackowlegement.html"><i class="fa fa-check"></i><b>1</b> Ackowlegement</a></li>
+<li class="chapter" data-level="2" data-path="prerequisite.html"><a href="prerequisite.html"><i class="fa fa-check"></i><b>2</b> Prerequisite</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisite.html"><a href="prerequisite.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="prerequisite.html"><a href="prerequisite.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="prerequisite.html"><a href="prerequisite.html#mac-osx"><i class="fa fa-check"></i><b>2.1.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="2.1.3" data-path="prerequisite.html"><a href="prerequisite.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="prerequisite.html"><a href="prerequisite.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>2.2</b> Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
+<li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.3</b> Install packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>3.2.1</b> Make a matrix</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>3.2.2</b> Modify a matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>3.3</b> DataFrame</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>3.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>3.5</b> List</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>4.1</b> apply functions</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply"><i class="fa fa-check"></i><b>4.1.1</b> apply()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>4.1.2</b> lapply()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>4.1.3</b> sapply()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>4.1.4</b> tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>4.2</b> Pattern matching</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>4.2.1</b> Find strings</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>4.2.2</b> Find and replace patterns</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>4.2.3</b> Regular expression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>4.3</b> Example</a></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5</b> Answers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html#exercise-for-chapter4"><i class="fa fa-check"></i><b>5.1</b> Exercise for Chapter4</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="answers" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Answers</h1>
+<div id="exercise-for-chapter4" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Exercise for Chapter4</h2>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="answers.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.4</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="answers.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mpg&quot;</span>)</span></code></pre></div>
+<p>A1</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="answers.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(mpg<span class="sc">$</span>manufacturer))</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>A2</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="answers.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg[mpg<span class="sc">$</span>class<span class="sc">==</span><span class="st">&quot;suv&quot;</span>,<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
+<pre><code>## 
+##  chevrolet      dodge       ford       jeep land rover    lincoln    mercury 
+##          9          7          9          8          4          3          4 
+##     nissan     subaru     toyota 
+##          4          6          8</code></pre>
+<p>A3</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="answers.html#cb74-1" aria-hidden="true" tabindex="-1"></a>mpg[<span class="fu">grepl</span>(<span class="st">&quot;auto&quot;</span>,mpg<span class="sc">$</span>trans)<span class="sc">&amp;</span>mpg<span class="sc">$</span>cyl<span class="sc">==</span><span class="dv">4</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 41 x 11
+##    manufacturer model    displ  year   cyl trans  drv     cty   hwy fl    class 
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 audi         a4         1.8  1999     4 auto(~ f        18    29 p     compa~
+##  2 audi         a4         2    2008     4 auto(~ f        21    30 p     compa~
+##  3 audi         a4 quat~   1.8  1999     4 auto(~ 4        16    25 p     compa~
+##  4 audi         a4 quat~   2    2008     4 auto(~ 4        19    27 p     compa~
+##  5 chevrolet    malibu     2.4  1999     4 auto(~ f        19    27 r     midsi~
+##  6 chevrolet    malibu     2.4  2008     4 auto(~ f        22    30 r     midsi~
+##  7 dodge        caravan~   2.4  1999     4 auto(~ f        18    24 r     miniv~
+##  8 honda        civic      1.6  1999     4 auto(~ f        24    32 r     subco~
+##  9 honda        civic      1.6  1999     4 auto(~ f        24    32 r     subco~
+## 10 honda        civic      1.8  2008     4 auto(~ f        25    36 r     subco~
+## # ... with 31 more rows</code></pre>
+<p>A4</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="answers.html#cb76-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>trans_subtype <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;.*</span><span class="sc">\\</span><span class="st">((.*)</span><span class="sc">\\</span><span class="st">)&quot;</span>,<span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>,mpg<span class="sc">$</span>trans)</span></code></pre></div>
+<p>A5</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="answers.html#cb77-1" aria-hidden="true" tabindex="-1"></a>mpg[mpg<span class="sc">$</span>model<span class="sc">==</span><span class="st">&quot;toyota tacoma 4wd&quot;</span>,<span class="st">&quot;model&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;tacoma 4wd&quot;</span></span>
+<span id="cb77-2"><a href="answers.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb77-3"><a href="answers.html#cb77-3" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>model <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^toyota &quot;</span>, <span class="st">&quot;&quot;</span>,mpg<span class="sc">$</span>model)</span></code></pre></div>
+<p>A6</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="answers.html#cb78-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>ID <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">toupper</span>(<span class="fu">substr</span>(mpg<span class="sc">$</span>manufacturer,<span class="dv">1</span>,<span class="dv">3</span>)),<span class="st">&quot;_&quot;</span>,mpg<span class="sc">$</span>year)</span></code></pre></div>
+<p>A7</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="answers.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg[<span class="fu">grepl</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">d&#39;</span>,mpg<span class="sc">$</span>model),<span class="st">&quot;manufacturer&quot;</span>])</span></code></pre></div>
+<pre><code>## 
+##      audi chevrolet     dodge      ford      jeep   lincoln   mercury    nissan 
+##        18         9        37        16         8         3         4         4 
+##    toyota 
+##        15</code></pre>
+<p>A8</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="answers.html#cb81-1" aria-hidden="true" tabindex="-1"></a>manufacturers <span class="ot">&lt;-</span> <span class="fu">unique</span>(mpg<span class="sc">$</span>manufacturer)</span>
+<span id="cb81-2"><a href="answers.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
+<span id="cb81-3"><a href="answers.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(mpg[mpg<span class="sc">$</span>manufacturer<span class="sc">==</span>x,]<span class="sc">$</span>cty)</span>
+<span id="cb81-4"><a href="answers.html#cb81-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>##       audi  chevrolet      dodge       ford      honda    hyundai       jeep 
+##   17.61111   15.00000   13.13514   14.00000   24.44444   18.64286   13.50000 
+## land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
+##   11.50000   11.33333   13.25000   18.07692   17.00000   19.28571   18.52941 
+## volkswagen 
+##   20.92593</code></pre>
+<p>A9</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="answers.html#cb83-1" aria-hidden="true" tabindex="-1"></a>manufacturers <span class="ot">&lt;-</span> <span class="fu">unique</span>(mpg<span class="sc">$</span>manufacturer)</span>
+<span id="cb83-2"><a href="answers.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(manufacturers, <span class="cf">function</span>(x){</span>
+<span id="cb83-3"><a href="answers.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">mean</span>(mpg[mpg<span class="sc">$</span>manufacturer<span class="sc">==</span>x<span class="sc">&amp;</span><span class="fu">grepl</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">d&#39;</span>,mpg<span class="sc">$</span>model),]<span class="sc">$</span>cty)</span>
+<span id="cb83-4"><a href="answers.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.na</span>(x)){<span class="dv">0</span>}<span class="cf">else</span>{x}</span>
+<span id="cb83-5"><a href="answers.html#cb83-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>##       audi  chevrolet      dodge       ford      honda    hyundai       jeep 
+##   17.61111   12.66667   13.13514   12.93750    0.00000    0.00000   13.50000 
+## land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
+##    0.00000   11.33333   13.25000   13.75000    0.00000    0.00000   14.93333 
+## volkswagen 
+##    0.00000</code></pre>
+<p>A10</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="answers.html#cb85-1" aria-hidden="true" tabindex="-1"></a>mpg_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A=</span><span class="fu">character</span>(), <span class="at">B=</span><span class="fu">character</span>(), <span class="at">C=</span><span class="fu">character</span>(), <span class="at">D=</span><span class="fu">character</span>(),</span>
+<span id="cb85-2"><a href="answers.html#cb85-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">E=</span><span class="fu">character</span>(), <span class="at">F=</span><span class="fu">character</span>(), <span class="at">G=</span><span class="fu">character</span>(), <span class="at">H=</span><span class="fu">character</span>(),</span>
+<span id="cb85-3"><a href="answers.html#cb85-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">I=</span><span class="fu">character</span>(), <span class="at">J=</span><span class="fu">character</span>(), <span class="at">K=</span><span class="fu">character</span>(), <span class="at">L=</span><span class="fu">character</span>())</span>
+<span id="cb85-4"><a href="answers.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="fu">unique</span>(mpg<span class="sc">$</span>manufacturer)){</span>
+<span id="cb85-5"><a href="answers.html#cb85-5" aria-hidden="true" tabindex="-1"></a>  subset <span class="ot">&lt;-</span> mpg[mpg<span class="sc">$</span>manufacturer<span class="sc">==</span>x,]</span>
+<span id="cb85-6"><a href="answers.html#cb85-6" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> x</span>
+<span id="cb85-7"><a href="answers.html#cb85-7" aria-hidden="true" tabindex="-1"></a>  B <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(subset<span class="sc">$</span>model))</span>
+<span id="cb85-8"><a href="answers.html#cb85-8" aria-hidden="true" tabindex="-1"></a>  C <span class="ot">&lt;-</span> <span class="fu">mean</span>(subset<span class="sc">$</span>displ)</span>
+<span id="cb85-9"><a href="answers.html#cb85-9" aria-hidden="true" tabindex="-1"></a>  D <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">min</span>(subset<span class="sc">$</span>year),<span class="st">&quot;-&quot;</span>,<span class="fu">max</span>(subset<span class="sc">$</span>year))</span>
+<span id="cb85-10"><a href="answers.html#cb85-10" aria-hidden="true" tabindex="-1"></a>  E <span class="ot">&lt;-</span> <span class="fu">mean</span>(subset<span class="sc">$</span>cyl)</span>
+<span id="cb85-11"><a href="answers.html#cb85-11" aria-hidden="true" tabindex="-1"></a>  F <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">table</span>(subset<span class="sc">$</span>trans)<span class="sc">==</span><span class="fu">max</span>(<span class="fu">table</span>(subset<span class="sc">$</span>trans)))),<span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb85-12"><a href="answers.html#cb85-12" aria-hidden="true" tabindex="-1"></a>  G <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">table</span>(subset<span class="sc">$</span>trans)<span class="sc">==</span><span class="fu">min</span>(<span class="fu">table</span>(subset<span class="sc">$</span>trans)))),<span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb85-13"><a href="answers.html#cb85-13" aria-hidden="true" tabindex="-1"></a>  H <span class="ot">&lt;-</span> <span class="fu">max</span>(subset<span class="sc">$</span>cty)</span>
+<span id="cb85-14"><a href="answers.html#cb85-14" aria-hidden="true" tabindex="-1"></a>  I <span class="ot">&lt;-</span> <span class="fu">min</span>(subset<span class="sc">$</span>hwy)</span>
+<span id="cb85-15"><a href="answers.html#cb85-15" aria-hidden="true" tabindex="-1"></a>  J <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">unique</span>(subset<span class="sc">$</span>fl),<span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb85-16"><a href="answers.html#cb85-16" aria-hidden="true" tabindex="-1"></a>  K <span class="ot">&lt;-</span> subset<span class="sc">$</span>class[<span class="fu">which.max</span>(<span class="fu">nchar</span>(subset<span class="sc">$</span>class))]</span>
+<span id="cb85-17"><a href="answers.html#cb85-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-18"><a href="answers.html#cb85-18" aria-hidden="true" tabindex="-1"></a>  largest_value <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">gsub</span>(<span class="st">&quot;.(</span><span class="sc">\\</span><span class="st">d)&quot;</span>,<span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>,subset<span class="sc">$</span>trans_subtype[<span class="fu">grepl</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>,subset<span class="sc">$</span>trans_subtype)]))</span>
+<span id="cb85-19"><a href="answers.html#cb85-19" aria-hidden="true" tabindex="-1"></a>  L <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">unique</span>(subset<span class="sc">$</span>trans_subtype[<span class="fu">grepl</span>(largest_value,subset<span class="sc">$</span>trans_subtype)]), <span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb85-20"><a href="answers.html#cb85-20" aria-hidden="true" tabindex="-1"></a>  mpg_summary[<span class="fu">nrow</span>(mpg_summary)<span class="sc">+</span><span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">c</span>(A,B,C,D,E,F,G,H,I,J,K,L)</span>
+<span id="cb85-21"><a href="answers.html#cb85-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>A11</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="answers.html#cb86-1" aria-hidden="true" tabindex="-1"></a>get_hwy_ranage <span class="ot">&lt;-</span><span class="cf">function</span>(x){</span>
+<span id="cb86-2"><a href="answers.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  lower <span class="ot">&lt;-</span> <span class="fu">min</span>(mpg[mpg<span class="sc">$</span>manufacturer<span class="sc">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
+<span id="cb86-3"><a href="answers.html#cb86-3" aria-hidden="true" tabindex="-1"></a>  upper <span class="ot">&lt;-</span> <span class="fu">max</span>(mpg[mpg<span class="sc">$</span>manufacturer<span class="sc">==</span>x,<span class="st">&quot;hwy&quot;</span>])</span>
+<span id="cb86-4"><a href="answers.html#cb86-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(lower,<span class="st">&quot;-&quot;</span>,upper))</span>
+<span id="cb86-5"><a href="answers.html#cb86-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-manipulation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
