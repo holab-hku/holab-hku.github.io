@@ -168,7 +168,7 @@ student_names <- c("Amy","Bobby","Cindy","Eddy","Dylon")
 names(marks) <- student_names
 ```
 ```{r, results='hide'}
-marks[c(2, 3)] 
+marks[c(2：4)] 
 ```
 ```{r, results='hide'}
 marks[c("Bobby","Cindy")] 
@@ -733,7 +733,8 @@ Q3 Perform t test.
 
 
 # RNA-seq analysis in R
-This study examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates.
+This study examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates. The original data source comes from https://figshare.com/s/1d788fd384d33e913a2a .
+
 ## Read the sample information
 The sampleinfo file contains basic information about the samples that we will need for the analysis today.
 ```{r}
