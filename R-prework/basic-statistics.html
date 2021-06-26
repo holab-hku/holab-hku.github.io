@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Basic Statistics | Introduction to R</title>
+  <meta name="description" content="This is an introduction of R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Basic Statistics | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction of R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Basic Statistics | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introduction of R." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2021-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-manipulation.html"/>
+<link rel="next" href="answers.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introuction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="ackowlegement.html"><a href="ackowlegement.html"><i class="fa fa-check"></i><b>1</b> Ackowlegement</a></li>
+<li class="chapter" data-level="2" data-path="prerequisite.html"><a href="prerequisite.html"><i class="fa fa-check"></i><b>2</b> Prerequisite</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisite.html"><a href="prerequisite.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="prerequisite.html"><a href="prerequisite.html#mac-osx"><i class="fa fa-check"></i><b>2.1.1</b> Mac OSX</a></li>
+<li class="chapter" data-level="2.1.2" data-path="prerequisite.html"><a href="prerequisite.html#ubuntu"><i class="fa fa-check"></i><b>2.1.2</b> Ubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="prerequisite.html"><a href="prerequisite.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>2.2</b> Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
+<li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.3</b> Install packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>3.2.1</b> Make a matrix</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>3.2.2</b> Modify a matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>3.3</b> DataFrame</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>3.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>3.5</b> List</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>4.1</b> apply functions</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>4.1.1</b> lapply()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>4.1.2</b> sapply()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>4.1.3</b> tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>4.2</b> Pattern matching</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>4.2.1</b> Find strings</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>4.2.2</b> Find and replace patterns</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>4.2.3</b> Regular expression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>4.3</b> Example</a></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>5</b> Basic Statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-statistics.html"><a href="basic-statistics.html#generate-data"><i class="fa fa-check"></i><b>5.1</b> Generate data</a></li>
+<li class="chapter" data-level="5.2" data-path="basic-statistics.html"><a href="basic-statistics.html#statistical-analysis"><i class="fa fa-check"></i><b>5.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-statistics.html"><a href="basic-statistics.html#advanced-plotting-ggplot2"><i class="fa fa-check"></i><b>5.3</b> Advanced plotting: ggplot2</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-statistics.html"><a href="basic-statistics.html#exercise-1"><i class="fa fa-check"></i><b>5.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>6</b> Answers</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="answers.html"><a href="answers.html#exercise-for-chapter2"><i class="fa fa-check"></i><b>6.1</b> Exercise for Chapter2</a></li>
+<li class="chapter" data-level="6.2" data-path="answers.html"><a href="answers.html#exercise-for-chapter3"><i class="fa fa-check"></i><b>6.2</b> Exercise for Chapter3</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-statistics" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Basic Statistics</h1>
+<p>Statistics is the study of how best to collect, analyze, and draw conclusions from data. R is very powerful for statistically analysis. You will learn how to do some basic statistical analysis in this chapter.</p>
+<div id="generate-data" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Generate data</h2>
+<p>Height(cm) of 50 males and 50 females are estimated from <a href="https://dqydj.com/height-percentile-calculator-for-men-and-women/" class="uri">https://dqydj.com/height-percentile-calculator-for-men-and-women/</a>).
+<code>set.seed(1)</code>Set the seed to the random number generation to be 1. This ensures the results are reproducible across everyone’s execution.
+<code>rnorm()</code> rnorm.X generates multivariate normal random variates.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="basic-statistics.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) </span>
+<span id="cb67-2"><a href="basic-statistics.html#cb67-2" aria-hidden="true" tabindex="-1"></a>male_height <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="fl">175.6</span>, <span class="at">sd =</span> <span class="dv">11</span>)</span>
+<span id="cb67-3"><a href="basic-statistics.html#cb67-3" aria-hidden="true" tabindex="-1"></a>female_height <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="fl">161.5</span>, <span class="at">sd =</span> <span class="fl">10.5</span>)</span></code></pre></div>
+<p>We can keep only two decimal places using <code>round()</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="basic-statistics.html#cb68-1" aria-hidden="true" tabindex="-1"></a>male_height <span class="ot">=</span> <span class="fu">round</span>(male_height, <span class="dv">2</span>)</span>
+<span id="cb68-2"><a href="basic-statistics.html#cb68-2" aria-hidden="true" tabindex="-1"></a>female_height <span class="ot">=</span> <span class="fu">round</span>(female_height, <span class="dv">2</span>)</span></code></pre></div>
+<p>Check the number of elements in the vector.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="basic-statistics.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(male_height)</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<p>Visualization of male group’s height with histogram plot</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="basic-statistics.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(male_height, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;Histogram Plot&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-48-1.png" width="672" />
+Visualization of male group’s height with density plot</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="basic-statistics.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(male_height), <span class="at">main =</span> <span class="st">&quot;Density Plot&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-49-1.png" width="672" />
+Combine histogram plot and density plot using <code>lines()</code>
+The <code>lines( )</code> function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="basic-statistics.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(male_height, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;Histogram and Density&quot;</span>)</span>
+<span id="cb73-2"><a href="basic-statistics.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(male_height), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-50-1.png" width="672" />
+Boxplot of height in male group and female group</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="basic-statistics.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(male_height, female_height, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>), <span class="at">ylab =</span> <span class="st">&quot;height(cm)&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Get basic information about the vector (minimum, maximum and quantiles) using <code>summary()</code> .</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="basic-statistics.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(male_height)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   151.2   171.5   177.0   176.7   183.6   193.2</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="basic-statistics.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(female_height)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   142.6   155.5   162.7   162.7   167.9   186.7</code></pre>
+<p>Specific functions for Mean, Median, Minimum, Maximum, Standard deviation, Variance, Sum are shown below:</p>
+<pre><code>mean(), median(), min(), max(), sd(), var(), sum()</code></pre>
+<p>The R software provides access to the uniform distribution, <code>runif()</code> function generates random deviates of the uniform distribution and is written as <code>runif(n, min = 0, max = 1)</code>. We may generate n number of random samples by the min and the max argument.
+Example: approximate the density function for X∼U(0,1)</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="basic-statistics.html#cb80-1" aria-hidden="true" tabindex="-1"></a>rand.unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb80-2"><a href="basic-statistics.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(rand.unif, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&#39;x&#39;</span>, <span class="at">density =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-53-1.png" width="672" />
+If we have another record about weight for the same group of people, we can group weight and height data together into a list(assuming weight has correlation with height).</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="basic-statistics.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb81-2"><a href="basic-statistics.html#cb81-2" aria-hidden="true" tabindex="-1"></a>male_weight <span class="ot">=</span> <span class="fl">0.52</span><span class="sc">*</span>male_height <span class="sc">+</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">15</span>, <span class="at">max =</span> <span class="dv">15</span>)</span>
+<span id="cb81-3"><a href="basic-statistics.html#cb81-3" aria-hidden="true" tabindex="-1"></a>male_weight <span class="ot">=</span> <span class="fu">round</span>(male_weight, <span class="dv">2</span>)</span>
+<span id="cb81-4"><a href="basic-statistics.html#cb81-4" aria-hidden="true" tabindex="-1"></a>female_weight <span class="ot">=</span> <span class="fl">0.48</span><span class="sc">*</span>female_height <span class="sc">+</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">14</span>, <span class="at">max =</span> <span class="dv">14</span>)</span>
+<span id="cb81-5"><a href="basic-statistics.html#cb81-5" aria-hidden="true" tabindex="-1"></a>female_weight <span class="ot">=</span> <span class="fu">round</span>(female_weight, <span class="dv">2</span>)</span></code></pre></div>
+<p>Make a group Weight data and height data together.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="basic-statistics.html#cb82-1" aria-hidden="true" tabindex="-1"></a>male_group <span class="ot">=</span> <span class="fu">list</span>(<span class="at">height =</span> male_height, <span class="at">weight =</span> male_weight)</span>
+<span id="cb82-2"><a href="basic-statistics.html#cb82-2" aria-hidden="true" tabindex="-1"></a>female_group <span class="ot">=</span> <span class="fu">list</span>(<span class="at">height =</span> female_height, <span class="at">weight =</span> female_weight)</span></code></pre></div>
+<p>Use scatterplot to visualize the relationship of height and weight in male group</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="basic-statistics.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> male_group<span class="sc">$</span>height,<span class="at">y =</span> male_group<span class="sc">$</span>weight,</span>
+<span id="cb83-2"><a href="basic-statistics.html#cb83-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">xlab =</span> <span class="st">&quot;Height&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight&quot;</span>,</span>
+<span id="cb83-3"><a href="basic-statistics.html#cb83-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">main =</span> <span class="st">&quot;Height vs Weight&quot;</span></span>
+<span id="cb83-4"><a href="basic-statistics.html#cb83-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+</div>
+<div id="statistical-analysis" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Statistical analysis</h2>
+<p>Correlation: check the correlation between height and weight in male group and female group.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="basic-statistics.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(male_group<span class="sc">$</span>height, male_group<span class="sc">$</span>weight)</span></code></pre></div>
+<pre><code>## [1] 0.5744616</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="basic-statistics.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(female_group<span class="sc">$</span>height, female_group<span class="sc">$</span>weight)</span></code></pre></div>
+<pre><code>## [1] 0.5912873</code></pre>
+<p><code>t.test()</code>: test if there is a significant difference between the means of height&amp;weight in the male group and female group.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="basic-statistics.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(male_group<span class="sc">$</span>height, female_group<span class="sc">$</span>height)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  male_group$height and female_group$height
+## t = 7.2232, df = 96.91, p-value = 1.158e-10
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  10.13345 17.81215
+## sample estimates:
+## mean of x mean of y 
+##  176.7044  162.7316</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="basic-statistics.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(male_group<span class="sc">$</span>weight, female_group<span class="sc">$</span>weight)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  male_group$weight and female_group$weight
+## t = 7.6802, df = 97.411, p-value = 1.249e-11
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  10.87635 18.45605
+## sample estimates:
+## mean of x mean of y 
+##   92.8642   78.1980</code></pre>
+<p><code>fisher.test()</code>: test the proportions of people with obesity in male group and female group have significant difference or not.</p>
+<p>Calculate BMI using equation BMI = weight(kg)/height(m)^2</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="basic-statistics.html#cb92-1" aria-hidden="true" tabindex="-1"></a>male_BMI <span class="ot">=</span> male_group<span class="sc">$</span>weight<span class="sc">/</span>(male_group<span class="sc">$</span>height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb92-2"><a href="basic-statistics.html#cb92-2" aria-hidden="true" tabindex="-1"></a>female_BMI <span class="ot">=</span> female_group<span class="sc">$</span>weight<span class="sc">/</span>(female_group<span class="sc">$</span>height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<p>For people with BMI equal or larger than 30, define them as having obesity.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="basic-statistics.html#cb93-1" aria-hidden="true" tabindex="-1"></a>male_obesity <span class="ot">=</span> <span class="fu">ifelse</span>(male_BMI <span class="sc">&gt;=</span> <span class="dv">30</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)</span>
+<span id="cb93-2"><a href="basic-statistics.html#cb93-2" aria-hidden="true" tabindex="-1"></a>female_obesity <span class="ot">=</span> <span class="fu">ifelse</span>(female_BMI <span class="sc">&gt;=</span> <span class="dv">30</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)</span></code></pre></div>
+<p>Get the number of people with obesity in each group and summary in a matrix.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="basic-statistics.html#cb94-1" aria-hidden="true" tabindex="-1"></a>male_num <span class="ot">=</span> <span class="fu">table</span>(male_obesity)</span>
+<span id="cb94-2"><a href="basic-statistics.html#cb94-2" aria-hidden="true" tabindex="-1"></a>female_num <span class="ot">=</span> <span class="fu">table</span>(female_obesity)</span>
+<span id="cb94-3"><a href="basic-statistics.html#cb94-3" aria-hidden="true" tabindex="-1"></a>obesity_num <span class="ot">=</span> <span class="fu">rbind</span>(male_num, female_num)</span></code></pre></div>
+<p>Fisher’s exact test:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="basic-statistics.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(obesity_num)</span></code></pre></div>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  obesity_num
+## p-value = 0.6865
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.3282065 1.8624128
+## sample estimates:
+## odds ratio 
+##  0.7845415</code></pre>
+</div>
+<div id="advanced-plotting-ggplot2" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Advanced plotting: ggplot2</h2>
+<p><a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2</a> is an R package to creat plots in a more flexible way. It can be used to generate different types of plots including <code>density plot</code>, <code>dot plot</code>, <code>box plot</code> and so on.</p>
+<p>Here, we can use <code>ggplot2</code> to generate the scatterplot of height and weight in male group we did before.</p>
+<p>First, we need to make a dataframe.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="basic-statistics.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.4</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="basic-statistics.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(male_height, male_weight, female_height, female_weight)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="basic-statistics.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(male_height, male_weight)) <span class="sc">+</span></span>
+<span id="cb100-2"><a href="basic-statistics.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb100-3"><a href="basic-statistics.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Height&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Height vs Weight&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><a href="https://chartio.com/learn/charts/violin-plot-complete-guide/">A violin plot</a> depicts distributions of numeric data for one or more groups using density curves. The width of each curve corresponds with the approximate frequency of data points in each region.</p>
+<p>Create data frame for violin plot including the height of the male group and the female group as well as a column indicating which group it comes from.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="basic-statistics.html#cb101-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">height =</span> <span class="fu">c</span>(male_height, female_height), <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;male&quot;</span>, <span class="fu">length</span>(male_height)), <span class="fu">rep</span>(<span class="st">&quot;female&quot;</span>, <span class="fu">length</span>(female_height))))</span></code></pre></div>
+<p>Use <code>ggplot2</code> to plot a violin plot of height in male and female group.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basic-statistics.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="fu">factor</span>(group),height)) <span class="sc">+</span></span>
+<span id="cb102-2"><a href="basic-statistics.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>)<span class="sc">+</span> </span>
+<span id="cb102-3"><a href="basic-statistics.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height&quot;</span>)</span></code></pre></div>
+<p><img src="intro_0626_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+</div>
+<div id="exercise-1" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Exercise</h2>
+<p>Use the PlantGrowth, perform t test to evaluate the weight of control and treatment groups.</p>
+<p><strong>Quiz</strong></p>
+<p>Q1 Extract weight of control and treatment groups and name them as ctrl_grp and trt1_grp.</p>
+<p>Q2 Plot density for Control and Treatment1, with xlim from 2.5 to 7.5, and ylim from 0 tp 0.65.
+HINT: use <code>par(new = TRUE)</code> to combine two graphs</p>
+<p>Q3 Perform t test.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="answers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

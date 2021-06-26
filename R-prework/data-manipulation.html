@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data manipulation | Introduction to R</title>
+  <meta name="description" content="This is an introduction of R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data manipulation | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction of R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data manipulation | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is an introduction of R." />
+  
+
+<meta name="author" content="Ho Lab" />
+
+
+<meta name="date" content="2021-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-structure-in-r.html"/>
+<link rel="next" href="answers.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introuction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="ackowlegement.html"><a href="ackowlegement.html"><i class="fa fa-check"></i><b>1</b> Ackowlegement</a></li>
+<li class="chapter" data-level="2" data-path="prerequisite.html"><a href="prerequisite.html"><i class="fa fa-check"></i><b>2</b> Prerequisite</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisite.html"><a href="prerequisite.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="prerequisite.html"><a href="prerequisite.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="prerequisite.html"><a href="prerequisite.html#mac-osx"><i class="fa fa-check"></i><b>2.1.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="2.1.3" data-path="prerequisite.html"><a href="prerequisite.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="prerequisite.html"><a href="prerequisite.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>2.2</b> Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
+<li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.3</b> Install packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>3.2.1</b> Make a matrix</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>3.2.2</b> Modify a matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>3.3</b> DataFrame</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>3.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>3.5</b> List</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>4.1</b> apply functions</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply"><i class="fa fa-check"></i><b>4.1.1</b> apply()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>4.1.2</b> lapply()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>4.1.3</b> sapply()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>4.1.4</b> tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>4.2</b> Pattern matching</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>4.2.1</b> Find strings</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>4.2.2</b> Find and replace patterns</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>4.2.3</b> Regular expression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>4.3</b> Example</a></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5</b> Answers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html#exercise-for-chapter4"><i class="fa fa-check"></i><b>5.1</b> Exercise for Chapter4</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-manipulation" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data manipulation</h1>
+<div id="apply-functions" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> apply functions</h2>
+<p>This chapter is modified from the tutorial “apply(), lapply(), sapply(), tapply() Function in R with Examples”: <a href="https://www.guru99.com/r-apply-sapply-tapply.html" class="uri">https://www.guru99.com/r-apply-sapply-tapply.html</a> and RDocumentation apply functions <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply" class="uri">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply</a>.</p>
+<div id="apply" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> apply()</h3>
+<p><code>apply()</code> takes Data frame or matrix as an input and gives output in vector, list or array. Apply function is used for matrix, it is designed to avoid explicit uses of loop constructs.</p>
+<pre><code>apply(X, MARGIN, FUN)
+Here:
+-x: an array or matrix
+-MARGIN:  take a value or range between 1 and 2 to define where to apply the function:
+-MARGIN=1: the manipulation is performed on rows
+-MARGIN=2: the manipulation is performed on columns
+-MARGIN=c(1,2) the manipulation is performed on rows and columns
+-FUN: tells which function to apply. Built functions like mean, median, sum, min, max and even user-defined functions can be applied&gt;</code></pre>
+<p>Example1:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-manipulation.html#cb43-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(C<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),<span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb43-2"><a href="data-manipulation.html#cb43-2" aria-hidden="true" tabindex="-1"></a>m1</span>
+<span id="cb43-3"><a href="data-manipulation.html#cb43-3" aria-hidden="true" tabindex="-1"></a>m1_colsum <span class="ot">&lt;-</span> <span class="fu">apply</span>(m1, <span class="dv">2</span>, sum)</span>
+<span id="cb43-4"><a href="data-manipulation.html#cb43-4" aria-hidden="true" tabindex="-1"></a>m1_colsum </span></code></pre></div>
+<p>If you want to perform the function in each cell, you can set the margin to <code>1:2</code> or c(1,2)</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-manipulation.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m1, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">3</span>)</span></code></pre></div>
+<p>Example2: a function to find standard error was created, then passed into an apply function to find the standard error of each column.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-manipulation.html#cb45-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb45-2"><a href="data-manipulation.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="data-manipulation.html#cb45-3" aria-hidden="true" tabindex="-1"></a>st.err <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb45-4"><a href="data-manipulation.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span>
+<span id="cb45-5"><a href="data-manipulation.html#cb45-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb45-6"><a href="data-manipulation.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="data-manipulation.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m2, <span class="dv">2</span>, st.err)</span></code></pre></div>
+</div>
+<div id="lapply" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> lapply()</h3>
+<p><code>lapply()</code> in R takes list, vector or data frame as input and gives output in list.</p>
+<pre><code>lapply(X, FUN)
+Arguments:
+-X: A vector or an object
+-FUN: Function applied to each element of x</code></pre>
+<p>Example:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-manipulation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb47-2"><a href="data-manipulation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb47-3"><a href="data-manipulation.html#cb47-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb47-4"><a href="data-manipulation.html#cb47-4" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
+<span id="cb47-5"><a href="data-manipulation.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(mylist, sum)</span></code></pre></div>
+</div>
+<div id="sapply" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> sapply()</h3>
+<p><code>sapply()</code> works just like lapply, but will simplify the output if possible. This means that instead of returning a list like lapply, it will return a vector instead.
+Example:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-manipulation.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mylist, sum)</span></code></pre></div>
+</div>
+<div id="tapply" class="section level3" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> tapply()</h3>
+<p>Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors.</p>
+<p>Example1:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-manipulation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>tdata <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), m2))</span>
+<span id="cb49-2"><a href="data-manipulation.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, mean)</span></code></pre></div>
+<p>Example2:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-manipulation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x)))</span></code></pre></div>
+</div>
+</div>
+<div id="pattern-matching" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Pattern matching</h2>
+<div id="find-strings" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Find strings</h3>
+<p><code>grep(pattern, string)</code> returns by default a vector of indices.</p>
+<p><code>grepl(pattern, string)</code> returns by default a vector of logical values.
+In <code>grep()</code>, if you want to have the actual matching element values, set the option value to TRUE by value=TRUE. Pattern matching in R defaults to be case sensitive. You can use ignore.case = TRUE to avoid case sensitivivity.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-manipulation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;ca bd&quot;</span>)</span>
+<span id="cb51-2"><a href="data-manipulation.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
+<span id="cb51-3"><a href="data-manipulation.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;ab&quot;</span>, strings)</span>
+<span id="cb51-4"><a href="data-manipulation.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb51-5"><a href="data-manipulation.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-6"><a href="data-manipulation.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>,<span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="find-and-replace-patterns" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Find and replace patterns</h3>
+<p><code>gsub(pattern, replacement, string)</code> returns the modified string after replacing every pattern occurrence with replacement in string.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-manipulation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>studentID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;u1000&quot;</span>, <span class="st">&quot;u1001&quot;</span>, <span class="st">&quot;u1002&quot;</span>)</span>
+<span id="cb52-2"><a href="data-manipulation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;u&quot;</span>, <span class="st">&quot;U&quot;</span>, studentID)</span></code></pre></div>
+</div>
+<div id="regular-expression" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Regular expression</h3>
+<p>The content in this chapter is based on “Regular Expressions in R” <a href="https://rstudio-pubs-static.s3.amazonaws.com/74603_76cd14d5983f47408fdf0b323550b846.html" class="uri">https://rstudio-pubs-static.s3.amazonaws.com/74603_76cd14d5983f47408fdf0b323550b846.html</a> and CRAN documentation “Regular expressions” <a href="https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html" class="uri">https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html</a>.</p>
+<p><strong>Basic</strong>
+Quantifiers specify how many times that the preceding pattern should occur.</p>
+<ul>
+<li><code>*</code> : matches at least 0 times.</li>
+<li><code>+</code> : matches at least 1 times.</li>
+<li><code>?</code> : matches at most 1 times.</li>
+<li><code>{n}</code> : matches exactly n times.</li>
+<li><code>{n,}</code> : matches at least n times.</li>
+<li><code>{,m}</code> : matches at most m times.</li>
+<li><code>{n,m}</code> : matches between n and m times.</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-manipulation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;acb&quot;</span>, <span class="st">&quot;accb&quot;</span>, <span class="st">&quot;acccb&quot;</span>, <span class="st">&quot;accccb&quot;</span>)</span>
+<span id="cb53-2"><a href="data-manipulation.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac*b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-3"><a href="data-manipulation.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac+b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-4"><a href="data-manipulation.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac?b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-5"><a href="data-manipulation.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-6"><a href="data-manipulation.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-7"><a href="data-manipulation.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ac{2,3}b&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<ul>
+<li><code>^</code> : Start of the string.</li>
+<li><code>$</code> : End of the string.</li>
+<li><code>\\&lt;</code> : Beginning of a word</li>
+<li><code>\\&gt;</code> : End of a word</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-manipulation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abcd&quot;</span>, <span class="st">&quot;cdab&quot;</span>, <span class="st">&quot;cabd&quot;</span>, <span class="st">&quot;c abd&quot;</span>, <span class="st">&quot;abc&quot;</span>,<span class="st">&quot;*ab&quot;</span>)</span>
+<span id="cb54-2"><a href="data-manipulation.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-3"><a href="data-manipulation.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab$&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-4"><a href="data-manipulation.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">&lt;a&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-5"><a href="data-manipulation.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;c</span><span class="sc">\\</span><span class="st">&gt;&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<ul>
+<li><p><code>.</code> : Any non-empty character</p></li>
+<li><p><code>[...]</code> : a permitted character list. Use <code>-</code> inside the brackets to specify a range of characters.</p></li>
+<li><p><code>[^...]</code> : an excluded character list. Match any characters except those inside the square brackets.</p></li>
+<li><p><code>|</code> : an OR operator, matches patterns on either side of the |.</p></li>
+<li><p><code>\</code>: Escape metacharacters in regular expression, i.e.</p></li>
+</ul>
+<pre><code>$ * + . ? [ ] ^ { } | ( ) \`</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-manipulation.html#cb56-1" aria-hidden="true" tabindex="-1"></a>strings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;^ab&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;abc&quot;</span>, <span class="st">&quot;abd&quot;</span>, <span class="st">&quot; abc d&quot;</span>, <span class="st">&quot;abe&quot;</span>, <span class="st">&quot;ab 12&quot;</span>)</span>
+<span id="cb56-2"><a href="data-manipulation.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab.&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-3"><a href="data-manipulation.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[c-e]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-4"><a href="data-manipulation.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;ab[^c]&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-5"><a href="data-manipulation.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">^ab&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-6"><a href="data-manipulation.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;abc|abd&quot;</span>, strings, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><strong>Advance</strong></p>
+<ul>
+<li><p><code>[[:digit:]]</code> or <code>\\d</code> or <code>[0-9]</code> : digits 0 1 2 3 4 5 6 7 8 9</p></li>
+<li><p><code>\\D</code> or <code>[^0-9]</code> : non-digits</p></li>
+<li><p><code>[[:lower:]]</code> or <code>[a-z]</code> : lower-case letters</p></li>
+<li><p><code>[[:upper:]]</code> or <code>[A-Z]</code> : upper-case letters</p></li>
+<li><p><code>[[:alpha:]]</code> or <code>[A-z]</code> : alphabetic characters</p></li>
+<li><p><code>[[:alnum:]]</code> or <code>[A-z0-9]</code> : alphanumeric characters</p></li>
+<li><p><code>\\w</code> : word characters include alphanumeric characters <code>0-9,a-z,A-Z</code>, <code>-</code> and underscores <code>_</code></p></li>
+<li><p><code>\\W</code> : non-word characters</p></li>
+<li><p><code>[[:blank:]]</code> : space and tab</p></li>
+<li><p><code>[[:space:]]</code> or <code>\\s</code> : space characters: tab, newline, vertical tab, form feed, carriage return, space</p></li>
+<li><p><code>\\S</code> : not space characters</p></li>
+<li><p><code>[[:punct:]]</code> : punctuation characters</p></li>
+</ul>
+<p><code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [  ] ^ _</code> { | } ~`</p>
+<ul>
+<li><code>[[:cntrl:]]</code> or <code>\\c</code> : control characters, like <code>\n</code> or <code>\r</code> etc.</li>
+</ul>
+<p>Regular expressions are a concise and flexible tool for describing patterns in strings. If you are interested, there are more examples in the tutorial provided by Cran.
+<a href="https://cran.rstudio.com/web/packages/stringr/vignettes/regular-expressions.html" class="uri">https://cran.rstudio.com/web/packages/stringr/vignettes/regular-expressions.html</a></p>
+</div>
+</div>
+<div id="example" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Example</h2>
+<p>This exercise demonstrates how to use apply and tapply to summarize information from a table.
+More information of apply functions can be found in <em>3.1</em>.</p>
+<p>Using <code>apply()</code> to get the mean and sd on every column</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-manipulation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>mtcars.mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, mean)</span>
+<span id="cb57-2"><a href="data-manipulation.html#cb57-2" aria-hidden="true" tabindex="-1"></a>mtcars.sd <span class="ot">&lt;-</span> <span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="dv">2</span>, sd)</span></code></pre></div>
+<p>Using <code>tapply()</code> to get the maxmimum mpg per vs type</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-manipulation.html#cb58-1" aria-hidden="true" tabindex="-1"></a>mtcars.max.vs <span class="ot">&lt;-</span> <span class="fu">tapply</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>vs, max)</span></code></pre></div>
+<p><strong>Filtering</strong></p>
+<p>Using <code>grep()</code> to select names with Merc</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" aria-hidden="true" tabindex="-1"></a>mtcars[<span class="fu">grep</span>(<span class="st">&quot;Merc&quot;</span>, <span class="fu">rownames</span>(mtcars)),]</span></code></pre></div>
+<pre><code>##              mpg cyl  disp  hp drat   wt qsec vs am gear carb
+## Merc 240D   24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2
+## Merc 230    22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2
+## Merc 280    19.2   6 167.6 123 3.92 3.44 18.3  1  0    4    4
+## Merc 280C   17.8   6 167.6 123 3.92 3.44 18.9  1  0    4    4
+## Merc 450SE  16.4   8 275.8 180 3.07 4.07 17.4  0  0    3    3
+## Merc 450SL  17.3   8 275.8 180 3.07 3.73 17.6  0  0    3    3
+## Merc 450SLC 15.2   8 275.8 180 3.07 3.78 18.0  0  0    3    3</code></pre>
+<p>combining <code>tapply()</code> and <code>apply()</code>.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>],<span class="dv">2</span>,<span class="cf">function</span>(x) <span class="fu">tapply</span>(x, mtcars<span class="sc">$</span>gear, sum))</span></code></pre></div>
+<pre><code>##     mpg cyl   disp   hp  drat     wt   qsec
+## 3 241.6 112 4894.5 2642 46.99 58.389 265.38
+## 4 294.4  56 1476.2 1074 48.52 31.400 227.58
+## 5 106.9  30 1012.4  978 19.58 13.163  78.20</code></pre>
+<p>Using filter to select disp larger than 200.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-manipulation.html#cb63-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>disp <span class="sc">&gt;</span> <span class="dv">200</span>,]</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code></pre>
+</div>
+<div id="exercise" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exercise</h2>
+<p>Load dataset mpg</p>
+<pre><code>library(ggplot2)
+data(&quot;mpg&quot;)</code></pre>
+<p><strong><em>Quiz</em></strong></p>
+<p>Q1 How many different car manufacturers are present?
+<code>Tip: Use functions: length() and unique()</code></p>
+<p>Q2 How many SUV’s (class) does each car manufacturer have?
+<code>Tip: Use table()</code></p>
+<p>Q3 Create a new data.table with only automatic transmission type (trans) and 4 cylinders (cyl)
+<code>Tip: Use grepl()</code></p>
+<p>Q4 Create a new column called trans_subtype, with the transmission subtype information (the value inside the brackets)
+<code>Tip: Use gsub</code></p>
+<p>Q5 For toyota’s “toyota tacoma 4wd” model, rename them to only “tacoma 4wd”
+<code>Tip: Try use gsub</code></p>
+<p>Q6 Create a new column called ID, with the first 3 characters of the manufacturer name capitalised with year of manufacturer separated by a _
+<code>Tip: Use toupper() and substr() and paste0() E.g. audi 1999 --&gt; AUD_1999</code></p>
+<p>Q7 How many different model names have number(s) in their name for each manufacturer?
+<code>Tips: Use table() and grepl()</code></p>
+<p>Q8 Find the average city mileage (cty) for each manufacturer type
+<code>Tip: use sapply</code></p>
+<p>Q9 What is the average city mileage (cty) for models with number(s) in the name for each manufacturer?</p>
+<p>Q10 Create a new data frame called mpg_summary with the following columns:
+- (A) Manufacturer name
+- (B) number of different models for that manufacturer
+- (C) average displ
+- (D) manufacturing range (e.g. 1999,2000,2003 –&gt; 1999-2003)
+- (E) average cyl
+- (F) most frequent transmission type (if there is a tie, print out all separated by |)
+- (G) least frequent drv (if there is a tie, print out all separated by |)
+- (H) Max cty
+- (I) Min Hwy
+- (J) All fuel types (fl). Separate by | (E.g. f,r,e –&gt; “f|r|e”)
+- (K) Class with the longest name
+- (L) Transition sub-type with the largest number (if there is tie, print out all separated by |)</p>
+<p><code>Tips: Use this to set up your new dataframe:</code></p>
+<pre><code>mpg_summary &lt;- data.frame(A=character(), B=character(), C=character(), D=character(), E=character(), F=character(), G=character(), H=character(),
+I=character(), J=character(), K=character(), L=character())</code></pre>
+<p>Q11 Write a function that takes in a manufacturer name and print out the highway mileage (hwy) range for each car model</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-structure-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="answers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
