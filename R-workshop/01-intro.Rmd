@@ -988,7 +988,8 @@ load("my_workspace.RData")
 # RNA-seq analysis in R
 This Chapter is modified based on the tutorial [RNA-seq analysis in R](https://combine-australia.github.io/RNAseq-R/06-rnaseq-day1.html) created by Belinda Phipson et.al. 
 This little vignette examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates.
-[The original data source](https://figshare.com/s/1d788fd384d33e913a2a)
+
+[Original data source](https://figshare.com/s/1d788fd384d33e913a2a)
 
 ## Prerequisite
 
