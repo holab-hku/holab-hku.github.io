@@ -919,20 +919,22 @@ knitr::include_graphics("./images/import.png")
 ```
 
 And you will find out that by doing that you will also get the R command in the R console like below:
-``read.table()`` is the general function for reading tabular data
+``read.table()`` is the general function for reading tabular data.
 ```
 read.table(file, header = FALSE, sep = "", dec = ".")
 ```
 
 "tab-separated values" files (".txt") 
-read.delim() is the same as read.table(file, header = TRUE, sep = "\t", quote = "\",  dec = ".", fill = TRUE, comment.char = "")
+
+``read.delim()`` is the same as read.table(file, header = TRUE, sep = "\t", quote = "\",  dec = ".", fill = TRUE, comment.char = "").
 ```    
 read.delim(file, header = TRUE, sep = "\t", dec = ".", ...)
 read.delim2(file, header = TRUE, sep = "\t", dec = ",", ...)
 ```
 
 "comma separated value" files (".csv")
-read.csv2: variant used in countries that use a comma as decimal point and a semicolon as field separator.
+
+``read.csv2()`` is a variant used to ``read.csv()``, the difference comes from different field separators decimal points.
 ```
 read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
 read.csv2(file, header = TRUE, sep = ";", dec = ",", ...)
@@ -953,8 +955,7 @@ lines_list <- strsplit(sampleinfo_lines,split = ',')
 
 ## Export files
 
-**Note**
-If you don't specify the path, the data will be exported to your working directory.
+**Note: If you don't specify the path, the data will be exported to your working directory.**
 
 You can save a single R object by ``saveRDS()``:
 ```{r}
@@ -979,7 +980,7 @@ save.image(file = "my_workspace.RData")
 ```
 Load the workspace again:
 ```
-load("my_work_space.RData")
+load("my_workspace.RData")
 ```
 
 
