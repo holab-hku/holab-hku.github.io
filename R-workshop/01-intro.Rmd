@@ -1216,7 +1216,7 @@ library(stats)
 library(ggfortify)
 ```
 First, we create the right inpur format for ``stats::prcomp``, and we add a new column called CellType with the cell type information from sampleinfo.
-```{r}
+```{r warning=TRUE}
 RPMforPCA <- t(myRPM.keep)
 RPMforPCA <- as.data.frame(RPMforPCA)
 RPMforPCA$CellType <- sampleinfo$group
