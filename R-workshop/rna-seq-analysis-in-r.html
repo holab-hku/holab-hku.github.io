@@ -260,9 +260,12 @@ install.packages(&#39;ggfortify&#39;)</code></pre>
 <h2><span class="header-section-number">8.2</span> Read the sample information</h2>
 <p>The sampleinfo file contains basic information about the samples that we will need for the analysis today.</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="rna-seq-analysis-in-r.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the sample information into R</span></span>
-<span id="cb145-2"><a href="rna-seq-analysis-in-r.html#cb145-2" aria-hidden="true" tabindex="-1"></a>sampleinfo <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb145-3"><a href="rna-seq-analysis-in-r.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(sampleinfo)</span>
-<span id="cb145-4"><a href="rna-seq-analysis-in-r.html#cb145-4" aria-hidden="true" tabindex="-1"></a>sampleinfo</span></code></pre></div>
+<span id="cb145-2"><a href="rna-seq-analysis-in-r.html#cb145-2" aria-hidden="true" tabindex="-1"></a>sampleinfo <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>,<span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>We can add a column in sampleinfo called group to combine the celltype and status information.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="rna-seq-analysis-in-r.html#cb146-1" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">paste</span>(sampleinfo<span class="sc">$</span>CellType,sampleinfo<span class="sc">$</span>Status,<span class="at">sep=</span><span class="st">&quot;.&quot;</span>))</span>
+<span id="cb146-2"><a href="rna-seq-analysis-in-r.html#cb146-2" aria-hidden="true" tabindex="-1"></a>sampleinfo<span class="sc">$</span>group <span class="ot">&lt;-</span> group</span>
+<span id="cb146-3"><a href="rna-seq-analysis-in-r.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(sampleinfo)</span>
+<span id="cb146-4"><a href="rna-seq-analysis-in-r.html#cb146-4" aria-hidden="true" tabindex="-1"></a>sampleinfo</span></code></pre></div>
 <pre><code>##                             FileName SampleName CellType   Status
 ## 1  MCL1.DG_BC2CTUACXX_ACTTGA_L002_R1    MCL1.DG    basal   virgin
 ## 2  MCL1.DH_BC2CTUACXX_CAGATC_L002_R1    MCL1.DH    basal   virgin
@@ -275,10 +278,20 @@ install.packages(&#39;ggfortify&#39;)</code></pre>
 ## 9  MCL1.LC_BC2CTUACXX_GCCAAT_L001_R1    MCL1.LC  luminal pregnant
 ## 10 MCL1.LD_BC2CTUACXX_GGCTAC_L001_R1    MCL1.LD  luminal pregnant
 ## 11 MCL1.LE_BC2CTUACXX_TAGCTT_L001_R1    MCL1.LE  luminal  lactate
-## 12 MCL1.LF_BC2CTUACXX_CTTGTA_L001_R1    MCL1.LF  luminal  lactate</code></pre>
-<p>We can add a column in sampleinfo called group to combine the celltype and status information.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="rna-seq-analysis-in-r.html#cb147-1" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">paste</span>(sampleinfo<span class="sc">$</span>CellType,sampleinfo<span class="sc">$</span>Status,<span class="at">sep=</span><span class="st">&quot;.&quot;</span>))</span>
-<span id="cb147-2"><a href="rna-seq-analysis-in-r.html#cb147-2" aria-hidden="true" tabindex="-1"></a>sampleinfo<span class="sc">$</span>group <span class="ot">&lt;-</span> group</span></code></pre></div>
+## 12 MCL1.LF_BC2CTUACXX_CTTGTA_L001_R1    MCL1.LF  luminal  lactate
+##               group
+## 1      basal.virgin
+## 2      basal.virgin
+## 3    basal.pregnant
+## 4    basal.pregnant
+## 5     basal.lactate
+## 6     basal.lactate
+## 7    luminal.virgin
+## 8    luminal.virgin
+## 9  luminal.pregnant
+## 10 luminal.pregnant
+## 11  luminal.lactate
+## 12  luminal.lactate</code></pre>
 </div>
 <div id="read-the-count-data" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Read the count data</h2>
@@ -366,7 +379,7 @@ As we can see RPM = 0.5 can be a very good threshold. Then let’s summarize how
 <span id="cb164-2"><a href="rna-seq-analysis-in-r.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(myRPM.keep)</span></code></pre></div>
 <pre><code>## [1] 15804    12</code></pre>
 <p><strong>Normalization</strong></p>
-<p>Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. A base-2 logarithm with a pseudo-count is normally used.</p>
+<p>Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. If the original data follows a log-normal distribution or approximately so, then the log-transformed data follows a normal or near normal distribution. So log transformation is one of the most popular transformations to transform skewed data to normality. A base-2 logarithm with a pseudo-count is normally used.</p>
 <p>The use pesudo-count is to avoid taking the logarithm of 0(- inifinite). You can use log2(x+0.5) or log2(x+1). log2(x+0.5) will normalize 0 to -1, while log2(x+1) results in all positive values.
 We can see that the boxplot before normalization looks not good.</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="rna-seq-analysis-in-r.html#cb166-1" aria-hidden="true" tabindex="-1"></a>logcounts <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(myRPM.keep)</span>
@@ -381,7 +394,7 @@ We can see that the boxplot before normalization looks not good.</p>
 </div>
 <div id="select-highly-variable-genes" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Select highly variable genes</h2>
-<p>Let’s select data for the 500 most variable genes and plot the heatmap.</p>
+<p>Let’s select data for the 500 most variable genes and plot the heatmap. var is the function to calculate variance.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="rna-seq-analysis-in-r.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We estimate the variance for each row in the logcounts matrix</span></span>
 <span id="cb168-2"><a href="rna-seq-analysis-in-r.html#cb168-2" aria-hidden="true" tabindex="-1"></a>var_genes <span class="ot">&lt;-</span> <span class="fu">apply</span>(logcounts, <span class="dv">1</span>, var)</span>
 <span id="cb168-3"><a href="rna-seq-analysis-in-r.html#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(var_genes)</span></code></pre></div>
@@ -417,7 +430,7 @@ Typically, reordering of the rows and columns according to some set of values (r
 <li>scale=“row”: The values is scaled in the row direction, more specifically, each row is centered and standardized separately by row Z-scores.</li>
 <li>labCol=sampleinfo$group: Labels for the columns are the group informations from sampleinfo.</li>
 </ul>
-<p>And by specifying all the details, we can get a very beautiful heatmap.</p>
+<p>And by specifying all the details, we can get a very beautiful heatmap. The gradients from blue ro orange represent the Row’s z-score.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="rna-seq-analysis-in-r.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aheatmap</span>(highly_variable_lRpm,<span class="at">color =</span> <span class="st">&quot;-RdYlBu:200&quot;</span>, <span class="at">main=</span><span class="st">&quot;Top 500 most variable genes across samples&quot;</span>, <span class="at">annCol=</span>sampleinfo[, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">scale=</span><span class="st">&quot;row&quot;</span>, <span class="at">labCol=</span>sampleinfo<span class="sc">$</span>group)</span></code></pre></div>
 <p><img src="01-intro_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <p><strong>Save the figures</strong></p>
@@ -449,7 +462,7 @@ You can use the command:</p>
 <em>ggfortify</em> is a package provides functions for <em>ggplot2</em> to know how to interpret PCA objects. You can use <code>autoplot()</code> function for <code>stats::prcomp</code> and <code>stats::princomp</code> objects.</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="rna-seq-analysis-in-r.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
 <span id="cb183-2"><a href="rna-seq-analysis-in-r.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code></pre></div>
-<p>First, we create the right inpur format for <code>stats::prcomp</code>, and we add a new column called CellType with the cell type information from sampleinfo.</p>
+<p>First, we create the right input format for <code>stats::prcomp</code>, and we add a new column called CellType with the cell type information from sampleinfo.</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="rna-seq-analysis-in-r.html#cb184-1" aria-hidden="true" tabindex="-1"></a>RPMforPCA <span class="ot">&lt;-</span> <span class="fu">t</span>(myRPM.keep)</span>
 <span id="cb184-2"><a href="rna-seq-analysis-in-r.html#cb184-2" aria-hidden="true" tabindex="-1"></a>RPMforPCA <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(RPMforPCA)</span>
 <span id="cb184-3"><a href="rna-seq-analysis-in-r.html#cb184-3" aria-hidden="true" tabindex="-1"></a>RPMforPCA<span class="sc">$</span>CellType <span class="ot">&lt;-</span> sampleinfo<span class="sc">$</span>group</span>

@@ -1011,14 +1011,14 @@ The sampleinfo file contains basic information about the samples that we will ne
 ```{r}
 # Read the sample information into R
 sampleinfo <- read.table("data/SampleInfo.txt",header = TRUE)
-View(sampleinfo)
-sampleinfo
 ```
 
 We can add a column in sampleinfo called group to combine the celltype and status information.
 ```{r}
 group <- factor(paste(sampleinfo$CellType,sampleinfo$Status,sep="."))
 sampleinfo$group <- group
+View(sampleinfo)
+sampleinfo
 ```
 
 
@@ -1108,7 +1108,7 @@ dim(myRPM.keep)
 ```
 **Normalization**
 
-Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. A base-2 logarithm with a pseudo-count is normally used. 
+Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. If the original data follows a log-normal distribution or approximately so, then the log-transformed data follows a normal or near normal distribution. So  log transformation is one of the most popular transformations to transform skewed data to normality. A base-2 logarithm with a pseudo-count is normally used. 
 
 The use pesudo-count is to avoid taking the logarithm of 0(- inifinite). You can use log2(x+0.5) or log2(x+1). log2(x+0.5) will normalize 0 to -1, while log2(x+1) results in all positive values.
 We can see that the boxplot before normalization looks not good.
@@ -1126,7 +1126,7 @@ title("Boxplots of log2counts")
 ```
 
 ## Select highly variable genes
-Let’s select data for the 500 most variable genes and plot the heatmap.
+Let’s select data for the 500 most variable genes and plot the heatmap. var is the function to calculate variance.
 ```{r}
 # We estimate the variance for each row in the logcounts matrix
 var_genes <- apply(logcounts, 1, var)
@@ -1174,7 +1174,7 @@ Some explanations:
 - scale="row": The values is scaled in the row direction, more specifically, each row is centered and standardized separately by row Z-scores.
 - labCol=sampleinfo$group: Labels for the columns are the group informations from sampleinfo.
 
-And by specifying all the details, we can get a very beautiful heatmap.
+And by specifying all the details, we can get a very beautiful heatmap. The gradients from blue ro orange represent the Row's z-score.
 ```{r}
 aheatmap(highly_variable_lRpm,color = "-RdYlBu:200", main="Top 500 most variable genes across samples", annCol=sampleinfo[, 3:4], scale="row", labCol=sampleinfo$group)
 ```
@@ -1209,6 +1209,7 @@ aheatmap(corr,main = "Correlation beween samples",labCol=sampleinfo$group,labRow
 dev.off()
 ```
 
+
 ## PCA for multidimensional scaling plots
 Principle components analysis, which determines the greatest sources of variation in the data. We can use the [prcomp()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/prcomp) function to perform a principal components analysis on the given data matrix from the package *stats*.
 *ggfortify* is a package provides functions for *ggplot2* to know how to interpret PCA objects. You can use ``autoplot()`` function for ``stats::prcomp`` and ``stats::princomp`` objects.
@@ -1216,7 +1217,7 @@ Principle components analysis, which determines the greatest sources of variatio
 library(stats)
 library(ggfortify)
 ```
-First, we create the right inpur format for ``stats::prcomp``, and we add a new column called CellType with the cell type information from sampleinfo.
+First, we create the right input format for ``stats::prcomp``, and we add a new column called CellType with the cell type information from sampleinfo.
 ```{r warning=TRUE}
 RPMforPCA <- t(myRPM.keep)
 RPMforPCA <- as.data.frame(RPMforPCA)
