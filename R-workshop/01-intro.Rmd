@@ -226,7 +226,6 @@ HINT: use max()
 
 Matrix is a two dimensional data structure in R programming. Matrix is a two-dimensional vector. Same as a vector, all value in a matrix should be of the same type. And all columns should be the same length.
 
-HINT: dimension can be checked with ``dim()`` 
 
 ### Make a matrix
 You can simply make a matrxi like this:
@@ -1015,6 +1014,13 @@ View(sampleinfo)
 sampleinfo
 ```
 
+We can add a column in sampleinfo called group to combine the celltype and status information.
+```{r}
+group <- factor(paste(sampleinfo$CellType,sampleinfo$Status,sep="."))
+sampleinfo$group <- group
+```
+
+
 ## Read the count data
 You can use the ``head()`` command to see the first 6 lines. In RStudio the View command will open the dataframe in a new tab. The dim command will tell you how many rows and columns the data frame has.
 
@@ -1023,10 +1029,6 @@ You can use the ``head()`` command to see the first 6 lines. In RStudio the View
 seqdata <- read.table("data/GSE60450_Lactation-GenewiseCounts.txt",header = TRUE, stringsAsFactors = FALSE)
 View(seqdata)
 dim(seqdata)
-```
-```{r}
-group <- factor(paste(sampleinfo$CellType,sampleinfo$Status,sep="."))
-sampleinfo$group <- group
 ```
 
  The seqdata object contains information about genes (one gene per row), the first column has the Entrez gene id, the second has the gene length and the remaining columns contain information about the number of reads aligning to the gene in each experimental sample. There are two replicates for each cell type and timepoint.
@@ -1108,6 +1110,12 @@ dim(myRPM.keep)
 Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. A base-2 logarithm with a pseudo-count is normally used. 
 
 The use pesudo-count is to avoid taking the logarithm of 0(- inifinite). You can use log2(x+0.5) or log2(x+1). log2(x+0.5) will normalize 0 to -1, while log2(x+1) results in all positive values.
+We can see that the boxplot before normalization looks not good.
+```{r}
+logcounts <- as.matrix(myRPM.keep)
+boxplot(logcounts, xlab="", ylab="counts per million")
+title("Boxplots of myRPM(Unnormalized)")
+```
 
 Next we’ll use box plots to check the distribution of the read counts on the log2 scale. 
 ```{r}
@@ -1173,6 +1181,10 @@ aheatmap(highly_variable_lRpm,color = "-RdYlBu:200", main="Top 500 most variable
 **Save the figures**
 
 Create a folder called "result", and now we can save the heatmap into the "result" folder.
+You can use the command:
+```
+dir.create("result")
+```
 
 ```{r, results='hide'}
 png(file="./result/Highvargenes_heatmap.png",res=100)
