@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction to R | Introduction to R</title>
+  <title>Chapter 1 Introduction to R | 01-intro.utf8</title>
   <meta name="description" content="This is an introduction of R." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction to R | Introduction to R" />
+  <meta property="og:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,23 +16,22 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction to R | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
   
   <meta name="twitter:description" content="This is an introduction of R." />
   
 
-<meta name="author" content="Ho Lab" />
 
 
-<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="prerequisites.html"/>
-<link rel="next" href="data-manipulation.html"/>
+
+<link rel="next" href="prerequisite.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +49,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -137,57 +135,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introuction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a><ul>
-<li class="chapter" data-level="1.1" data-path="prerequisites.html"><a href="prerequisites.html#windows"><i class="fa fa-check"></i><b>1.1</b> Windows</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r"><i class="fa fa-check"></i><b>1.1.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.1.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> To Install RStudio</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a></li>
+<li class="chapter" data-level="2" data-path="prerequisite.html"><a href="prerequisite.html"><i class="fa fa-check"></i><b>2</b> Prerequisite</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisite.html"><a href="prerequisite.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="prerequisite.html"><a href="prerequisite.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="prerequisite.html"><a href="prerequisite.html#mac-osx"><i class="fa fa-check"></i><b>2.1.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="2.1.3" data-path="prerequisite.html"><a href="prerequisite.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="prerequisites.html"><a href="prerequisites.html#mac-osx"><i class="fa fa-check"></i><b>1.2</b> Mac OSX</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r-1"><i class="fa fa-check"></i><b>1.2.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio-1"><i class="fa fa-check"></i><b>1.2.2</b> To Install RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="prerequisites.html"><a href="prerequisites.html#ubuntu"><i class="fa fa-check"></i><b>1.3</b> Ubuntu</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="prerequisites.html"><a href="prerequisites.html#to-install-r-2"><i class="fa fa-check"></i><b>1.3.1</b> To Install R</a></li>
-<li class="chapter" data-level="1.3.2" data-path="prerequisites.html"><a href="prerequisites.html#to-install-rstudio-2"><i class="fa fa-check"></i><b>1.3.2</b> To Install RStudio</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#matrix"><i class="fa fa-check"></i><b>2.2</b> Matrix</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#make-a-matrix"><i class="fa fa-check"></i><b>2.2.1</b> Make a matrix</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>2.2.2</b> Modify a matrix</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dataframe-list"><i class="fa fa-check"></i><b>2.3</b> DataFrame &amp; List</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Data manipulation</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>3.1</b> apply functions</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply"><i class="fa fa-check"></i><b>3.1.1</b> apply()</a></li>
-<li class="chapter" data-level="3.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>3.1.2</b> lapply()</a></li>
-<li class="chapter" data-level="3.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>3.1.3</b> sapply()</a></li>
-<li class="chapter" data-level="3.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>3.1.4</b> tapply()</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>3.2</b> Pattern matching</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>3.2.1</b> Find strings</a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>3.2.2</b> Find and replace patterns</a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>3.2.3</b> Regular expression</a></li>
+<li class="chapter" data-level="2.2" data-path="prerequisite.html"><a href="prerequisite.html#use-r-inside-rstudio"><i class="fa fa-check"></i><b>2.2</b> Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prerequisite.html"><a href="prerequisite.html#r-studio"><i class="fa fa-check"></i><b>2.2.1</b> R studio</a></li>
+<li class="chapter" data-level="2.2.2" data-path="prerequisite.html"><a href="prerequisite.html#set-working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Set working directory</a></li>
+<li class="chapter" data-level="2.2.3" data-path="prerequisite.html"><a href="prerequisite.html#some-general-knowledge"><i class="fa fa-check"></i><b>2.2.3</b> Some general knowledge</a></li>
+<li class="chapter" data-level="2.2.4" data-path="prerequisite.html"><a href="prerequisite.html#install-packages"><i class="fa fa-check"></i><b>2.2.4</b> Install packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>4</b> Basic Statistics</a><ul>
-<li class="chapter" data-level="4.1" data-path="basic-statistics.html"><a href="basic-statistics.html#generate-data"><i class="fa fa-check"></i><b>4.1</b> Generate data</a></li>
-<li class="chapter" data-level="4.2" data-path="basic-statistics.html"><a href="basic-statistics.html#statistical-analysis"><i class="fa fa-check"></i><b>4.2</b> Statistical analysis</a></li>
-<li class="chapter" data-level="4.3" data-path="basic-statistics.html"><a href="basic-statistics.html#some-basic-plots"><i class="fa fa-check"></i><b>4.3</b> Some Basic Plots</a></li>
-<li class="chapter" data-level="4.4" data-path="basic-statistics.html"><a href="basic-statistics.html#example-1"><i class="fa fa-check"></i><b>4.4</b> Example 1</a></li>
-<li class="chapter" data-level="4.5" data-path="basic-statistics.html"><a href="basic-statistics.html#example-2"><i class="fa fa-check"></i><b>4.5</b> Example 2</a></li>
+<li class="chapter" data-level="3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html"><i class="fa fa-check"></i><b>3</b> Data structure in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#make-a-matrix"><i class="fa fa-check"></i><b>3.2.1</b> Make a matrix</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#modify-a-matrix"><i class="fa fa-check"></i><b>3.2.2</b> Modify a matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>5</b> Exercise 1</a><ul>
-<li class="chapter" data-level="5.1" data-path="exercise-1.html"><a href="exercise-1.html#quiz"><i class="fa fa-check"></i><b>5.1</b> Quiz</a></li>
+<li class="chapter" data-level="3.3" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#dataframe"><i class="fa fa-check"></i><b>3.3</b> DataFrame</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#factor"><i class="fa fa-check"></i><b>3.4</b> Factor</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structure-in-r.html"><a href="data-structure-in-r.html#list"><i class="fa fa-check"></i><b>3.5</b> List</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>6</b> Exercise 2</a><ul>
-<li class="chapter" data-level="6.1" data-path="exercise-2.html"><a href="exercise-2.html#quiz-1"><i class="fa fa-check"></i><b>6.1</b> quiz</a></li>
+<li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply-functions"><i class="fa fa-check"></i><b>4.1</b> apply functions</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#apply"><i class="fa fa-check"></i><b>4.1.1</b> apply()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#lapply"><i class="fa fa-check"></i><b>4.1.2</b> lapply()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sapply"><i class="fa fa-check"></i><b>4.1.3</b> sapply()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#tapply"><i class="fa fa-check"></i><b>4.1.4</b> tapply()</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-manipulation.html"><a href="data-manipulation.html#mapply"><i class="fa fa-check"></i><b>4.1.5</b> mapply()</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>7</b> Answers</a><ul>
-<li class="chapter" data-level="7.1" data-path="answers.html"><a href="answers.html#answer-for-exercise1"><i class="fa fa-check"></i><b>7.1</b> Answer for exercise1</a></li>
-<li class="chapter" data-level="7.2" data-path="answers.html"><a href="answers.html#answer-for-exercise2"><i class="fa fa-check"></i><b>7.2</b> Answer for exercise2</a></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>4.2</b> Pattern matching</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#find-strings"><i class="fa fa-check"></i><b>4.2.1</b> Find strings</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#find-and-replace-patterns"><i class="fa fa-check"></i><b>4.2.2</b> Find and replace patterns</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>4.2.3</b> Regular expression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#example"><i class="fa fa-check"></i><b>4.3</b> Example</a></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>5</b> Basic Statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-statistics.html"><a href="basic-statistics.html#generate-data"><i class="fa fa-check"></i><b>5.1</b> Generate data</a></li>
+<li class="chapter" data-level="5.2" data-path="basic-statistics.html"><a href="basic-statistics.html#statistical-analysis"><i class="fa fa-check"></i><b>5.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-statistics.html"><a href="basic-statistics.html#advanced-plotting-ggplot2"><i class="fa fa-check"></i><b>5.3</b> Advanced plotting: ggplot2</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-statistics.html"><a href="basic-statistics.html#exercise-1"><i class="fa fa-check"></i><b>5.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>6</b> Answers</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="answers.html"><a href="answers.html#answer-for-exercise4.4"><i class="fa fa-check"></i><b>6.1</b> Answer for Exercise4.4</a></li>
+<li class="chapter" data-level="6.2" data-path="answers.html"><a href="answers.html#answer-for-exercise5.4"><i class="fa fa-check"></i><b>6.2</b> Answer for Exercise5.4</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html"><i class="fa fa-check"></i><b>7</b> RNA-seq analysis in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#read-the-sample-information"><i class="fa fa-check"></i><b>7.1</b> Read the sample information</a></li>
+<li class="chapter" data-level="7.2" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#read-the-count-data"><i class="fa fa-check"></i><b>7.2</b> Read the count data</a></li>
+<li class="chapter" data-level="7.3" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#format-the-data"><i class="fa fa-check"></i><b>7.3</b> Format the data</a></li>
+<li class="chapter" data-level="7.4" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#reads-per-million-rpm"><i class="fa fa-check"></i><b>7.4</b> Reads per million (RPM)</a></li>
+<li class="chapter" data-level="7.5" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#filtering"><i class="fa fa-check"></i><b>7.5</b> Filtering</a></li>
+<li class="chapter" data-level="7.6" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#select-highly-variable-genes"><i class="fa fa-check"></i><b>7.6</b> Select highly variable genes</a></li>
+<li class="chapter" data-level="7.7" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#hierarchical-clustering-with-heatmaps"><i class="fa fa-check"></i><b>7.7</b> Hierarchical clustering with heatmaps</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#plot-top-variable-genes-across-samples"><i class="fa fa-check"></i><b>7.7.1</b> Plot top variable genes across samples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#plot-sample-sample-clustering-heatmap"><i class="fa fa-check"></i><b>7.7.2</b> Plot sample-sample clustering heatmap</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="rna-seq-analysis-in-r.html"><a href="rna-seq-analysis-in-r.html#pca-for-multidimensional-scaling-plots"><i class="fa fa-check"></i><b>7.8</b> PCA for multidimensional scaling plots</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -201,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -209,112 +230,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-r" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction to R</h1>
-<p>R is a free and powerful statistical software for analyzing and visualizing data. In this chapter, we provide a quick and easy introduction to R programming. With the knowledge gained in this workshop, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. So, enjoy your R journey!</p>
-<div id="vectors" class="section level2">
-<h2><span class="header-section-number">2.1</span> Vectors</h2>
-<p>Vectors are a fundamental concept in R, as many functions operate on and return vectors, so it is best to master these as soon as possible. For the technically inclined, in R, a (numeric) vector is an object consisting of a one-dimensional array of scalars.
-HINT: YOU can get the documentation of a function using ?. E.g <code>?rep</code></p>
-<p>TRY:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-r.html#cb3-1"></a>a &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction-to-r.html#cb4-1"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r.html#cb5-1"></a><span class="kw">c</span>(a,b)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction-to-r.html#cb6-1"></a>a<span class="op">+</span>b</span></code></pre></div>
-<p><strong>Quiz</strong></p>
-<pre><code>1. What is the difference of c(a,b) and a+b
-2. Create a vector with &quot;R&quot; &quot;is&quot; &quot;fun&quot;
-HINT: use c()</code></pre>
-<p>A new vector can be created by splicing an exisiting vector with a numerical indexes.
-To produce a vector slice between two indexes, we can use the colon operator <code>:</code>. This can be convenient for situations involving large vectors.
-How to splice your vector?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1"></a>marks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">70</span>) </span>
-<span id="cb8-2"><a href="introduction-to-r.html#cb8-2"></a>student_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy&quot;</span>,<span class="st">&quot;Bobby&quot;</span>,<span class="st">&quot;Cindy&quot;</span>,<span class="st">&quot;Eddy&quot;</span>,<span class="st">&quot;Dylon&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction-to-r.html#cb9-1"></a><span class="kw">names</span>(marks) &lt;-<span class="st"> </span>student_names</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction-to-r.html#cb10-1"></a>marks[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)] </span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r.html#cb11-1"></a>marks[<span class="kw">c</span>(<span class="st">&quot;Bobby&quot;</span>,<span class="st">&quot;Cindy&quot;</span>)] </span></code></pre></div>
-<p><strong>Quiz</strong></p>
-<pre><code>1. Get the highest mark amongst Amy, Cindy, Dylon
-HINT: use max()</code></pre>
-</div>
-<div id="matrix" class="section level2">
-<h2><span class="header-section-number">2.2</span> Matrix</h2>
-<p>Matrix is a two dimensional data structure in R programming.</p>
-<p>Matrix is similar to vector but additionally contains the dimension attribute. All attributes of an object can be checked with the <code>attributes()</code> function (dimension can be checked directly with the <code>dim()</code> function).</p>
-<div id="make-a-matrix" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Make a matrix</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r.html#cb13-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;Z&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)))</span>
-<span id="cb13-2"><a href="introduction-to-r.html#cb13-2"></a><span class="co">#Change names</span></span>
-<span id="cb13-3"><a href="introduction-to-r.html#cb13-3"></a><span class="kw">colnames</span>(m) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>)</span>
-<span id="cb13-4"><a href="introduction-to-r.html#cb13-4"></a><span class="kw">rownames</span>(m) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span></code></pre></div>
-<p>Make a matrix by using functions <code>cbind()</code> and <code>rbind()</code> as in column bind and row bind.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r.html#cb14-1"></a><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span>
-<span id="cb14-2"><a href="introduction-to-r.html#cb14-2"></a><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r.html#cb15-1"></a><span class="kw">cbind</span>(m,<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>))</span>
-<span id="cb15-2"><a href="introduction-to-r.html#cb15-2"></a><span class="kw">rbind</span>(m,<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>))</span></code></pre></div>
-<p>We can access elements of a matrix using the square bracket [ indexing method. Elements can be accessed as var[row, column]. Here rows and columns are vectors.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introduction-to-r.html#cb16-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;Z&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)))</span>
-<span id="cb16-2"><a href="introduction-to-r.html#cb16-2"></a><span class="co"># select rows 1 &amp; 2 and columns 2 &amp;</span></span>
-<span id="cb16-3"><a href="introduction-to-r.html#cb16-3"></a>m[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
-<span id="cb16-4"><a href="introduction-to-r.html#cb16-4"></a><span class="co"># leaving column field blank will select entire columns</span></span>
-<span id="cb16-5"><a href="introduction-to-r.html#cb16-5"></a>m[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>),] </span></code></pre></div>
-</div>
-<div id="modify-a-matrix" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Modify a matrix</h3>
-<p>Assign a value</p>
-<pre><code>-&gt; -&gt;&gt;          rightwards assignment
-&lt;- &lt;&lt;-          assignment (right to left)
-=               assignment (right to left)</code></pre>
-<p>Assign all elements less than 5 to 0</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r.html#cb18-1"></a>m[m<span class="op">&lt;</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
-<p>Transpose a matrix</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r.html#cb19-1"></a><span class="kw">t</span>(m)</span></code></pre></div>
-<p>Remove last row</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1"></a>m &lt;-<span class="st"> </span>m[<span class="op">-</span><span class="dv">3</span>,]</span>
-<span id="cb20-2"><a href="introduction-to-r.html#cb20-2"></a><span class="co"># or</span></span>
-<span id="cb20-3"><a href="introduction-to-r.html#cb20-3"></a>m &lt;-<span class="st"> </span>m[<span class="op">-</span><span class="kw">nrow</span>(m),]</span></code></pre></div>
-</div>
-</div>
-<div id="dataframe-list" class="section level2">
-<h2><span class="header-section-number">2.3</span> DataFrame &amp; List</h2>
-<p>List is a data structure having components of mixed data types.</p>
-<p>A vector having all elements of the same type is called atomic vector but a vector having elements of different type is called list.</p>
-<p>We can check if it’s a list with <code>typeof()</code> function and find its length using <code>length()</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1"></a>x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> </span><span class="fl">2.5</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> </span><span class="ot">TRUE</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span>
-<span id="cb21-2"><a href="introduction-to-r.html#cb21-2"></a><span class="kw">typeof</span>(x)</span>
-<span id="cb21-3"><a href="introduction-to-r.html#cb21-3"></a><span class="kw">length</span>(x)</span></code></pre></div>
-<p>Compactly Display the Structure of an Arbitrary R Object using <code>str()</code></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1"></a><span class="kw">str</span>(x)</span></code></pre></div>
-<p>Data frame is a two dimensional data structure in R. It is a special case of a list which has each component of equal length.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1"></a>x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;SID&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="st">&quot;Age&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">21</span>), <span class="st">&quot;Name&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy&quot;</span>,<span class="st">&quot;Bobby&quot;</span>,<span class="st">&quot;Cindy&quot;</span>), <span class="st">&quot;Mark&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">82</span>,<span class="dv">75</span>))</span></code></pre></div>
-<p>Accessing with <code>[[</code> or <code>$</code> is similar. However, it differs for <code>[</code> in that, indexing with <code>[</code> will return us a data frame but the other two will reduce it into a vector.
-TRY:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1"></a>x[<span class="st">&quot;Name&quot;</span>]</span>
-<span id="cb24-2"><a href="introduction-to-r.html#cb24-2"></a>x[,<span class="st">&quot;Name&quot;</span>,drop=F]</span>
-<span id="cb24-3"><a href="introduction-to-r.html#cb24-3"></a>x[[<span class="st">&quot;Name&quot;</span>]]</span>
-<span id="cb24-4"><a href="introduction-to-r.html#cb24-4"></a>x<span class="op">$</span>Name</span></code></pre></div>
-<p>Select students with mark greater than 80 and make a new list called x_highmark.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1"></a>x_highmark &lt;-<span class="st"> </span>x[x<span class="op">$</span>Mark<span class="op">&gt;</span><span class="dv">80</span>,]</span></code></pre></div>
-<p><strong>Quiz</strong></p>
-<pre><code>1.Select Students with mark greater than 80 and get the average age of them.
-HINT: use mean()</code></pre>
-<p><strong>What is the difference between list and dataframe?</strong></p>
-<p>Lists are by far the most flexible data structure in R. They can be seen as a collection of elements without any restriction on the class, length or structure of each element. The only thing you need to take care of, is that you don’t give two elements the same name.
-Data frames are a special case of list, but they have a few restrictions:</p>
-<ul>
-<li>you can’t use the same name for two different variables</li>
-<li>all elements of a data frame are vectors</li>
-<li>all elements of a data frame have an equal length.</li>
-</ul>
-</div>
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="introduction-to-r" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction to R</h1>
+<p>Xiunan Fang, Gordon Qian, Xinyi Lin, Ian Lee, Joshua Ho</p>
+<p>Last update: 2021-06-26</p>
+<p>Contact: <a href="mailto:jwkho@hku.hk" class="email">jwkho@hku.hk</a></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="prerequisite.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

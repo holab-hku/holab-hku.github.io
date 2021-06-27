@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction to R | 01-intro.utf8</title>
+  <title>Chapter 2 Prerequisite | 01-intro.utf8</title>
   <meta name="description" content="This is an introduction of R." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
+  <meta property="og:title" content="Chapter 2 Prerequisite | 01-intro.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
+  <meta name="twitter:title" content="Chapter 2 Prerequisite | 01-intro.utf8" />
   
   <meta name="twitter:description" content="This is an introduction of R." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="prerequisite.html"/>
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="data-structure-in-r.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -230,21 +230,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="introduction-to-r" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction to R</h1>
-<p>Xiunan Fang, Gordon Qian, Xinyi Lin, Ian Lee, Joshua Ho</p>
-<p>Last update: 2021-06-26</p>
-<p>Contact: <a href="mailto:jwkho@hku.hk" class="email">jwkho@hku.hk</a></p>
+<div id="prerequisite" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Prerequisite</h1>
+<div id="installation" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Installation</h2>
+<p>The installation instruction is adapted based on CRAN’s R <a href="https://cran.r-project.org/doc/manuals/r-patched/R-admin.html">installation</a> guide and a DataCamp tutorial on <a href="https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu">‘How to install R on Windows, Mac OS X, and Ubuntu’</a>.</p>
+<div id="windows" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Windows</h3>
+<p><strong>To Install R</strong></p>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the “Download R for Windows” link at the top of the page.</li>
+<li>Choose the “base” and then Click on the “Download R 4.1.0 for Windows” link at the top of the page.</li>
+<li>Once the download is finished, you will obtain a file named “R-4.1.0-win.exe” or similar depending on the version of R that you download.</li>
+<li>Most of the time, you will likely want to go with the defaults, so click the button ‘Next’ until the process is complete.</li>
+<li>Now that R is installed, you need to download and install RStudio.</li>
+</ul>
+<p><strong>To Install RStudio</strong></p>
+<ul>
+<li>Go to www.rstudio.com and click on the “Download RStudio” button.</li>
+<li>Click on “Download RStudio Desktop.”</li>
+<li>The installation process is very straightforward as the gif below.</li>
+</ul>
+<p><img src="images/windows_rs.gif" /><!-- --></p>
+</div>
+<div id="mac-osx" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Mac OSX</h3>
+<p><strong>To Install R</strong></p>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the “Download R for (Mac) OS X” link at the top of the page.</li>
+<li>Click on the file containing the latest version of R under “Files.”</li>
+<li>Save the <code>.pkg</code> file, double-click it to open, and follow the installation instructions.</li>
+<li>Now that R is installed, you need to download and install RStudio.</li>
+</ul>
+<p><strong>To Install RStudio</strong></p>
+<p>Very similar with Windows,</p>
+<ul>
+<li>Go to www.rstudio.com and click on the “Download RStudio” button.</li>
+<li>Click on “Download RStudio Desktop.”</li>
+<li>Click on the version recommended for your system, or the latest Mac version, save the <code>.dmg</code> file on your computer, double-click it to open, and then drag and drop it to your applications folder.
+<img src="images/mac_rs.png" width="551" /></li>
+</ul>
+</div>
+<div id="ubuntu" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Ubuntu</h3>
+<p><strong>To Install R</strong></p>
+<p>As it is common, prior to installing R, let us update the system package index and upgrade all our installed packages using the following two commands:</p>
+<pre><code>sudo apt update
+sudo apt -y upgrade</code></pre>
+<p>After that, all that you have to do is run the following in the command line to install base R.</p>
+<pre><code>sudo apt -y install r-base</code></pre>
+<p><strong>To Install RStudio</strong></p>
+<p>Once base R is installed, you can go ahead and install RStudio. For that we are going to head over again to the RStudio downloads page and download the <code>.deb</code> file for our Ubuntu version as shown in the image below:
+<img src="images/ubuntu_rs.png" width="554" /></p>
+</div>
+</div>
+<div id="use-r-inside-rstudio" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Use R inside RStudio</h2>
+<div id="r-studio" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> R studio</h3>
+<p>RStudio is very powerful for providing a a four pane work-spaces.</p>
+<p>Top-left panel: Your scripts of the R codes, script is good to keep a record of your work and also convenient for command execution.</p>
+<p>You can create a new script by:</p>
+<p><code>File –&gt; New –&gt; R Script</code></p>
+<p>Bottom-left panel: R console for R commands, where you actually run the R codes.</p>
+<p>Top-right panel:
+Workspace tab: All the data(more specifically, R objects) you have created in the <code>Workspace</code> and all previous commands you previously ran in the <code>History</code>.</p>
+<p>Bottom-right panel:</p>
+<p>Files in your working directory(you probably should also set your working directory) in <code>Files</code>, and the plots you have created in <code>Plots</code>.</p>
+<p><img src="images/rstudio.png" width="254" /></p>
+</div>
+<div id="set-working-directory" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Set working directory</h3>
+<ul>
+<li>Create a folder named “R-workshop” in your preferred directory</li>
+<li>Create a “Data” folder in the “R-workshop”</li>
+<li>Download the data from the GitHub:
+<a href="https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data">holab-hku.github.io/R-prework/data/</a>
+for this workshop and extract the data in the “Data” folder</li>
+<li>From RStudio, use the menu to change your working directory under
+<code>Session &gt; Set Working Directory &gt; Choose Directory</code></li>
+<li>Choose the directory to “R-workshop”</li>
+</ul>
+<p><img src="images/directory.png" width="1030" /></p>
+<p>Or you can type in the console:</p>
+<pre><code>setwd(&quot;/yourdirectory/R-workshop&quot;)</code></pre>
+<p>For Windows, the command might look like :</p>
+<pre><code>setwd(&quot;c:/yourdirectory/R-workshop&quot;)</code></pre>
+</div>
+<div id="some-general-knowledge" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Some general knowledge</h3>
+<ul>
+<li>R is case-sensitive</li>
+<li>Type enter to run R code in console pane</li>
+<li>Ctrl-enter or Cmd-return if the code is in the scripts pane.</li>
+<li>Comments comes after # will not be treated as codes</li>
+<li>R has some pre-loaded data sets, to see the list of pre-loaded data, type <code>data()</code></li>
+<li>In R, a function is an object, a basic syntax of an R function looks like something below:</li>
+</ul>
+<pre><code>function_name &lt;- function(arg_1, arg_2, ...) {
+   actual function codes
+}</code></pre>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="prerequisite.html#cb6-1" aria-hidden="true" tabindex="-1"></a>st.err <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb6-2"><a href="prerequisite.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span>
+<span id="cb6-3"><a href="prerequisite.html#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>R contains a lot of build-in functions, you can use <code>?</code> to see the documentation of a function, there are also a lot if external libraries with specific functions. To use a library, we do:</p>
+<pre><code>install.packages(&#39;package_name&#39;)
+library(package_name)</code></pre>
+</div>
+<div id="install-packages" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Install packages</h3>
+<p>There are two packages used in this workshop, in the R console, type:</p>
+<pre><code>install.packages(&#39;ggplot2&#39;)
+install.packages(&#39;gplots&#39;)</code></pre>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="prerequisite.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structure-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
