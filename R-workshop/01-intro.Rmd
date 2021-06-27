@@ -1149,7 +1149,7 @@ And finally we can do hierarchical clustering with heatmaps.[heatmap.2()](https:
 Typically, reordering of the rows and columns according to some set of values (row or column means) within the restrictions imposed by the deprogram is carried out.
 
 ``heatmap.2`` provides a number of extensions to the standard R ``heatmap`` function.
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(gplots)
 ```
 ### Plot top variable genes across samples
@@ -1162,10 +1162,10 @@ heatmap.2(highly_variable_lRpm,trace="none", main="Top variable genes ",scale="r
 **Advance**
 
 As we can see, the result of heatmap.2 is not easy to interpret, if we want to add more information such as annotation for cell types, we can use [`aheatmap`](http://nmf.r-forge.r-project.org/aheatmap.html) function from *NMF* package.
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(NMF)
 ```
-Some explanationa:
+Some explanations:
 
 - color = '-RdYlBu:200': "RdYlBu" is a color palette, "-RdYlBu:200" means reversed palette 'RdYlBu' with 200 colors.
 - main="Top 500 most variable genes across samples": Main title is Top 500 most variable genes across samples.
@@ -1200,6 +1200,7 @@ Pearson correlation is used to evaluate the correlation between samples when the
 corr <- cor(myRPM.keep)
 aheatmap(corr,main = "Correlation beween samples",labCol=sampleinfo$group,labRow=sampleinfo$group, width = 0.5, height = 0.5)
 ```
+
 Plot the heatmap and save the figures:
 ```{r}
 png(file="./result/correlations_heatmap.png",res=100)
@@ -1210,7 +1211,7 @@ dev.off()
 ## PCA for multidimensional scaling plots
 Principle components analysis, which determines the greatest sources of variation in the data. We can use the [prcomp()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/prcomp) function to perform a principal components analysis on the given data matrix from the package *stats*.
 *ggfortify* is a package provides functions for *ggplot2* to know how to interpret PCA objects. You can use ``autoplot()`` function for ``stats::prcomp`` and ``stats::princomp`` objects.
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(stats)
 library(ggfortify)
 ```
