@@ -112,8 +112,7 @@ knitr::include_graphics("./images/rstudio.png")
 -  Create a folder named “R-workshop” in your preferred directory
 -  Create a "Data" folder in the "R-workshop" 
 -  Download the data from the GitHub:
-  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data)
-for this workshop and extract the data in the "Data" folder
+  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "Data" folder
 -  From RStudio, use the menu to change your working directory under 
 ``Session > Set Working Directory > Choose Directory``
 -  Choose the directory to “R-workshop”
@@ -991,6 +990,21 @@ load("my_workspace.RData")
 This Chapter is modified based on the tutorial [RNA-seq analysis in R](https://combine-australia.github.io/RNAseq-R/06-rnaseq-day1.html) created by Belinda Phipson et.al. 
 This little vignette examines the expression profiles of basal stem-cell enriched cells (B) and committed luminal cells (L) in the mammary gland of virgin, pregnant and lactating mice. Six groups are present, with one for each combination of cell type and mouse status. Each group contains two biological replicates.
 [The original data source](https://figshare.com/s/1d788fd384d33e913a2a)
+
+## Prerequisite
+
+-  Set working directory to “R-workshop” (For how to set your working directory, refer to **Chapter2.2.2**)
+-  Download the data from the GitHub:
+  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "Data" folder
+-  Install the packages:
+  There are two packages used in this workshop, in the R console, type:
+  ```
+  install.packages('ggplot2')
+  install.packages('gplots')
+  install.packages('NMF')
+  install.packages('stats')
+  install.packages('ggfortify')
+  ```
 
 ## Read the sample information
 The sampleinfo file contains basic information about the samples that we will need for the analysis today.
