@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction to R | 01-intro.utf8</title>
+  <title>Chapter 7 Import and export files | 01-intro.utf8</title>
   <meta name="description" content="This is an introduction of R." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
+  <meta property="og:title" content="Chapter 7 Import and export files | 01-intro.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction to R | 01-intro.utf8" />
+  <meta name="twitter:title" content="Chapter 7 Import and export files | 01-intro.utf8" />
   
   <meta name="twitter:description" content="This is an introduction of R." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="prerequisite.html"/>
+<link rel="prev" href="answers.html"/>
+<link rel="next" href="rna-seq-analysis-in-r.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,21 +235,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="introduction-to-r" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction to R</h1>
-<p>Xiunan Fang, Gordon Qian, Xinyi Lin, Ian Lee, Joshua Ho</p>
-<p>Last update: 2021-06-26</p>
-<p>Contact: <a href="mailto:jwkho@hku.hk" class="email">jwkho@hku.hk</a></p>
+<div id="import-and-export-files" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Import and export files</h1>
+<div id="import-files" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Import files</h2>
+<p>You can import a file though R studio <code>Environment</code>:</p>
+<p><img src="images/import.png" width="1031" /></p>
+<p>And you will find out that by doing that you will also get the R command in the R console like below:
+<code>read.table()</code> is the general function for reading tabular data</p>
+<pre><code>read.table(file, header = FALSE, sep = &quot;&quot;, dec = &quot;.&quot;)</code></pre>
+<p>“tab-separated values” files (“.txt”)
+read.delim() is the same as read.table(file, header = TRUE, sep = “, quote =”", dec = “.”, fill = TRUE, comment.char = "")</p>
+<pre><code>read.delim(file, header = TRUE, sep = &quot;\t&quot;, dec = &quot;.&quot;, ...)
+read.delim2(file, header = TRUE, sep = &quot;\t&quot;, dec = &quot;,&quot;, ...)</code></pre>
+<p>“comma separated value” files (“.csv”)
+read.csv2: variant used in countries that use a comma as decimal point and a semicolon as field separator.</p>
+<pre><code>read.csv(file, header = TRUE, sep = &quot;,&quot;, dec = &quot;.&quot;, ...)
+read.csv2(file, header = TRUE, sep = &quot;;&quot;, dec = &quot;,&quot;, ...)</code></pre>
+<p>You can import a file like this:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="import-and-export-files.html#cb136-1" aria-hidden="true" tabindex="-1"></a>sampleinfo <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span></code></pre></div>
+<p><strong>Special case</strong></p>
+<p>If you want a row to be read as a string, you can use <code>readlines()</code>:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="import-and-export-files.html#cb137-1" aria-hidden="true" tabindex="-1"></a>sampleinfo_lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span>
+<span id="cb137-2"><a href="import-and-export-files.html#cb137-2" aria-hidden="true" tabindex="-1"></a>lines_list <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(sampleinfo_lines,<span class="at">split =</span> <span class="st">&#39;,&#39;</span>)</span></code></pre></div>
+</div>
+<div id="export-files" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Export files</h2>
+<p><strong>Note</strong>
+If you don’t specify the path, the data will be exported to your working directory.</p>
+<p>You can save a single R object by <code>saveRDS()</code>:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="import-and-export-files.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(lines_list, <span class="st">&quot;sampleinfo_lines.rds&quot;</span>)</span></code></pre></div>
+<p>Restore it:</p>
+<pre><code>lines &lt;- readRDS(&quot;sampleinfo_lines.rds&quot;)</code></pre>
+<p>You can also save multiple R objects:</p>
+<pre><code>save(data1, data2, file = &quot;data.RData&quot;)</code></pre>
+<p>Load the data again:</p>
+<pre><code>load(&quot;data.RData&quot;)</code></pre>
+<p>In R, you can actually save the entire workspace, which is the current R working environment with all objects under it.</p>
+<pre><code>save.image(file = &quot;my_workspace.RData&quot;)</code></pre>
+<p>Load the workspace again:</p>
+<pre><code>load(&quot;my_work_space.RData&quot;)</code></pre>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="prerequisite.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="answers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rna-seq-analysis-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
