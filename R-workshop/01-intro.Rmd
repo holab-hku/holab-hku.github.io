@@ -1104,8 +1104,7 @@ rownames(myRPM) <- seqdata[,1]
 ```
 ## Filtering 
 We can filter out lowly expressed genes according to RPM=0.5. There are two sample replicates for each group, so we can filter on the RPM with some threshold present in at least 2 samples. 
-And how to decide your threshold, normally a RPM corresponding to count of 10-15 is a good threshold. We can use the scatter plot to decide the number of RPM corresponding to the count 10.
-Then let's summarize how many RPM greater than 0.5 there are in each row
+Then let's summarize how many RPM greater than 0.5 there are in each row.
 ```{r}
 
 table(rowSums(myRPM > 0.5))

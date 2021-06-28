@@ -362,8 +362,7 @@ Next, we should format the data and create a dataframe with 12 samples and 27179
 <div id="filtering" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> Filtering</h2>
 <p>We can filter out lowly expressed genes according to RPM=0.5. There are two sample replicates for each group, so we can filter on the RPM with some threshold present in at least 2 samples.
-And how to decide your threshold, normally a RPM corresponding to count of 10-15 is a good threshold. We can use the scatter plot to decide the number of RPM corresponding to the count 10.
-Then let’s summarize how many RPM greater than 0.5 there are in each row</p>
+Then let’s summarize how many RPM greater than 0.5 there are in each row.</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="rna-seq-analysis-in-r.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rowSums</span>(myRPM <span class="sc">&gt;</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## 
 ##     0     1     2     3     4     5     6     7     8     9    10    11    12 
