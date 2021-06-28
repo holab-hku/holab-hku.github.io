@@ -1051,7 +1051,7 @@ Next, we should format the data and create a dataframe with 12 samples and 27179
 
 ## Format the data 
 
-The first two columns in the seqdata dataframe contain annotation information. We need to make a new matrix containing only the counts, but we can store the gene identifiers (the EntrezGeneID column) as rownames. We will add more annotation information about each gene later on in the workshop.
+The first two columns in the seqdata dataframe contain annotation information. We need to make a new matrix containing only the counts, but we can store the gene identifiers (the EntrezGeneID column, you can find the ) as rownames. We will add more annotation information about each gene later on in the workshop.
 
 Let’s create a new data object, countdata, that contains only the counts for the 12 samples.
 
@@ -1103,15 +1103,9 @@ myRPM <- as.data.frame(myRPM)
 rownames(myRPM) <- seqdata[,1]
 ```
 ## Filtering 
-Then we can filter out some lowly expressed genes. There are two sample replicates for each group, so we can filter on the RPM with some threshold present in at least 2 samples. 
+We can filter out lowly expressed genes according to RPM=0.5. There are two sample replicates for each group, so we can filter on the RPM with some threshold present in at least 2 samples. 
 And how to decide your threshold, normally a RPM corresponding to count of 10-15 is a good threshold. We can use the scatter plot to decide the number of RPM corresponding to the count 10.
-```{r}
-# plot takes the first arg as x and second arg as y, you can specify the range of x-axis and y-axis by xlim and ylim.
-plot(myRPM[,1],countdata[,1],ylim=c(0,50),xlim=c(0,3))
-# Add a vertical line at 0.5 and a horizontal line at 10, you can change the color by col.
-abline(h=10,v=0.5,col="blue")
-```
-As we can see RPM = 0.5 can be a very good threshold. Then let's summarize how many RPM greater than 0.5 there are in each row
+Then let's summarize how many RPM greater than 0.5 there are in each row
 ```{r}
 
 table(rowSums(myRPM > 0.5))
@@ -1129,12 +1123,12 @@ dim(myRPM.keep)
 
 Count data is not normally distributed, so if we want to examine the distributions of the raw counts we need to log the counts. If the original data follows a log-normal distribution or approximately so, then the log-transformed data follows a normal or near normal distribution. So  log transformation is one of the most popular transformations to transform skewed data to normality. A base-2 logarithm with a pseudo-count is normally used. 
 
-The use pesudo-count is to avoid taking the logarithm of 0(- inifinite). You can use log2(x+0.5) or log2(x+1). log2(x+0.5) will normalize 0 to -1, while log2(x+1) results in all positive values.
-We can see that the boxplot before normalization looks not good.
+The use pseudo-count is to avoid taking the logarithm of 0(- infinite). You can use log2(x+0.5) or log2(x+1). log2(x+0.5) will normalize 0 to -1, while log2(x+1) results in all positive values.
+We can see that the box plot before normalization looks not good.
 ```{r}
-logcounts <- as.matrix(myRPM.keep)
-boxplot(logcounts, xlab="", ylab="counts per million")
-title("Boxplots of myRPM(Unnormalized)")
+myRPM.keep <- as.matrix(myRPM.keep)
+boxplot(myRPM.keep, xlab="", ylab="counts per million")
+title("Boxplots of myRPM.keep")
 ```
 
 Next we’ll use box plots to check the distribution of the read counts on the log2 scale. 
