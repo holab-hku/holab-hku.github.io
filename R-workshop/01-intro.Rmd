@@ -155,7 +155,7 @@ library(package_name)
 ```
 
 ### Install packages
-There are two packages used in this workshop, in the R console, type:
+There are several packages used in this workshop, in the R console, type:
 ```
 install.packages('ggplot2')
 install.packages('gplots')
@@ -172,7 +172,7 @@ Understanding R data structure is very important. Basic data structures in R inc
 ## Vector
 
 Vectors are a fundamental concept in R, and many functions in R returns results as vectors.
-A vector is a one-dimensional array of values, the value can be ``character``, ``logical``, ``integer`` or ``numeric``.
+A vector is a one-dimensional array of values, the value can be ``character``, ``logical``, ``integer`` or ``numeric``. But a vector can only contain values of the same type.
 
 HINT: YOU can get the documentation of a function using ``?`` or ``help`` . E.g `?rep` or ``help(rep)``
 
@@ -202,7 +202,7 @@ x+y
 HINT: use c()
 ```
 A new vector can be created by splicing an existing vector with a numerical indexes. We can use the indexes yo slice the vector. To slice between two indexes, we can use the colon operator ``:`` .
-Here is an example of create a vector with students marks.
+Here is an example of create a vector with students marks. You can use ``names()`` to assign the names for values inside the vector.
 ```{r, results='hide'}
 marks <- c(50, 100, 90, 80, 70) 
 student_names <- c("Amy","Bobby","Cindy","Eddy","Dylon")
@@ -224,7 +224,7 @@ HINT: use max()
 
 ## Matrix
 
-Matrix is a two dimensional data structure in R programming. Matrix is a two-dimensional vector. Same as a vector, all value in a matrix should be of the same type. And all columns should be the same length.
+Matrix is a two dimensional data structure in R programming. Matrix is a two-dimensional vector. Same as a vector, all values in a matrix should be of the same type. And all columns should be the same length.
 
 
 ### Make a matrix
@@ -646,29 +646,35 @@ set.seed(1)
 male_height = rnorm(n = 50, mean = 175.6, sd = 11)
 female_height = rnorm(n = 50, mean = 161.5, sd = 10.5)
 ```
+
 We can keep only two decimal places using ``round()``.
 ```{r}
 male_height = round(male_height, 2)
 female_height = round(female_height, 2)
 ```
+
 Check the number of elements in the vector.
 ```{r}
 length(male_height)
 ```
+
 Visualization of male group's height with histogram plot
 ```{r}
 hist(male_height, freq = FALSE, main = "Histogram Plot")
 ```
+
 Visualization of male group's height with density plot
 ```{r}
 plot(density(male_height), main = "Density Plot")
 ```
+
 Combine histogram plot and density plot using ``lines()``
 The ``lines( )`` function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.
 ```{r}
 hist(male_height, freq = FALSE, main = "Histogram and Density")
 lines(density(male_height), col = "red")
 ```
+
 Boxplot of height in male group and female group
 ```{r}
 boxplot(male_height, female_height, names = c("male", "female"), ylab = "height(cm)")
@@ -679,11 +685,11 @@ Get basic information about the vector (minimum, maximum and quantiles) using ``
 summary(male_height)
 summary(female_height)
 ```
+
 Specific functions for Mean, Median, Minimum, Maximum, Standard deviation, Variance, Sum are shown below:
 ```
 mean(), median(), min(), max(), sd(), var(), sum()
 ```
-
 
 The R software provides access to the uniform distribution, ``runif()`` function generates random deviates of the uniform distribution and is written as ``runif(n, min = 0, max = 1)``. We may generate n number of random samples by the min and the max argument.
 Example: approximate the density function for X∼U(0,1)
@@ -691,6 +697,7 @@ Example: approximate the density function for X∼U(0,1)
 rand.unif <- runif(10000, min = 0, max = 1)
 hist(rand.unif, freq = FALSE, xlab = 'x', density = 20)
 ```
+
 If we have another record about weight for the same group of people, we can group weight and height data together into a list(assuming weight has correlation with height).
 ```{r}
 set.seed(1)
@@ -699,11 +706,13 @@ male_weight = round(male_weight, 2)
 female_weight = 0.48*female_height + runif(n = 50, min = -14, max = 14)
 female_weight = round(female_weight, 2)
 ```
+
 Make a group Weight data and height data together.
 ```{r}
 male_group = list(height = male_height, weight = male_weight)
 female_group = list(height = female_height, weight = female_weight)
 ```
+
 Use scatterplot to visualize the relationship of height and weight in male group
 ```{r}
 plot(x = male_group$height,y = male_group$weight,
@@ -719,11 +728,13 @@ Correlation: check the correlation between height and weight in male group and f
 cor(male_group$height, male_group$weight)
 cor(female_group$height, female_group$weight)
 ```
+
 ``t.test()``: test if there is a significant difference between the means of height&weight in the male group and female group.
 ```{r}
 t.test(male_group$height, female_group$height)
 t.test(male_group$weight, female_group$weight)
 ```
+
 ``fisher.test()``: test the proportions of people with obesity in male group and  female group have significant difference or not.
 
 Calculate BMI using equation BMI = weight(kg)/height(m)^2
@@ -731,17 +742,20 @@ Calculate BMI using equation BMI = weight(kg)/height(m)^2
 male_BMI = male_group$weight/(male_group$height/100)^2
 female_BMI = female_group$weight/(female_group$height/100)^2
 ```
+
 For people with BMI equal or larger than 30, define them as having obesity.
 ```{r}
 male_obesity = ifelse(male_BMI >= 30, "Yes", "No")
 female_obesity = ifelse(female_BMI >= 30, "Yes", "No")
 ```
+
 Get the number of people with obesity in each group and summary in a matrix.
 ```{r}
 male_num = table(male_obesity)
 female_num = table(female_obesity)
 obesity_num = rbind(male_num, female_num)
 ```
+
 Fisher's exact test:
 ```{r}
 fisher.test(obesity_num)
@@ -997,7 +1011,7 @@ This little vignette examines the expression profiles of basal stem-cell enriche
 -  Download the data from the GitHub:
   [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "Data" folder
 -  Install the packages:
-  There are two packages used in this workshop, in the R console, type:
+  There are several packages used in this workshop, in the R console, type:
   ```
   install.packages('ggplot2')
   install.packages('gplots')
@@ -1065,6 +1079,11 @@ Now the column names are now the same as SampleName in the sampleinfo file.
 
 ```{r}
 table(colnames(countdata)==sampleinfo$SampleName)
+```
+
+Or you can use:
+```{r}
+all(colnames(countdata)==sampleinfo$SampleName)
 ```
 
 ## Reads per million (RPM)
@@ -1153,6 +1172,7 @@ Typically, reordering of the rows and columns according to some set of values (r
 ```{r message=FALSE, warning=FALSE}
 library(gplots)
 ```
+
 ### Plot top variable genes across samples
 ```{r}
 heatmap.2(highly_variable_lRpm,trace="none", main="Top variable genes ",scale="row",cexCol=.8,cexRow=.8)

@@ -242,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vector" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Vector</h2>
 <p>Vectors are a fundamental concept in R, and many functions in R returns results as vectors.
-A vector is a one-dimensional array of values, the value can be <code>character</code>, <code>logical</code>, <code>integer</code> or <code>numeric</code>.</p>
+A vector is a one-dimensional array of values, the value can be <code>character</code>, <code>logical</code>, <code>integer</code> or <code>numeric</code>. But a vector can only contain values of the same type.</p>
 <p>HINT: YOU can get the documentation of a function using <code>?</code> or <code>help</code> . E.g <code>?rep</code> or <code>help(rep)</code></p>
 <p>TRY:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-structure-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
@@ -256,7 +256,7 @@ A vector is a one-dimensional array of values, the value can be <code>character<
 2. Create a vector with &quot;R&quot; &quot;is&quot; &quot;fun&quot;
 HINT: use c()</code></pre>
 <p>A new vector can be created by splicing an existing vector with a numerical indexes. We can use the indexes yo slice the vector. To slice between two indexes, we can use the colon operator <code>:</code> .
-Here is an example of create a vector with students marks.</p>
+Here is an example of create a vector with students marks. You can use <code>names()</code> to assign the names for values inside the vector.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-structure-in-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a>marks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">70</span>) </span>
 <span id="cb15-2"><a href="data-structure-in-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a>student_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Amy&quot;</span>,<span class="st">&quot;Bobby&quot;</span>,<span class="st">&quot;Cindy&quot;</span>,<span class="st">&quot;Eddy&quot;</span>,<span class="st">&quot;Dylon&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-structure-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(marks) <span class="ot">&lt;-</span> student_names</span></code></pre></div>
@@ -268,7 +268,7 @@ HINT: use max()</code></pre>
 </div>
 <div id="matrix" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Matrix</h2>
-<p>Matrix is a two dimensional data structure in R programming. Matrix is a two-dimensional vector. Same as a vector, all value in a matrix should be of the same type. And all columns should be the same length.</p>
+<p>Matrix is a two dimensional data structure in R programming. Matrix is a two-dimensional vector. Same as a vector, all values in a matrix should be of the same type. And all columns should be the same length.</p>
 <div id="make-a-matrix" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Make a matrix</h3>
 <p>You can simply make a matrxi like this:</p>

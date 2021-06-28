@@ -255,16 +255,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 50</code></pre>
 <p>Visualization of male group’s height with histogram plot</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="basic-statistics.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(male_height, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;Histogram Plot&quot;</span>)</span></code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-50-1.png" width="672" />
-Visualization of male group’s height with density plot</p>
+<p><img src="01-intro_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>Visualization of male group’s height with density plot</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="basic-statistics.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(male_height), <span class="at">main =</span> <span class="st">&quot;Density Plot&quot;</span>)</span></code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-51-1.png" width="672" />
-Combine histogram plot and density plot using <code>lines()</code>
+<p><img src="01-intro_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Combine histogram plot and density plot using <code>lines()</code>
 The <code>lines( )</code> function adds information to a graph. It can not produce a graph on its own. Usually it follows a plot(x, y) command that produces a graph.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="basic-statistics.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(male_height, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;Histogram and Density&quot;</span>)</span>
 <span id="cb79-2"><a href="basic-statistics.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(male_height), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-52-1.png" width="672" />
-Boxplot of height in male group and female group</p>
+<p><img src="01-intro_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p>Boxplot of height in male group and female group</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="basic-statistics.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(male_height, female_height, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>), <span class="at">ylab =</span> <span class="st">&quot;height(cm)&quot;</span>)</span></code></pre></div>
 <p><img src="01-intro_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Get basic information about the vector (minimum, maximum and quantiles) using <code>summary()</code> .</p>
@@ -280,8 +280,8 @@ Boxplot of height in male group and female group</p>
 Example: approximate the density function for X∼U(0,1)</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="basic-statistics.html#cb86-1" aria-hidden="true" tabindex="-1"></a>rand.unif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
 <span id="cb86-2"><a href="basic-statistics.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(rand.unif, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&#39;x&#39;</span>, <span class="at">density =</span> <span class="dv">20</span>)</span></code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-55-1.png" width="672" />
-If we have another record about weight for the same group of people, we can group weight and height data together into a list(assuming weight has correlation with height).</p>
+<p><img src="01-intro_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p>If we have another record about weight for the same group of people, we can group weight and height data together into a list(assuming weight has correlation with height).</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="basic-statistics.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb87-2"><a href="basic-statistics.html#cb87-2" aria-hidden="true" tabindex="-1"></a>male_weight <span class="ot">=</span> <span class="fl">0.52</span><span class="sc">*</span>male_height <span class="sc">+</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">15</span>, <span class="at">max =</span> <span class="dv">15</span>)</span>
 <span id="cb87-3"><a href="basic-statistics.html#cb87-3" aria-hidden="true" tabindex="-1"></a>male_weight <span class="ot">=</span> <span class="fu">round</span>(male_weight, <span class="dv">2</span>)</span>
