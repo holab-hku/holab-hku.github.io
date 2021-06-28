@@ -112,7 +112,7 @@ knitr::include_graphics("./images/rstudio.png")
 -  Create a folder named “R-workshop” in your preferred directory
 -  Create a "Data" folder in the "R-workshop" 
 -  Download the data from the GitHub:
-  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "Data" folder
+  [holab-hku.github.io/R-workshop/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "data" folder
 -  From RStudio, use the menu to change your working directory under 
 ``Session > Set Working Directory > Choose Directory``
 -  Choose the directory to “R-workshop”
@@ -1009,7 +1009,7 @@ This little vignette examines the expression profiles of basal stem-cell enriche
 
 -  Set working directory to “R-workshop” (For how to set your working directory, refer to **Chapter2.2.2**)
 -  Download the data from the GitHub:
-  [holab-hku.github.io/R-prework/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "Data" folder
+  [holab-hku.github.io/R-workshop/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-workshop/data) for this workshop and store the data in the "data" folder.
 -  Install the packages:
   There are several packages used in this workshop, in the R console, type:
   ```
