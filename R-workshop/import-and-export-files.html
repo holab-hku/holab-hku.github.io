@@ -254,17 +254,17 @@ read.delim2(file, header = TRUE, sep = &quot;\t&quot;, dec = &quot;,&quot;, ...)
 <pre><code>read.csv(file, header = TRUE, sep = &quot;,&quot;, dec = &quot;.&quot;, ...)
 read.csv2(file, header = TRUE, sep = &quot;;&quot;, dec = &quot;,&quot;, ...)</code></pre>
 <p>You can import a file like this:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="import-and-export-files.html#cb136-1" aria-hidden="true" tabindex="-1"></a>sampleinfo <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="import-and-export-files.html#cb135-1" aria-hidden="true" tabindex="-1"></a>sampleinfo <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span></code></pre></div>
 <p><strong>Special case</strong></p>
 <p>If you want a row to be read as a string, you can use <code>readlines()</code>:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="import-and-export-files.html#cb137-1" aria-hidden="true" tabindex="-1"></a>sampleinfo_lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span>
-<span id="cb137-2"><a href="import-and-export-files.html#cb137-2" aria-hidden="true" tabindex="-1"></a>lines_list <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(sampleinfo_lines,<span class="at">split =</span> <span class="st">&#39;,&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="import-and-export-files.html#cb136-1" aria-hidden="true" tabindex="-1"></a>sampleinfo_lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&quot;data/SampleInfo.txt&quot;</span>)</span>
+<span id="cb136-2"><a href="import-and-export-files.html#cb136-2" aria-hidden="true" tabindex="-1"></a>lines_list <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(sampleinfo_lines,<span class="at">split =</span> <span class="st">&#39;,&#39;</span>)</span></code></pre></div>
 </div>
 <div id="export-files" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Export files</h2>
 <p><strong>Note: If you don’t specify the path, the data will be exported to your working directory.</strong></p>
 <p>You can save a single R object by <code>saveRDS()</code>:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="import-and-export-files.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(lines_list, <span class="st">&quot;sampleinfo_lines.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="import-and-export-files.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(lines_list, <span class="st">&quot;sampleinfo_lines.rds&quot;</span>)</span></code></pre></div>
 <p>Restore it:</p>
 <pre><code>lines &lt;- readRDS(&quot;sampleinfo_lines.rds&quot;)</code></pre>
 <p>You can also save multiple R objects:</p>
