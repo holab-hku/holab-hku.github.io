@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Covid19 analysis with Python(Needs to be modified) | 01-intro.knit</title>
+  <meta name="description" content="This is an introduction of R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Covid19 analysis with Python(Needs to be modified) | 01-intro.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction of R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Covid19 analysis with Python(Needs to be modified) | 01-intro.knit" />
+  
+  <meta name="twitter:description" content="This is an introduction of R." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="jupyter-notebook-overview.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introuction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-jupyter-notebook.html"><a href="introduction-to-jupyter-notebook.html"><i class="fa fa-check"></i><b>1</b> Introduction to Jupyter Notebook</a></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Start</a><ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#online-access"><i class="fa fa-check"></i><b>2.1</b> Online access</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#load-an-online-jupyter-noteboook"><i class="fa fa-check"></i><b>2.1.1</b> Load an online Jupyter noteboook</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#jupyter-notebook-from-jupyter-lab"><i class="fa fa-check"></i><b>2.1.2</b> Jupyter Notebook from Jupyter Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#jupyter-on-your-computer"><i class="fa fa-check"></i><b>2.2</b> Jupyter on your computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="jupyter-notebook-overview.html"><a href="jupyter-notebook-overview.html"><i class="fa fa-check"></i><b>3</b> Jupyter Notebook Overview</a><ul>
+<li class="chapter" data-level="3.1" data-path="jupyter-notebook-overview.html"><a href="jupyter-notebook-overview.html#interface"><i class="fa fa-check"></i><b>3.1</b> Interface</a></li>
+<li class="chapter" data-level="3.2" data-path="jupyter-notebook-overview.html"><a href="jupyter-notebook-overview.html#shortcuts"><i class="fa fa-check"></i><b>3.2</b> Shortcuts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="covid19-analysis-with-pythonneeds-to-be-modified.html"><a href="covid19-analysis-with-pythonneeds-to-be-modified.html"><i class="fa fa-check"></i><b>4</b> Covid19 analysis with Python(Needs to be modified)</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="covid19-analysis-with-pythonneeds-to-be-modified" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Covid19 analysis with Python(Needs to be modified)</h1>
+<p>Let’s go though an analysis using covid19 data in Jupyter notebook. You can find the notebook in (<a href="https://nbviewer.jupyter.org/github/Dhruv-praju/COVID-19-Tracker/blob/main/India/Indian_Complete_COVID-19_Analysis.ipynb" class="uri">https://nbviewer.jupyter.org/github/Dhruv-praju/COVID-19-Tracker/blob/main/India/Indian_Complete_COVID-19_Analysis.ipynb</a>).</p>
+<p><img src="images/covid.PNG" width="318" /></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="jupyter-notebook-overview.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
