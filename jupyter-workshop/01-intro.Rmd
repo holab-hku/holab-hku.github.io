@@ -12,7 +12,7 @@ output:
 
 Xiunan Fang, Junyi Chen, Joshua Ho
 
-Last update: 2021-09-02
+Last update: 2021-09-03
 
 Contact: jwkho@hku.hk
 
@@ -117,12 +117,11 @@ You can check the keyboard shortcuts by：
 knitr::include_graphics("./images/shortcut.gif")
 ```
 
-# Covid19 analysis with Python(Needs to be modified)
-Let's go though an analysis using covid19 data in Jupyter notebook. You can find the notebook in (https://nbviewer.jupyter.org/github/Dhruv-praju/COVID-19-Tracker/blob/main/India/Indian_Complete_COVID-19_Analysis.ipynb).
+# Tutorial
 
-```{r fig8, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("./images/covid.png")
-```
+Let's go though an [analysis](https://github.com/holab-hku/holab-hku.github.io/blob/master/jupyter-workshop/covid19-tutorial.ipynb) using reported cases of COVID-19 in Hong Kong .
+
+# COVID-19 analysis with Python
 
 
 
